@@ -770,10 +770,6 @@ h1{
             width: 70vw;
             height: auto;
         }
-        .testimonial-slider-container div:last-child{
-            display: block;
-        }
-
     }
 
     .footBtns{
