@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     video.preload = 'auto';
 
     // 监听视频可以播放的事件
-    video.addEventListener('canplaythrough', function() {
+    function playVideo() {
         // 清除GIF的计时器
         clearInterval(gifInterval);
 
@@ -67,8 +67,18 @@ document.addEventListener('DOMContentLoaded', function() {
         video.play().catch(e => {
             console.log('自动播放被阻止:', e);
             // 如果自动播放被阻止，至少显示视频控件让用户手动播放
+            video.controls = true;
         });
-    });
+    }
+
+    // 检查视频是否已经缓存
+    if (video.readyState >= 3) { // readyState 3 表示视频已经加载了部分数据
+        playVideo();
+    } else {
+        // 监听视频可以播放的事件
+        video.addEventListener('canplaythrough', playVideo);
+        video.addEventListener('loadeddata', playVideo);
+    }
 
     // 错误处理
     video.addEventListener('error', function() {
