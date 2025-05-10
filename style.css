@@ -559,18 +559,29 @@ h1{
     /* transform: all 0.5s; */
 }
 
-.featureItem:hover img,.featureItem:hover video{
+.featureItem:hover img{
     /* filter: brightness(0.6); 亮度降低40% */
     opacity: 0.2;
     transition:all 0.3s;
 }
 
-.featureItem img,.featureItem video{
+.featureItem:hover video{
+    /* filter: brightness(0.6); 亮度降低40% */
+    opacity: 0.2;
+    transition:all 0.3s;
+}
+
+.featureItem img{
     align-items: center;
     object-fit:cover;
     height: 75%;
 }
 
+.featureItem video{
+    align-items: center;
+    object-fit:cover;
+    height: 75%;
+}
 
 @media (min-width:0px) {
     .featureItems{
@@ -579,15 +590,22 @@ h1{
     .featureItem{
         display: inline-block;
     }
-    .featureItem img, .featureItem video{
+    .featureItem img{
+        width: 90vw;
+    }
+    .featureItem video{
         width: 90vw;
     }
 }
 
 @media (min-width: 690px) {
-    .featureItem img:not(:last-child), .featureItem video{
+    .featureItem img:not(:last-child){
         width: 41vw;
     }
+    .featureItem video{
+        width: 41vw;
+    }
+
     .featureItem:last-child{
         width: 84vw;
     }
