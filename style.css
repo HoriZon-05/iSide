@@ -549,7 +549,6 @@ h1{
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 .featureItem:hover div{
@@ -560,13 +559,13 @@ h1{
     /* transform: all 0.5s; */
 }
 
-.featureItem:hover img{
+.featureItem:hover img,.featureItem:hover video{
     /* filter: brightness(0.6); 亮度降低40% */
     opacity: 0.2;
     transition:all 0.3s;
 }
 
-.featureItem img{
+.featureItem img, .featureItem video{
     align-items: center;
     object-fit:cover;
     height: 75%;
@@ -580,13 +579,13 @@ h1{
     .featureItem{
         display: inline-block;
     }
-    .featureItem img{
+    .featureItem img, .featureItem video{
         width: 90vw;
     }
 }
 
-@media (min-width: 647px) {
-    .featureItem img:not(:last-child){
+@media (min-width: 690px) {
+    .featureItem img:not(:last-child), .featureItem video{
         width: 41vw;
     }
     .featureItem:last-child{
