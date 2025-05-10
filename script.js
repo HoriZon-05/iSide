@@ -38,23 +38,32 @@ document.querySelectorAll('.dropdown-menu li a').forEach(link => {
   });
 });
 
-// 在视频还未加载出来之前实现gif占位,加载完成后替换为超清视频
+// 在视频还未加载出来之前实现gif占位,加载完成后替换为超清视频,从对应秒数开始无缝播放
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.querySelector('.videoContainer video'); // 获取视频元素
     const gifPlaceholder = document.querySelector('.videoContainer img'); // 获取GIF占位图
     const loadingText = document.querySelector('.loading-text'); // 获取加载提示文字
+
+    let gifPlayTime = 0; // 记录GIF播放的时间
+    let gifInterval = setInterval(() => {
+        gifPlayTime++; // 每秒增加一次
+    }, 1000);
 
     // 预加载视频
     video.preload = 'auto';
 
     // 监听视频可以播放的事件
     video.addEventListener('canplaythrough', function() {
+        // 清除GIF的计时器
+        clearInterval(gifInterval);
+
         // 隐藏GIF和加载文字
         gifPlaceholder.style.display = 'none';
         if (loadingText) loadingText.style.display = 'none';
 
-        // 显示视频并开始播放
+        // 显示视频并从GIF播放的时间点开始播放
         video.style.display = 'block';
+        video.currentTime = gifPlayTime; // 设置视频的当前时间
         video.play().catch(e => {
             console.log('自动播放被阻止:', e);
             // 如果自动播放被阻止，至少显示视频控件让用户手动播放
@@ -63,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 错误处理
     video.addEventListener('error', function() {
-        gifPlaceholder.src = 'error-placeholder.jpg'; // 替换为错误占位图
+        gifPlaceholder.style.display = 'block';
+        video.style.display = 'none';
         if (loadingText) loadingText.textContent = '视频加载失败，请刷新重试';
         console.error('视频加载错误:', video.error);
     });
