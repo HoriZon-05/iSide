@@ -37,7 +37,7 @@ ul li{
     box-shadow: 0 4px 15px #ff52494b;
 }
 
-body {
+html,body {
     overflow-x: hidden; /* 禁止水平滚动 */
 }
 
