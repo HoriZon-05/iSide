@@ -8,872 +8,7 @@
         href="https://ts3.tc.mm.bing.net/th/id/ODLS.7047c806-73ee-4b12-9a68-af3e8c4fbca0?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2">
     <title>iSlide官网-让PPT设计简单起来</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <style>
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-a{
-    color: inherit;
-}
-
-p{
-    color: #444;
-}
-
-ul li{
-    color: #596370;
-    list-style-type: none;
-}
-
-.btn {
-    padding: 0.75rem 2rem;
-    color: white;
-    background-color: #FF5349;
-    /* background: linear-gradient(to right, blue, pink); */
-    border: 2px solid#FF5349;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.btn:hover {
-    color: #FF5349;
-    background-color: white;
-    box-shadow: 0 4px 15px #ff52494b;
-}
-
-body {
-    overflow-x: hidden; /* 禁止水平滚动 */
-}
-
-/* 补充部分:添加一键返回顶部按钮,向下滑动时显示 */
-.TOPbutton {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    /* background-color: rgb(20, 20, 20); */
-    background-color: white;
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253); */
-    box-shadow: 0px 0px 0px 3px #FF5349;
-    cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 40px;
-    height: 40px;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.TOPbutton.show {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleX(1);
-}
-  
-  .svgIcon {
-    width: 20px;
-    transition-duration: 0.3s;
-    /* margin-left: 9.5px; */
-  }
-  
-  .svgIcon path {
-    fill: gray;
-  }
-  
-  .TOPbutton:hover {
-    width: 120px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    /* background-color: rgb(181, 160, 255); */
-    /* background-color: #FF5349; */
-    align-items: center;
-    /* justify-content: center; */
-    text-align: center;
-  }
-  
-  .TOPbutton:hover .svgIcon {
-    transition-duration: 0.3s;
-    transform: translateY(-200%);
-  }
-  
-  .TOPbutton::before {
-    position: absolute;
-    bottom: -25px;
-    left: 34px;
-    content: "返回顶部";
-    color: gray;
-    transition-duration: 0.3s;
-    font-size: 0px;
-  }
-  
-  .TOPbutton:hover::before {
-    font-size: 14px;
-    opacity: 1;
-    bottom: unset;
-    /* transform: translateY(-30px); */
-    transition-duration: 0.3s;
-  }
-
-.DownloadBtn {
-    border: none;
-    border-radius: 50%;
-    /* background-color: rgb(27, 27, 27); */
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    transition-duration: .3s;
-    box-shadow: 2px 2px 10px gray;
-    position: fixed;
-    bottom: 120px;
-    right: 39px;
-    width: 44px;
-    height: 44px;
-    z-index: 9999;
-  }
-  
-  .icon2 {
-    width: 18px;
-    height: 5px;
-    border: 2px solid gray;
-    border-top: none;
-  }
-  
-  .tooltip {
-    position: absolute;
-    left: -80px;
-    opacity: 0;
-    background-color: rgb(12, 12, 12);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition-duration: 0.2s;
-    pointer-events: none;
-  }
-  
-  .tooltip::after {
-    position: absolute;
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: rgb(12, 12, 12);
-    transform: rotate(45deg);
-    right: -3%;
-    transition-duration: 0.3s;
-  }
-  
-  .DownloadBtn:hover .tooltip {
-    opacity: 1;
-    transition-duration: 0.3s;
-  }
-  
-  .DownloadBtn:hover {
-    background-color: #FF5349;
-    transition-duration: 0.3s;
-  }
-  
-  .DownloadBtn:hover .icon2 {
-    border: 2px solid white;
-    border-top: none;
-  }
-  
-  .DownloadBtn:hover .svgIcon{
-    animation: slide-in-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-
-  .DownloadBtn:hover .svgIcon path{
-    fill: white;
-  }
-  
-  @keyframes slide-in-top {
-    0% {
-      transform: translateY(-10px);
-      opacity: 0;
-    }
-  
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
-
-  .ContactUsBtn {
-    display: inline-block;
-    text-align: center;
-    border-radius: 10px;
-    padding:10px 28px;
-    padding-left: 13px;
-    position: fixed;
-    bottom: 170px;
-    right: 39px;
-    width: 10px;
-    /* height: 150px; */
-    z-index: 9999;
-  }
-
-  .ContactUsBtn .tooltip {
-    position: absolute;
-    bottom: 25%;
-    left: -410%;
-    width: max-content;
-  }
-
-  .ContactUsBtn:hover .tooltip {
-    opacity: 1;
-    transition-duration: 0.3s;
-  }
-
-  @media(max-width: 768px){
-    .floatBtns{
-        display: none;
-    }
-  }
-
-.firstPage{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%);; */
-}
-
-.slogan{
-    /* margin-left: 5vw; */
-    padding-left: 5vw;
-}
-
-.slogan h2{
-    font-size: 2rem;
-}
-
-@media (min-width: 800px) {
-    .slogan{
-        margin-top:-10vw;
-    }
-    .movePart{
-        margin-top:-10vw;
-    }
-}
-
-@media (max-width: 760px) {
-    .firstPage img{
-        display: none;
-    }
-    .slogan{
-        margin-bottom: 50px;
-    }
-    #PCdownload{
-        display: none;
-    }
-
-}
-
-@media (min-width: 760px) {
-    #mobileDownload {
-        display: none;
-    }
-}
-
-.firstPage img{
-    width: 70vw;
-    /* background-image: linear-gradient(to bottom right,#e0c3fc 0%, #8ec5fc 100%); */
-    background: radial-gradient(at 70% 40%,#8ec5fc 10px, #e0c3fc 10%, white 50%);
-}
-
-#mobileDownload{
-    text-align: center;
-    width:fit-content;
-}
-
-/* 下拉菜单系统 */
-#PCdownload {
-    position: relative;
-    list-style: none; 
-  }
-
-  #PCdownload::after {
-    content: '▼';
-    font-size: 0.6rem;
-    /* margin-left: 0.3rem; */
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-  
-  #PCdownload:hover::after {
-    transform: rotate(180deg);
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 102%;
-    left: 0;
-    width: 100%;   
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-radius: 6px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s;
-    z-index: 1001;
-  }
-  
-  #PCdownload:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  
-  .dropdown-menu li {
-    padding: 0;
-    list-style-type: none;
-  
-  }
-  
-  .dropdown-menu li a {
-    display: block;
-    padding: 0.6rem 1.2rem;
-    color: #555;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-  }
-  
-  .dropdown-menu li a:hover {
-    background-color: #f5f5f5;
-    /* color: #222; */
-    color: #FF5349;
-    border-radius: 0;
-    border: none;
-    padding-left: 1.4rem;
-  }
-  div.movePart{
-    display: flex;
-    position: relative;
-    /* flex-wrap: wrap; */
-    align-content: space-around;
-    justify-content: center;
-    /* height:70vw; */
-    background-image: linear-gradient(to top,#e0c3fc 10%, #8ec5fc31 80%,white 100%);
-  }
-
-  .history{
-    display: flex;
-    position: absolute;
-    width: 100vw;
-    justify-content: space-around;
-  }
-
-  .history div{
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .history div h3{
-    font-weight: 400;
-  }
-
-  .history div p{
-    color: #666;
-    font-weight: 100;
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 649px) {
-    .history{
-        display: none;
-    }
-  }
-
-  div.video {
-    margin: 7rem 5vw;
-    border-radius: 20px;
-    padding-bottom: 2rem;
-  }
-
-/* 注:以下一行是错误的,因为CSS 中不能通过子元素控制父元素样式，这是 CSS 的限制。要实现只能用js 。 */
-  /* .dropdown-menu li a:hover #PCdownload{
-    color: black;
-  } */
-
-@media (max-width: 760px) {
-    div.video video{
-        display: none;
-    }
-}
-@media (min-width: 760px) { 
-    div.video img{
-        display: none;
-    }
-}
-
-.gallery{
-    /* background-color: black; */
-    background: linear-gradient(to bottom,#000000,#000000,#000000,#4d00db, #9900ff,#9900ff,#4d00db,#000000,#000000);
-    color: white;
-    padding-top: 60px;
-    padding-bottom:60px;
-}
-
-.gallery h2{
-    font-size: 50px;
-}
-
-.gallery h2 span{
-    background: linear-gradient(to right,#52A2FF, #4d00db, #9900ff); /* 渐变背景 */
-    background-clip: text; /* 将背景裁剪为文字形状 */
-    -webkit-text-fill-color: transparent; /* 文字填充颜色设为透明，显示背景 */
-    display: inline-block; /* 必须加上才能生效 */
-}
-
-.gallery h2,p{
-    text-align: center;
-}
-
-.gallery p{
-    color: white;
-}
-
-.galleryItem{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
-.imgItem {
-    overflow: hidden; /* 隐藏超出盒子的部分 */
-    margin: 10px;
-    width: 25vw; 
-    border-radius: 20px; 
-}
-
-.imgItem img{
-    width: 100%;
-    transition: 0.3s;
-    border-radius: 20px;
-}
-
-.galleryItem img:hover {
-    transform: scale(1.1);
-}
-
-.InfiniteScrollLine{
-    display: flex;
-}
-
-@keyframes slide{
-    from{
-        transform: translateX(25%);
-    }
-    to {
-        transform: translateX(-25%);
-    }
-}
-
-.InfiniteScrollLine-left {
-    animation: slide 60s linear infinite;
-}
-
-.InfiniteScrollLine-right {
-    animation: slide 60s linear infinite reverse;
-}
-
-
-.features{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* align-content:space-between; */
-    margin: auto 4vw;
-    text-align: center;
-    padding-bottom: 8rem;
-}
-
-h1{
-    text-align: center;
-    font-size: 3rem;
-}
-
-.feature-item{
-    position: relative;
-    height:22rem;
-    padding-top: 2rem;
-    margin: 0.5vw;
-    /* margin-bottom: 1rem; */
-    /* align-content:space-between; */
-    border: 2px solid white;
-    border-radius: 20px;
-    background-image: url('https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif');
-    background-position: center 300px;
-    opacity: 1;
-}
-
-.feature-item div{
-    visibility: hidden;
-    opacity: 0;
-    /* filter: none; */
-    transition:all 0.5s;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-
-}
-
-.feature-item:hover div{
-    /* filter: brightness(1.4); */
-    visibility: visible;
-    opacity: 1;
-    transform: translate(-50%, -50%);
-    /* transform: all 0.5s; */
-}
-
-.feature-item:hover img{
-    /* filter: brightness(0.6); 亮度降低40% */
-    opacity: 0.2;
-    transition:all 0.3s;
-}
-
-.feature-item img{
-    align-items: center;
-    object-fit:cover;
-    height: 75%;
-}
-
-
-@media (min-width:0px) {
-    .features{
-        justify-content: center;
-    }
-    .feature-item{
-        display: inline-block;
-    }
-    .feature-item img{
-        width: 90vw;
-    }
-}
-
-@media (min-width: 647px) {
-    .feature-item img:not(:last-child){
-        width: 41vw;
-    }
-    .feature-item:last-child{
-        width: 84vw;
-    }
-
-}
-
-@media (min-width: 970px) {
-    .feature-item img:nth-child(-n+3){
-        width: 28vw;
-    }
-
-    .feature-item:nth-child(4){
-        width: 57.5vw;
-    }
-
-    .feature-item:nth-child(n+6){
-        width: 43vw;
-    }
-}
-
-.team{
-    background-color: #0C0E15;
-    color: white;
-}
-
-.teamWorks{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: auto 5vw;
-    text-align: center;
-    padding-bottom: 8rem;
-
-}
-
-.teamWorkItem{
-    position: absolute;
-    background-color: #1F212B;
-    position: relative;
-    padding-top: 2rem;
-    margin-bottom: 1rem;
-    border-radius: 20px;
-    opacity: 1;
-    overflow: hidden;
-}
-
-
-.teamWorkItem img{
-    position:relative;
-    top: 0;
-    right: 25%;
-    width: 150%;
-    height: 75%;
-    object-fit: cover;
-    margin-top: 0.5rem;
-}
-
-.teamWorkItem:first-child img{
-    top: 0;
-    width: 100%;
-    right: 0;
-}
-
-.teamWorkItem:last-child img{
-    top: 0;
-    width: 100%;
-    right: 0;
-}
-
-.teamWorkItem h2,.teamWorkItem p{
-    text-align: left;
-    margin-left: 3rem;
-}
-
-.teamWorkItem p{
-    color: #999;
-}
-
-@media (min-width:0px) {
-    .teamWorks{
-        justify-content: center;
-    }
-    .teamWorkItem{
-        display: inline-block;
-        width: 90vw;
-        height: 70vw;
-    }
-}
-
-@media (min-width: 647px) {
-    .teamWorks{
-        justify-content:space-evenly;
-    }
-    .teamWorkItem{
-        width: 40vw;
-        height: 52vw;
-    }
-}
-
-@media (min-width: 970px) {
-    .teamWorkItem{
-        width: 22vw;
-        height: 30vw;
-    }
-    .teamWorkItem:first-child,.teamWorkItem:last-child{
-        width: 40vw;
-    }
-}
-
-.cursorChange{
-    cursor:url(./蓝紫色鼠标指针带文字.png),auto;
-
-}
-
-    /* 轮播图容器样式 */
-    
-    .testimonial-slider-container {
-        position: relative;
-        overflow: hidden;
-        margin: 8vw 2vw;
-    }
-
-    .testimonial-slider-container h1,.testimonial-slider-container p{
-        display: block;
-        text-align-last: left;
-        width: 45vw;
-        margin: 1vw 3vw;
-    }
-    
-    .testimonial-slider {
-        display: flex;
-        overflow-x:scroll;
-        scroll-snap-type: x mandatory;
-        /* scroll-behavior: smooth; */
-        -webkit-overflow-scrolling: touch;
-        padding: 2rem 0;
-        gap: 1rem;
-        margin: 3rem;
-    }
-    
-    .testimonial-slider::-webkit-scrollbar {
-        display: none;
-    }
-    
-    .testimonial {
-        scroll-snap-align: start;
-        flex: 0 0 auto;
-        background: white;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);;
-        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-        text-align: center;
-        border-radius: 30px;
-
-    }
-    
-    .testimonial:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    } 
-
-    .testimonial img{
-        height: 40vw;
-        border-radius: 20px;
-    }
-    
-    
-    @media (max-width: 600px) {
-        .testimonial {
-            width: 280px;
-            padding: 1.5rem;
-        }
-    }
-
-    .footBtns{
-        display: flex;
-        justify-content:center;
-        /* margin: auto 10vw; */
-      }
-
-    .footButton {
-        background: #FF5349;
-        color: white;
-        padding-left: 1.2em;
-        padding-right: 3.3em;
-        border-radius: 0.9em;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        overflow: hidden;
-        position: relative;
-        height: 2.8em;
-        width: 8.5em;
-        cursor: pointer;
-        margin: 2vw 5vw;
-        font-size: 1rem;
-        font-weight: normal;
-    }
-    
-    .footButton .icon {
-        background: white;
-        margin-left: 1em;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 2.2em;
-        width: 2.2em;
-        border-radius: 0.7em;
-        right: 0.3em;
-        transition: all 0.3s;
-    }
-
-    .footButton .icon a{
-        display:flex;
-    }
-    
-    .footButton:hover .icon {
-        width: calc(100% - 0.6em);
-    }
-    
-    .footButton .icon svg {
-        width: 1.1em;
-        transition: transform 0.3s;
-        color: #FF5349;
-    }
-    
-    .footButton:hover .icon svg {
-        transform: translateX(0.1em);
-    }
-    
-    .footButton:active .icon {
-        transform: scale(0.95);
-    }
-
-    .footButton:last-child{
-        display: inline-block;
-        color: black;
-        background-color: white;
-        /* padding-left: 1.5em; */
-        padding-right: 1.3em;
-        padding-top: 0.5rem;
-        width: 8.5em;
-        border:  3px solid white;
-    }
-
-    .footButton:last-child:hover{
-        background-color: #F5F6F9;
-        border: 3px solid #FF5349;
-    }
-
-    .footService{
-        display: flex;
-        justify-content: space-evenly;
-        margin: 10vw 5vw;
-        margin-bottom: 6vw;
-    }
-
-    #footerLogo{
-        width: 8%;
-        height: 8%;
-        margin-right: 1.5em;
-    }
-    .footService li{
-        font-size: 14px;
-        padding:0.3em 0;
-    }
-
-    .footService li strong{
-        color: black;
-        font-size: 16px;
-    }
-
-    .footService li img{
-        width: 50%;
-    }
-
-    .footIfo{
-        margin: 4vw 10vw;
-        font-size: 12px;
-        color: #BFC8D2;
-        padding-top: 1em;
-        border-top: 2px solid #BFC8D2;
-        padding-bottom: 3vw;
-    }
-    .footIfo div:nth-child(2n+1){
-        float: left;
-    }
-    .footIfo div:nth-child(2n){
-        float: right;
-    }
-
-
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -958,161 +93,165 @@ h1{
             </div>
 
             <div class="video">
-<!--                 <video width="100%" muted autoplay loop src="https://www.islide.cc/video/homeISlide.mp4" alt="视频加载中"></video> -->
+                <!-- <video width="100%" muted autoplay loop src="https://www.islide.cc/video/homeISlide.mp4" alt="视频加载中"></video> -->
                 <video width="100%" muted autoplay loop src="./iSlide-video.mp4" alt="视频加载中"></video>
                 <img width="100%" src="https://www.islide.cc/_next/static/media/header_video.32a6e91e.gif" alt="视频加载中">
             </div>
-            </div>
-        <div class="gallery"><br>
-            <h2><span>14,000,000+</span> PPT 模板 / 素材</h2>
-            <p>模板、图表、图片……全品类PPT资源</p>
-            <br>
-            <div class="galleryItem">
-                <div class="InfiniteScrollLine InfiniteScrollLine-left">
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_1.08779be0.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_2.d62a1a8d.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_3.3b4867c5.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_4.616d423a.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_5.f4a21cb6.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_6.a6132d42.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_7.d1233835.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_8.67045379.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_9.19c1dade.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_10.a3cb4fb6.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_11.a513e002.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_12.53c6d2a1.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_13.02f2a0fc.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_14.7ed8f315.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_1.08779be0.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_2.d62a1a8d.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_3.3b4867c5.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_4.616d423a.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_5.f4a21cb6.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_6.a6132d42.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_7.d1233835.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_8.67045379.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_9.19c1dade.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_10.a3cb4fb6.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_11.a513e002.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_12.53c6d2a1.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_13.02f2a0fc.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_14.7ed8f315.png"></div>
+        </div>
+        <div class="galleryBackground"> 
+            <div class="gallery"><br>
+                <h2><span>14,000,000+</span> PPT 模板 / 素材</h2>
+                <p>模板、图表、图片……全品类PPT资源</p>
+                <br>
+                <div class="galleryItem">
+                    <div class="InfiniteScrollLine InfiniteScrollLine-left">
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_1.08779be0.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_2.d62a1a8d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_3.3b4867c5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_4.616d423a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_5.f4a21cb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_6.a6132d42.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_7.d1233835.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_8.67045379.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_9.19c1dade.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_10.a3cb4fb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_11.a513e002.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_12.53c6d2a1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_13.02f2a0fc.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_14.7ed8f315.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_1.08779be0.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_2.d62a1a8d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_3.3b4867c5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_4.616d423a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_5.f4a21cb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_6.a6132d42.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_7.d1233835.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_8.67045379.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_9.19c1dade.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_10.a3cb4fb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_11.a513e002.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_12.53c6d2a1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_13.02f2a0fc.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_14.7ed8f315.png"></div>
 
-                </div>
-                <div class="InfiniteScrollLine InfiniteScrollLine-right">
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_15.2b9b8493.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_16.bad1b126.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_17.30690c9a.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_18.5f85c260.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_19.e9eb157f.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_20.56bf6445.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_21.da0d1c28.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_22.d2d795b4.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_23.5736403a.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_24.f0d92c0d.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_25.dfbae041.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_26.8cdc2772.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_27.4466bd1f.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_28.ce466e87.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_29.fab748e4.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_15.2b9b8493.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_16.bad1b126.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_17.30690c9a.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_18.5f85c260.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_19.e9eb157f.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_20.56bf6445.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_21.da0d1c28.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_22.d2d795b4.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_23.5736403a.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_24.f0d92c0d.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_25.dfbae041.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_26.8cdc2772.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_27.4466bd1f.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_28.ce466e87.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_29.fab748e4.png"></div>
-                </div>
-                <div class="InfiniteScrollLine InfiniteScrollLine-left">
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_30.d7fadaa2.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_31.c6683eca.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_32.c14ac877.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_33.cd590299.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_34.a742f514.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_35.e93aae46.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_36.a1e0b688.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_37.529e2662.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_38.554ba6bb.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_39.3b165d56.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_40.4ebc8eb5.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_41.40c5f5c1.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_42.ee7cb29d.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_43.374ef5e5.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_44.6a10864e.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_30.d7fadaa2.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_31.c6683eca.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_32.c14ac877.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_33.cd590299.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_34.a742f514.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_35.e93aae46.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_36.a1e0b688.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_37.529e2662.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_38.554ba6bb.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_39.3b165d56.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_40.4ebc8eb5.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_41.40c5f5c1.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_42.ee7cb29d.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_43.374ef5e5.png"></div>
-                    <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_44.6a10864e.png"></div>
-                </div>
-            </div><br><br>
+                    </div>
+                    <div class="InfiniteScrollLine InfiniteScrollLine-right">
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_15.2b9b8493.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_16.bad1b126.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_17.30690c9a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_18.5f85c260.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_19.e9eb157f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_20.56bf6445.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_21.da0d1c28.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_22.d2d795b4.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_23.5736403a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_24.f0d92c0d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_25.dfbae041.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_26.8cdc2772.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_27.4466bd1f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_28.ce466e87.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_29.fab748e4.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_15.2b9b8493.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_16.bad1b126.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_17.30690c9a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_18.5f85c260.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_19.e9eb157f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_20.56bf6445.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_21.da0d1c28.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_22.d2d795b4.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_23.5736403a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_24.f0d92c0d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_25.dfbae041.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_26.8cdc2772.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_27.4466bd1f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_28.ce466e87.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_29.fab748e4.png"></div>
+                    </div>
+                    <div class="InfiniteScrollLine InfiniteScrollLine-left">
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_30.d7fadaa2.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_31.c6683eca.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_32.c14ac877.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_33.cd590299.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_34.a742f514.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_35.e93aae46.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_36.a1e0b688.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_37.529e2662.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_38.554ba6bb.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_39.3b165d56.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_40.4ebc8eb5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_41.40c5f5c1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_42.ee7cb29d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_43.374ef5e5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_44.6a10864e.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_30.d7fadaa2.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_31.c6683eca.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_32.c14ac877.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_33.cd590299.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_34.a742f514.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_35.e93aae46.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_36.a1e0b688.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_37.529e2662.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_38.554ba6bb.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_39.3b165d56.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_40.4ebc8eb5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_41.40c5f5c1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_42.ee7cb29d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_43.374ef5e5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_44.6a10864e.png"></div>
+                    </div>
+                </div><br><br>
+            </div>
         </div>
         <br><br><br><br>
-        <h1>产品功能</h1><br>
         <div class="features">
-            <div class="feature-item">
-                <h2>AI一键生成PPT</h2>
-                <p>输入你的主题,AI帮你一键搞定PPT</p>
-                <img src="https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif">
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+            <h1>产品功能</h1><br>
+            <div class="featureItems">
+                <div class="featureItem">
+                    <h2>AI一键生成PPT</h2>
+                    <p>输入你的主题,AI帮你一键搞定PPT</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <h2>智能编辑 PPT</h2>
-                <p>一键换肤快速美化，海量素材自适应匹配</p>
-                <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_02.50339526.png" alt="">
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                <div class="featureItem">
+                    <h2>智能编辑 PPT</h2>
+                    <p>一键换肤快速美化，海量素材自适应匹配</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_02.50339526.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <h2>AI 文本润色</h2>
-                <p>改写、扩写、翻译、分析......</p>
-                <img src="	https://www.islide.cc/_next/static/media/homeProductFeature_pic_03.75b84d15.png" alt="">
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                <div class="featureItem">
+                    <h2>AI 文本润色</h2>
+                    <p>改写、扩写、翻译、分析......</p>
+                    <img src="	https://www.islide.cc/_next/static/media/homeProductFeature_pic_03.75b84d15.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <h2>支持 7 种常用文档导入生成</h2>
-                <p>自动解析生成大纲，一键输出 PPT</p>
-                <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_04.983b2c35.png" alt=""></img>
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                <div class="featureItem">
+                    <h2>支持 7 种常用文档导入生成</h2>
+                    <p>自动解析生成大纲，一键输出 PPT</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_04.983b2c35.png" alt=""></img>
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <h2>支持资源模板上传</h2>
-                <p>生成PPT自适应模板配色版式，统一专业</p>
-                <img src="https://www.islide.cc/_next/static/media/homeProductFeature_4.b9401fcd.gif" alt="">
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                <div class="featureItem">
+                    <h2>支持资源模板上传</h2>
+                    <p>生成PPT自适应模板配色版式，统一专业</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_4.b9401fcd.gif" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <img src="https://www.islide.cc/_next/static/media/production.45142dee.png" alt="">
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                <div class="featureItem">
+                    <img src="https://www.islide.cc/_next/static/media/production.45142dee.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <h2>Word AI，为办公文档提效</h2>
-                <p>AI 写作，一键改稿，智能分析，多场景文章模板......</p>
-                <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_07.52bd4ffd.png" alt="">
-                <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                <div class="featureItem">
+                    <h2>Word AI，为办公文档提效</h2>
+                    <p>AI 写作，一键改稿，智能分析，多场景文章模板......</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_07.52bd4ffd.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1152,8 +291,9 @@ h1{
                 </div>
             </div>
         </div>
-   
+
         <div class="testimonial-slider-container">
+            <br><br><br>
             <h1>他们都在推荐 iSlide</h1>
             <p>软件只是工具，而工具应该用来提升效率，创造价值。无论是 P 圈达人还是职场小白都能够借助 iSlide 做出改变，创造有效沟通的价值。</p>
             <div class="testimonial-slider">
@@ -1188,6 +328,7 @@ h1{
                     <img src="https://www.islide.cc/_next/static/media/homeRecommend_8.41386cfa.png">
                 </div>
             </div>
+            <div>左右滑动查看更多</div>
         </div>
         <div class="foot">
             <h1>为您节省 90% 的 PPT 设计时间</h1>
@@ -1195,23 +336,22 @@ h1{
             <div class="footBtns">               
                 <button class="footButton">
                     立即体验
-                    <div class="icon">
-                        <a href="https://www.islide.cc/download">
-                            <svg
-                                height="24"
-                                width="24"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                                fill="currentColor"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    
+                    <a href="https://www.islide.cc/download">
+                        <div class="icon">
+                                <svg
+                                    height="24"
+                                    width="24"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path
+                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                    fill="currentColor"
+                                    ></path>
+                                </svg>
+                        </div>
+                    </a>                   
                   </button>
                 <a href="https://www.islide.cc/enterprise"><button class="footButton btn"><span>企业服务</span></button></a>
             </div>
@@ -1254,12 +394,12 @@ h1{
                     <li><a href="#">会员协议</a></li>
                     <li><a href="#">AI服务协议</a></li>
                 </ul>
-                <ul>
+                <ul class="followUs">
                     <li><a href="#"><strong>关注</strong></a></li>
                     <li><a href="#">官方微博</a></li>
                     <li><a href="#">官方知乎</a></li>
                     <li><a href="#">微信公众号</a></li>
-                    <li><a href="#"><img src="https://www.islide.cc/_next/static/media/qr_official_account.d1fe7eb6.png" alt=""></a></li>
+                    <li><img src="https://www.islide.cc/_next/static/media/qr_official_account.d1fe7eb6.png" alt=""></li>
                 </ul>
             </div>
             <div class="footIfo">
@@ -1270,49 +410,8 @@ h1{
                 <div>© 2016-2025 iSlide 保留一切权利  |  蜀ICP备16016339号-1  |  川公网安备 51019002001019号</div>
             </div>
 
-
     </main>
 </body>
-<script>
-    //  返回顶部按钮
-    var backToTopButton = document.getElementsByClassName("TOPbutton")[0];
-
-    window.onscroll = function() {
-        scrollFunction();
-    };
-
-    // function scrollFunction() {
-    //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    //         backToTopButton.style.display = "block";
-    //     } else {
-    //         backToTopButton.style.display = "none";
-    //     }
-    // }
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopButton.classList.add("show");
-        } else {
-            backToTopButton.classList.remove("show");
-        }
-    }
-
-    backToTopButton.onclick = function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // 添加平滑滚动
-        });
-    }
-
-    //鼠标悬停下拉菜单按钮恢复原色
-    document.querySelectorAll('.dropdown-menu li a').forEach(link => {
-    link.addEventListener('mouseover', () => {
-        document.getElementById('PCdownload').style.color = '#555';
-    });
-
-    link.addEventListener('mouseout', () => {
-        document.getElementById('PCdownload').style.color = ''; // 恢复默认
-    });
-    });
-</script>
+<script src="script.js"></script>
 
 </html>
