@@ -416,10 +416,22 @@ html,body {
     }
   }
 
-  div.video {
-    margin: 7rem 5vw;
+  .videoContainer {
+    margin: 7rem 7vw;
     border-radius: 20px;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
+    position: relative;
+    width: 100%;
+  }
+
+  .videoContainer video{
+    width: 100%;
+    display: none;
+  }
+
+  .videoContainer img{
+    width: 100%;
+    display: block;
   }
 
 /* 注:以下一行是错误的,因为CSS 中不能通过子元素控制父元素样式，这是 CSS 的限制。要实现只能用js 。 */
@@ -427,7 +439,7 @@ html,body {
     color: black;
   } */
 
-@media (max-width: 760px) {
+/* @media (max-width: 760px) {
     div.video video{
         display: none;
     }
@@ -436,7 +448,7 @@ html,body {
     div.video img{
         display: none;
     }
-}
+} */
 
 .galleryBackground{
     /* background-color: black; */

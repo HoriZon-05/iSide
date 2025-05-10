@@ -38,6 +38,40 @@ document.querySelectorAll('.dropdown-menu li a').forEach(link => {
   });
 });
 
+// 在视频还未加载出来之前实现gif占位,加载完成后替换为超清视频
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.videoContainer video'); // 获取视频元素
+    const gifPlaceholder = document.querySelector('.videoContainer img'); // 获取GIF占位图
+    const loadingText = document.querySelector('.loading-text'); // 获取加载提示文字
+
+    // 预加载视频
+    video.preload = 'auto';
+
+    // 监听视频可以播放的事件
+    video.addEventListener('canplaythrough', function() {
+        // 隐藏GIF和加载文字
+        gifPlaceholder.style.display = 'none';
+        if (loadingText) loadingText.style.display = 'none';
+
+        // 显示视频并开始播放
+        video.style.display = 'block';
+        video.play().catch(e => {
+            console.log('自动播放被阻止:', e);
+            // 如果自动播放被阻止，至少显示视频控件让用户手动播放
+        });
+    });
+
+    // 错误处理
+    video.addEventListener('error', function() {
+        gifPlaceholder.src = 'error-placeholder.jpg'; // 替换为错误占位图
+        if (loadingText) loadingText.textContent = '视频加载失败，请刷新重试';
+        console.error('视频加载错误:', video.error);
+    });
+
+    // 开始加载视频（对于某些浏览器需要这个触发）
+    video.load();
+});
+
 // //图片自动轮播在鼠标悬停时暂停
 // const scrollLines = document.querySelectorAll('.InfiniteScrollLine');// 获取所有需要滚动的元素
 // function startAnimation() {// 启动动画

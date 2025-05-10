@@ -92,10 +92,17 @@
                 </div>
             </div>
 
-            <div class="video">
+            <div class="videoContainer">
+                <!-- GIF占位图 -->
+                <img src="https://www.islide.cc/_next/static/media/header_video.32a6e91e.gif" alt="视频加载中">
+                <p class="loading-text">视频加载中，请稍候...</p>
+                
+                <!-- 实际视频元素 -->
+                <video muted autoplay loop>
+                    <source src="./iSlide-video.mp4" type="video/mp4">
+                    您的浏览器不支持HTML5视频
+                </video>
                 <!-- <video width="100%" muted autoplay loop src="https://www.islide.cc/video/homeISlide.mp4" alt="视频加载中"></video> -->
-                <video width="100%" muted autoplay loop src="./iSlide-video.mp4" alt="视频加载中"></video>
-                <img width="100%" src="https://www.islide.cc/_next/static/media/header_video.32a6e91e.gif" alt="视频加载中">
             </div>
         </div>
         <div class="galleryBackground"> 
