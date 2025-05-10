@@ -565,7 +565,7 @@ h1{
     transition:all 0.3s;
 }
 
-.featureItem img, .featureItem video{
+.featureItem img,.featureItem video{
     align-items: center;
     object-fit:cover;
     height: 75%;
