@@ -452,7 +452,8 @@ html,body {
 
 .gallery h2 span{
     background: linear-gradient(to right,#52A2FF, #4d00db, #9900ff); /* 渐变背景 */
-    background-clip: text; /* 将背景裁剪为文字形状 */
+    -webkit-background-clip: text; /* 将背景裁剪为文字形状 */
+    background-clip: text;/* 新版 */
     -webkit-text-fill-color: transparent; /* 文字填充颜色设为透明，显示背景 */
     display: inline-block; /* 必须加上才能生效 */
 }
