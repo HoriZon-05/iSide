@@ -61,16 +61,25 @@ document.addEventListener('DOMContentLoaded', function() {
         gifPlaceholder.style.display = 'none';
         if (loadingText) loadingText.style.display = 'none';
 
-        // 显示视频并从GIF播放的时间点开始播放
+        // 显示视频
         video.style.display = 'block';
-        video.currentTime = gifPlayTime; // 设置视频的当前时间
-        video.play().catch(e => {
-            console.log('自动播放被阻止:', e);
-            // 如果自动播放被阻止，至少显示视频控件让用户手动播放
-            video.controls = true;
-        });
-    }
 
+        // 确保视频已经准备好
+        video.addEventListener('canplaythrough', function() {
+            // 设置视频的当前时间
+            video.currentTime = gifPlayTime;
+
+            // 强制重绘
+            void video.offsetWidth;
+
+            // 播放视频
+            video.play().catch(e => {
+                console.log('自动播放被阻止:', e);
+                // 如果自动播放被阻止，至少显示视频控件让用户手动播放
+                video.controls = true;
+            });
+        }, { once: true });
+    }
     // 检查视频是否已经缓存
     if (video.readyState >= 3) { // readyState 3 表示视频已经加载了部分数据
         playVideo();
