@@ -783,10 +783,9 @@ h1{
     }
 
     .testimonial-slider-container div:last-child{
-        display: none;
+        visibility:hidden;
         text-align: center;
         margin-top: -4rem;
-        margin-bottom: 4rem;
     }
 
     @media (max-width: 1136px) {
@@ -801,7 +800,7 @@ h1{
             height: auto;
         }
         .testimonial-slider-container div:last-child{
-            display: block;
+            visibility:visible;
         }
     }
 
