@@ -134,3 +134,20 @@ window.addEventListener('scroll',  function() {
   window.cancelAnimationFrame(isScrolling); 
   isScrolling = window.requestAnimationFrame(handleScroll); 
 });
+
+document.getElementById('darkModeToggle').addEventListener('change', function() {
+    const imageLight = document.getElementById('imageLight');
+    const imageDark = document.getElementById('imageDark');
+
+    if (this.checked) {
+        // 切换到深色模式
+        imageLight.style.display = 'none';
+        imageDark.style.display = 'block';
+        document.body.style.filter = 'invert(1) hue-rotate(180deg)';
+    } else {
+        // 切换回浅色模式
+        imageLight.style.display = 'block';
+        imageDark.style.display = 'none';
+        document.body.style.filter = 'none'; // 清除 filter 属性
+    }
+});
