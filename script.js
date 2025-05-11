@@ -5,13 +5,6 @@ window.onscroll = function() {
     scrollFunction();
 };
 
-// function scrollFunction() {
-//     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//         backToTopButton.style.display = "block";
-//     } else {
-//         backToTopButton.style.display = "none";
-//     }
-// }
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         backToTopButton.classList.add("show");
@@ -138,16 +131,19 @@ window.addEventListener('scroll',  function() {
 document.getElementById('darkModeToggle').addEventListener('change', function() {
     const imageLight = document.getElementById('imageLight');
     const imageDark = document.getElementById('imageDark');
+    
 
     if (this.checked) {
         // 切换到深色模式
         imageLight.style.display = 'none';
         imageDark.style.display = 'block';
-        document.body.style.filter = 'invert(1) hue-rotate(180deg)';
+        document.documentElement.style.setProperty('color-scheme', 'dark');
+        // document.body.style.filter = 'invert(0.85) hue-rotate(180deg) ';
     } else {
         // 切换回浅色模式
         imageLight.style.display = 'block';
         imageDark.style.display = 'none';
-        document.body.style.filter = 'none'; // 清除 filter 属性
+        document.documentElement.style.setProperty('color-scheme', 'light');
+        // document.body.style.filter = 'none'; // 清除 filter 属性
     }
 });

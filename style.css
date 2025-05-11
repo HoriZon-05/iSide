@@ -554,6 +554,11 @@ h1{
     opacity: 1;
 }
 
+
+.featureItem h2{
+    color: #222;
+}
+
 .featureItem div{
     visibility: hidden;
     opacity: 0;
@@ -902,7 +907,7 @@ h1{
     }
 
     .footService li strong{
-        color: black;
+        /* color: black; */
         font-size: 16px;
     }
 
@@ -945,6 +950,7 @@ h1{
         border-top: 2px solid #BFC8D2;
         padding-bottom: 3vw;
     }
+
     .footIfo div:nth-child(2n+1){
         float: left;
     }
@@ -988,6 +994,7 @@ h1{
         display: flex;
         align-items: center;
         justify-content: center;
+        border-right: 1px solid #fff;/* 使暗色模式下的按钮右边具有发光效果 */
     }
 
     .slider:before {
