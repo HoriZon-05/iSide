@@ -786,7 +786,8 @@ h1{
     .sign{
         visibility:hidden;
         text-align: center;
-        margin-top: -4rem;
+        padding-top: 0;
+        margin-bottom: 4rem;
     }
 
     @media (max-width: 1136px) {
