@@ -779,10 +779,11 @@ h1{
 
     .testimonial img{
         height: 40vw;
+        overflow: hidden;
         border-radius: 20px;
     }
 
-    .testimonial-slider-container div:last-child{
+    .sign{
         visibility:hidden;
         text-align: center;
         margin-top: -4rem;
@@ -792,15 +793,15 @@ h1{
         .testimonial img{
             height: 60vw;
         }
+        .sign{
+            visibility:visible;
+        }
     }    
     
     @media (max-width: 766px) {
         .testimonial img{
             width: 70vw;
             height: auto;
-        }
-        .testimonial-slider-container div:last-child{
-            visibility:visible;
         }
     }
 
