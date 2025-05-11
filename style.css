@@ -914,6 +914,14 @@ h1{
         #footerLogo{
             display: none;
         }
+
+        .footService li{
+            font-size: 13px;
+        }
+
+        .footIfo div{
+            font-size: 10px;
+        }
     }
     
     @media (max-width: 647px) and (min-width: 357px) {
@@ -921,6 +929,7 @@ h1{
             display: inline-flex;
             align-items: center;
             justify-content:space-evenly;
+            margin-left: 5vw;
         }
         .followUs li:last-child{
             width: 30%;
@@ -941,6 +950,10 @@ h1{
     .footIfo div:nth-child(2n){
         float: right;
     }
+    .footIfo div:nth-child(n+4){
+        display: inline-block;
+    }
+    
 
 
 
