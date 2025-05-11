@@ -137,7 +137,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         // 切换到深色模式
         imageLight.style.display = 'none';
         imageDark.style.display = 'block';
-        document.documentElement.style.setProperty('color-scheme', 'dark');
+        document.documentElement.style.setProperty('color-scheme', 'dark');       
         // document.body.style.filter = 'invert(0.85) hue-rotate(180deg) ';
     } else {
         // 切换回浅色模式

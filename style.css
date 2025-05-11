@@ -262,7 +262,9 @@ html,body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%);; */
+    /* background: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%); */
+    height: 60vw;
+    overflow: hidden;
 }
 
 .slogan{
@@ -307,7 +309,12 @@ html,body {
 }
 
 .firstPage img{
-    width: 70vw;
+    width: 64.5vw;
+    height:50.5vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
     /* background-image: linear-gradient(to bottom right,#e0c3fc 0%, #8ec5fc 100%); */
     background: radial-gradient(at 70% 40%,#8ec5fc 10px, #e0c3fc 10%, white 50%);
 }
@@ -427,11 +434,15 @@ html,body {
   .videoContainer video{
     width: 100%;
     display: none;
+    border-radius: 20px;
+
   }
 
   .videoContainer img{
     width: 100%;
     display: block;
+    border-radius: 20px;
+
   }
 
 /* 注:以下一行是错误的,因为CSS 中不能通过子元素控制父元素样式，这是 CSS 的限制。要实现只能用js 。 */
