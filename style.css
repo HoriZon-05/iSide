@@ -548,8 +548,9 @@ h1{
     /* align-content:space-between; */
     border: 2px solid white;
     border-radius: 20px;
-    background-image: url('https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif');
-    background-position: center 300px;
+    background-color: #F2F3F8;
+    /* background-image: url('https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif');
+    background-position: center 300px; */
     opacity: 1;
 }
 
