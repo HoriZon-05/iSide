@@ -271,9 +271,8 @@ html,body {
     /* padding-left: 5vw; */
     position: absolute;
     left: 0;
-    top: 20vw;
+    top: 10vw;
     z-index: 2;
-
 }
 
 .slogan h2{
@@ -291,9 +290,6 @@ html,body {
 }
 
 @media (min-width: 800px) {
-    .slogan{
-        margin-top:-15vw;
-    }
     .movePart{
         margin-top:-10vw;
     }
