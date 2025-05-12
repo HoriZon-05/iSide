@@ -408,6 +408,7 @@ html,body {
 
   .history div h3{
     font-weight: 400;
+    color: #000000;
   }
 
   .history div p{
@@ -424,7 +425,7 @@ html,body {
 
   .videoContainer {
     margin: 7rem 7vw;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     /* padding-bottom: 2rem; */
     position: relative;
     width: 100%;
@@ -433,14 +434,14 @@ html,body {
   .videoContainer video{
     width: 100%;
     display: none;
-    border-radius: 20px;
+    border-radius: 10px;
 
   }
 
   .videoContainer img{
     width: 100%;
     display: block;
-    border-radius: 20px;
+    border-radius: 10px;
 
   }
 

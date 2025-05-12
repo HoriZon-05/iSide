@@ -132,18 +132,20 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
     const imageLight = document.getElementById('imageLight');
     const imageDark = document.getElementById('imageDark');
     
-
     if (this.checked) {
         // 切换到深色模式
         imageLight.style.display = 'none';
         imageDark.style.display = 'block';
         document.documentElement.style.setProperty('color-scheme', 'dark');       
-        // document.body.style.filter = 'invert(0.85) hue-rotate(180deg) ';
+        bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
+        movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
     } else {
         // 切换回浅色模式
         imageLight.style.display = 'block';
         imageDark.style.display = 'none';
         document.documentElement.style.setProperty('color-scheme', 'light');
-        // document.body.style.filter = 'none'; // 清除 filter 属性
+         // 清除 filter 属性
+        bannerImg.style.filter = 'none';
+        movePart.style.filter = 'none';
     }
 });
