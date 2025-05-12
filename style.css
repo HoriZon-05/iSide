@@ -270,6 +270,7 @@ html,body {
 .slogan{
     /* margin-left: 5vw; */
     padding-left: 5vw;
+    z-index: 2;
 }
 
 .slogan h2{
@@ -282,19 +283,22 @@ html,body {
 
 @media (min-width: 800px) {
     .slogan{
-        margin-top:-10vw;
+        margin-top:-15vw;
     }
     .movePart{
         margin-top:-10vw;
     }
+    #mobileDownload {
+        display: none;
+    }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 800px) {
     .firstPage img{
         display: none;
     }
     .slogan{
-        margin-bottom: 50px;
+        /* margin-bottom: 50px; */
     }
     #PCdownload{
         display: none;
@@ -302,11 +306,6 @@ html,body {
 
 }
 
-@media (min-width: 760px) {
-    #mobileDownload {
-        display: none;
-    }
-}
 
 .firstPage img{
     width: 64.5vw;
