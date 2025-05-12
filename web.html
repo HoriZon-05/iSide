@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://ts3.tc.mm.bing.net/th/id/ODLS.7047c806-73ee-4b12-9a68-af3e8c4fbca0?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2">
+    <title>iSlide官网-让PPT设计简单起来</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="floatBtns">
+        <!-- 一键返回顶部按钮,向下滑动时显示 -->
+        <button class="TOPbutton">
+            <svg class="svgIcon" viewBox="0 0 384 512">
+                <path
+                    d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z">
+                </path>
+            </svg>
+        </button>
+
+        <a href="https://www.islide.cc/download" target="_blank">
+            <button class="DownloadBtn">
+                <svg class="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                    </path>
+                </svg>
+                <span class="icon2"></span>
+                <span class="tooltip">立即下载</span>
+            </button>
+        </a>
+
+        <a href="https://webchat.7moor.com/wapchat.html?accessId=c12498c0-ef4f-11ee-9ec2-6fe63a36c441&fromUrl=&urlTitle=&otherParams={%27nickName%27:%27%27}&language=ZHCN&clientId=6877258"
+            target="_blank">
+            <button class="btn ContactUsBtn">
+                <i class="fa-solid fa-headphones"></i>联系客服
+                <span class="tooltip">
+                    <div> 客服在线时间：</div>
+                    <div>周一至周五 9:30-18:00</div>
+                </span>
+            </button>
+        </a>
+    </div>
+
+    <main>
+        <div class="firstPage" id="firstPage">
+            <div class="slogan" id="slogan">
+                <h2>iSlide</h2>
+                <h2>让 PPT 设计简单起来</h2>
+                <br>
+                <p>AI 深度赋能 ｜ 含 80+ 设计辅助功能</p>
+                <p>超 1400W 专业 PPT 模板/素材</p>
+                <br>
+                <button class="btn" id="PCdownload">
+                    <div class="dropdown-trigger">
+                        <a
+                            href="https://static.islide.cc/site/product/package/exe/2024-12-30/175848/iSlide-8.1.1.0.exe"><i
+                                class="fa-brands fa-windows"></i> 免费下载 Windows 版</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://apps.apple.com/cn/app/islide-%E6%B5%B7%E9%87%8Fppt%E6%A8%A1%E6%9D%BF-%E4%B8%93%E4%B8%9A%E5%9B%A2%E9%98%9F%E5%8E%9F%E5%88%9B%E8%AE%BE%E8%AE%A1/id1568400299"
+                                    target="_blank"><i class="fa-brands fa-apple"></i> 免费下载 macOS 版</a></li>
+                            <li><a href="https://www.islide.cc/download">更多下载</a></li>
+                        </ul>
+                    </div>
+                </button>
+                <button class="btn" id="mobileDownload"><a
+                        href="https://sj.qq.com/appdetail/com.islide.app?fromcase=40003&from_wxz=1"
+                        target="_blank">免费下载</a></button>
+            </div>
+            <!-- <div class="banner"> -->
+            <img src="https://www.islide.cc/_next/static/media/header.489d291b.png" alt="firstPage"
+            id="bannerImg">
+            <!-- </div> -->
+        </div>
+        
+        <div class="movePart" id="movePart">
+            <div class="history">
+                <div>
+                    <h3>8 年专注</h3>
+                    <p>解决 PPT 制作痛点</p>
+                </div>
+                <div>
+                    <h3>200+ 个国家/地区</h3>
+                    <p>支持离线使用，提供多语言版本</p>
+                </div>
+                <div>
+                    <h3>3500 万用户的选择</h3>
+                    <p>深受用户信赖</p>
+                </div>
+            </div>
+
+            <div class="videoContainer">
+                <!-- GIF占位图 -->
+                <img src="https://www.islide.cc/_next/static/media/header_video.32a6e91e.gif" alt="视频加载中">
+                <p class="loading-text"></p>
+                
+                <!-- 实际视频元素 -->
+                <video muted autoplay loop>
+                    <source src="./iSlide-video.mp4" type="video/mp4">
+                    您的浏览器不支持HTML5视频
+                </video>
+                <!-- <video width="100%" muted autoplay loop src="https://www.islide.cc/video/homeISlide.mp4" alt="视频加载中"></video> -->
+            </div>
+        </div>
+        <div class="galleryBackground"> 
+            <div class="gallery"><br>
+                <h2><span>14,000,000+</span> PPT 模板 / 素材</h2>
+                <p>模板、图表、图片……全品类PPT资源</p>
+                <br>
+                <div class="galleryItem">
+                    <div class="InfiniteScrollLine InfiniteScrollLine-left">
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_1.08779be0.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_2.d62a1a8d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_3.3b4867c5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_4.616d423a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_5.f4a21cb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_6.a6132d42.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_7.d1233835.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_8.67045379.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_9.19c1dade.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_10.a3cb4fb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_11.a513e002.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_12.53c6d2a1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_13.02f2a0fc.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_14.7ed8f315.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_1.08779be0.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_2.d62a1a8d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_3.3b4867c5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_4.616d423a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_5.f4a21cb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_6.a6132d42.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_7.d1233835.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_8.67045379.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_9.19c1dade.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_10.a3cb4fb6.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_11.a513e002.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_12.53c6d2a1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_13.02f2a0fc.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_14.7ed8f315.png"></div>
+
+                    </div>
+                    <div class="InfiniteScrollLine InfiniteScrollLine-right">
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_15.2b9b8493.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_16.bad1b126.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_17.30690c9a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_18.5f85c260.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_19.e9eb157f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_20.56bf6445.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_21.da0d1c28.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_22.d2d795b4.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_23.5736403a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_24.f0d92c0d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_25.dfbae041.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_26.8cdc2772.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_27.4466bd1f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_28.ce466e87.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_29.fab748e4.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_15.2b9b8493.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_16.bad1b126.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_17.30690c9a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_18.5f85c260.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_19.e9eb157f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_20.56bf6445.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_21.da0d1c28.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_22.d2d795b4.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_23.5736403a.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_24.f0d92c0d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_25.dfbae041.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_26.8cdc2772.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_27.4466bd1f.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_28.ce466e87.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_29.fab748e4.png"></div>
+                    </div>
+                    <div class="InfiniteScrollLine InfiniteScrollLine-left">
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_30.d7fadaa2.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_31.c6683eca.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_32.c14ac877.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_33.cd590299.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_34.a742f514.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_35.e93aae46.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_36.a1e0b688.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_37.529e2662.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_38.554ba6bb.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_39.3b165d56.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_40.4ebc8eb5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_41.40c5f5c1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_42.ee7cb29d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_43.374ef5e5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_44.6a10864e.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_30.d7fadaa2.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_31.c6683eca.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_32.c14ac877.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_33.cd590299.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_34.a742f514.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_35.e93aae46.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_36.a1e0b688.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_37.529e2662.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_38.554ba6bb.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_39.3b165d56.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_40.4ebc8eb5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_41.40c5f5c1.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_42.ee7cb29d.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_43.374ef5e5.png"></div>
+                        <div class="imgItem"><img src="https://www.islide.cc/_next/static/media/template_44.6a10864e.png"></div>
+                    </div>
+                </div><br><br>
+            </div>
+        </div>
+        <br><br><br><br>
+        <div class="features" id="features">
+            <h1>产品功能</h1><br>
+            <div class="featureItems">
+                <div class="featureItem">
+                    <h2>AI一键生成PPT</h2>
+                    <p>输入你的主题,AI帮你一键搞定PPT</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                </div>
+                <div class="featureItem">
+                    <h2>智能编辑 PPT</h2>
+                    <p>一键换肤快速美化，海量素材自适应匹配</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_02.50339526.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                </div>
+                <div class="featureItem">
+                    <h2>AI 文本润色</h2>
+                    <p>改写、扩写、翻译、分析......</p>
+                    <img src="	https://www.islide.cc/_next/static/media/homeProductFeature_pic_03.75b84d15.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                </div>
+                <div class="featureItem">
+                    <h2>支持 7 种常用文档导入生成</h2>
+                    <p>自动解析生成大纲，一键输出 PPT</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_04.983b2c35.png" alt=""></img>
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                </div>
+                <div class="featureItem">
+                    <h2>支持资源模板上传</h2>
+                    <p>生成PPT自适应模板配色版式，统一专业</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_4.b9401fcd.gif" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                </div>
+                <div class="featureItem">
+                    <h2>「极客」功能满足，深度使用</h2>
+                    <p>智能排版,一键优化,快速对齐 PPT提效功能</p>
+                    <!-- <img src="https://www.islide.cc/_next/static/media/production.45142dee.png" alt=""> -->
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                     <video muted autoplay loop src="./features-moveOne.mp4">
+
+                </div>
+                <div class="featureItem">
+                    <h2>Word AI，为办公文档提效</h2>
+                    <p>AI 写作，一键改稿，智能分析，多场景文章模板......</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeProductFeature_pic_07.52bd4ffd.png" alt="">
+                    <div><button class="btn"><a href="https://www.islide.cc/download" target="_blank">立即体验</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="team">
+            <br><br><br><br><h1>团队协作</h1><br>
+            <div class="teamWorks">
+                <div class="teamWorkItem cursorChange">
+                    <h2>PPT 设计资产管理</h2>
+                    <p>全员共享模板/素材资源库</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeTeamwork_1.eda8c4bb.png" alt="">
+                </div>
+                <div class="teamWorkItem">
+                    <h2>模板规范管理</h2>
+                    <p>设计标准统一应用</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeTeamwork_2.99435e53.png" alt="">
+                </div>
+                <div class="teamWorkItem">
+                    <h2>素材合规性</h2>
+                    <p>版权素材使用，规避侵权风险</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeTeamwork_3.f01c17fd.png" alt="">
+                </div>
+                <div class="teamWorkItem">
+                    <h2>成员管理</h2>
+                    <p>支持差异化权限管理</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeTeamwork_4.90d8d97f.png" alt="">
+                </div>
+                <div class="teamWorkItem">
+                    <h2>离职交接</h2>
+                    <p>授权分配灵活，保障内容资产</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeTeamwork_5.0387fab4.png" alt="">
+                </div>
+                <div class="teamWorkItem">
+                    <h2>数据统计</h2>
+                    <p>团队成员使用数据一目了然</p>
+                    <img src="https://www.islide.cc/_next/static/media/homeTeamwork_6.d8c6a366.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-slider-container">
+            <br><br><br>
+            <h1>他们都在推荐 iSlide</h1>
+            <p>软件只是工具，而工具应该用来提升效率，创造价值。无论是 P 圈达人还是职场小白都能够借助 iSlide 做出改变，创造有效沟通的价值。</p>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_1.54f15d40.png">
+                </div>
+    
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_2.ba674994.png">
+                </div>
+    
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_3.79347e79.png">
+                </div>
+    
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_4.fc2d4dad.png">
+                </div>
+    
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_5.4b5e4d4a.png">
+                </div>
+    
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_6.59020831.png">
+                </div>
+    
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_7.0aaaa873.png">
+                </div>
+                <div class="testimonial">
+                    <img src="https://www.islide.cc/_next/static/media/homeRecommend_8.41386cfa.png">
+                </div>
+            </div>
+            <div class="sign">左右滑动查看更多</div>
+        </div>
+        <div class="foot">
+            <h1>为您节省 90% 的 PPT 设计时间</h1>
+            <p>8 年专注，200+ 国家/地区，3500万 用户智选</p>
+            <div class="footBtns">               
+                <button class="footButton">
+                    立即体验
+                    <a href="https://www.islide.cc/download">
+                        <div class="icon">
+                                <svg
+                                    height="24"
+                                    width="24"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path
+                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                    fill="currentColor"
+                                    ></path>
+                                </svg>
+                        </div>
+                    </a>                   
+                  </button>
+                <a href="https://www.islide.cc/enterprise"><button class="footButton btn"><span>企业服务</span></button></a>
+            </div>
+            <div class="footService">
+                <img src="https://www.islide.cc/_next/static/media/logo_islide_white.864e88e7.png" alt="" id="footerLogo">
+                <ul>
+                    <li><a href="#"><strong>产品</strong></a></li>
+                    <li><a href="#">客户端下载</a></li>
+                    <li><a href="#">产品功能</a></li>
+                    <li><a href="#">牛马社课堂</a></li>
+                    <li><a href="#">PPT 模板</a></li>
+                    <li><a href="#">会员定价</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>服务</strong></a></li>
+                    <li><a href="#">企业服务</a></li>
+                    <li><a href="#">企业培训</a></li>
+                    <li><a href="#">定制服务</a></li>
+                    <li><a href="#">私有化部署</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>帮助</strong></a></li>
+                    <li><a href="#">使用指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">功能教程</a></li>
+                    <li><a href="#">企业版</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>关于</strong></a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">讲师联盟</a></li>
+                    <li><a href="#">博客</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>支持</strong></a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">隐私声明</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">会员协议</a></li>
+                    <li><a href="#">AI服务协议</a></li>
+                </ul>
+                <ul class="followUs">
+                    <li><a href="#"><strong>关注</strong></a></li>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">官方知乎</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><img src="https://www.islide.cc/_next/static/media/qr_official_account.d1fe7eb6.png" alt=""></li>
+                </ul>
+            </div>
+            <div class="footIfo">
+                <div>成都艾斯莱德网络科技有限公司</div>
+                <div>知识产权顾问：泰和泰律师事务所</div>
+                <br>
+                <div>四川省成都市易上OCG国际中心C座15楼 | 028-33010382</div>
+                <br><br>
+                <div>© 2016-2025 iSlide 保留一切权利</div>
+                <div> | 蜀ICP备16016339号-1 | 川公网安备 51019002001019号</div>
+            </div>
+
+            <div class="mode-switch">
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round">
+                        <i class="fa-solid fa-moon" id="imageLight"></i>
+                        <i class="fa-solid fa-sun" id="imageDark"></i>
+                    </span>
+                </label>
+            </div>
+
+            
+
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>
