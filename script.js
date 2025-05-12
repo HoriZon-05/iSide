@@ -139,6 +139,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         document.documentElement.style.setProperty('color-scheme', 'dark');       
         bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
         movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
+        firstPage.style.background = 'black';
     } else {
         // 切换回浅色模式
         imageLight.style.display = 'block';
@@ -147,5 +148,6 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
          // 清除 filter 属性
         bannerImg.style.filter = 'none';
         movePart.style.filter = 'none';
+        firstPage.style.background = 'white';
     }
 });
