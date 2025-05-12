@@ -948,11 +948,6 @@ h1{
         .footService li{
             font-size: 13px;
         }
-
-        .footIfo div{
-            font-size: 10px;
-            /* display: inline-block; */
-        }
     }
     
     @media (max-width: 647px) and (min-width: 357px) {
@@ -974,6 +969,11 @@ h1{
         padding-top: 1em;
         border-top: 2px solid #BFC8D2;
         padding-bottom: 3vw;
+        text-align: center;
+    }
+
+    .footIfo span{
+        display: none;
     }
 
     @media (min-width: 970px) {
@@ -983,7 +983,16 @@ h1{
         .footIfo div:nth-of-type(2){
             float: right;
         } 
+        .footIfo span{
+            display: inline;
+        }
     } 
+
+    @media (max-width: 647px) {
+        .footIfo div{
+            font-size: 10px;
+        }
+    }
 
     .mode-switch {
         position: absolute;
