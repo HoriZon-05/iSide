@@ -575,21 +575,11 @@ input:checked + #imageDark {
 } */
 
 .galleryBackground{
-    /* background-color: black; */
-    display: block;
     background: linear-gradient(to bottom,#000000,#000000,#000000,#4d00db, #9900ff,#9900ff,#4d00db,#000000,#000000);
     color: white;
-    /* padding-top: 200px; */
-    /* padding-bottom:60px; */
-    /* padding-top: -15vw; */
-    /* margin-top: -7rem; */
-    /* margin-bottom:10vw; */
-    /* position: relative; */
 }
 
 .gallery{
-    /* margin-bottom:16vw; */
-    /* padding-bottom: 30px; */
     margin-top: -16vw;
 }
 
@@ -657,16 +647,6 @@ input:checked + #imageDark {
 
 .InfiniteScrollLine-right {
     animation: slide 60s linear infinite reverse;
-}
-
-.features{
-    /* position: relative; */
-    /* margin-top: 200px; */
-    /* margin-top: 16vw; */
-}
-
-.features,.team{
-    margin-top: 150px;
 }
 
 .featureItems{
@@ -744,8 +724,11 @@ input:checked + #imageDark {
 }
 
 @media (min-width:0px) {
+    .gallery{
+        margin-top: -20vw;
+    }
     .features{
-        margin-top: 300px;
+        padding-top: 200px;
     }
     .featureItems{
         justify-content: center;
@@ -762,8 +745,8 @@ input:checked + #imageDark {
 }
 
 @media (min-width: 690px) {
-    .features,.team{
-    margin-top: 150px;
+    .gallery{
+        margin-top: -16vw;
     }
     .featureItem img:not(:last-child){
         width: 41vw;
@@ -795,6 +778,10 @@ input:checked + #imageDark {
 .team{
     background-color: #0C0E15;
     color: white;
+    margin-top: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
 }
 
 .teamWorks{
@@ -803,8 +790,6 @@ input:checked + #imageDark {
     justify-content: space-around;
     margin: auto 5vw;
     text-align: center;
-    padding-bottom: 8rem;
-
 }
 
 .teamWorkItem{
@@ -890,7 +875,7 @@ input:checked + #imageDark {
     .testimonial-slider-container {
         position: relative;
         overflow: hidden;
-        margin: 8vw 2vw;
+        margin: 5vw 2vw;
     }
 
     .testimonial-slider-container h1,.testimonial-slider-container p{
