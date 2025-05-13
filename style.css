@@ -20,6 +20,12 @@ ul li{
     list-style-type: none;
 }
 
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+}
+
 .btn {
     padding: 0.75rem 2rem;
     color: white;
@@ -46,20 +52,16 @@ html,body {
 /* 每个模块的出场升起动画 */
 @keyframes slideUp {
     from {
-        transform: translateY(10%);
+        transform: translateY(0%);
     }
     to {
-        transform: translateY(0);
+        transform: translateY(-10%);
     }
 }
 
 .slide-up {
     animation: slideUp 1s ease-out forwards;
 }
-
-/* .gallery,.features,.team,.testimonial-slider-container{
-    transform: translateY(10%);
-} */
 
 /* 深色模式按钮 */
 .mode-switch {
@@ -363,6 +365,10 @@ input:checked + #imageDark {
     }
   }
 
+.topPageContainer {
+    margin-top: 10%;
+}
+
 .firstPage{
     display: flex;
     justify-content: space-between;
@@ -372,8 +378,6 @@ input:checked + #imageDark {
 }
 
 .slogan{
-    /* margin-left: 5vw; */
-    /* padding-left: 5vw; */
     position: absolute;
     left: 0;
     top: 10vw;
@@ -533,6 +537,7 @@ input:checked + #imageDark {
 
   .videoContainer {
     margin: 7rem 7vw;
+    /* margin-bottom: 0; */
     /* border-radius: 20px; */
     /* padding-bottom: 2rem; */
     position: relative;
@@ -602,7 +607,6 @@ input:checked + #imageDark {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .imgItem {
@@ -653,10 +657,6 @@ input:checked + #imageDark {
     padding-bottom: 8rem;
 }
 
-h1{
-    text-align: center;
-    font-size: 3rem;
-}
 
 .featureItem{
     position: relative;
