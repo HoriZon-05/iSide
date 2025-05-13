@@ -576,14 +576,26 @@ input:checked + #imageDark {
 
 .galleryBackground{
     /* background-color: black; */
+    display: block;
     background: linear-gradient(to bottom,#000000,#000000,#000000,#4d00db, #9900ff,#9900ff,#4d00db,#000000,#000000);
     color: white;
-    padding-top: 60px;
-    padding-bottom:60px;
+    /* padding-top: 200px; */
+    /* padding-bottom:60px; */
+    /* padding-top: -15vw; */
+    /* margin-top: -7rem; */
+    /* margin-bottom:10vw; */
+    /* position: relative; */
+}
+
+.gallery{
+    /* margin-bottom:16vw; */
+    /* padding-bottom: 30px; */
+    margin-top: -16vw;
 }
 
 .gallery h2{
     font-size: 50px;
+    margin-top: 15vw;
 }
 
 .gallery h2 span{
@@ -647,14 +659,23 @@ input:checked + #imageDark {
     animation: slide 60s linear infinite reverse;
 }
 
+.features{
+    /* position: relative; */
+    /* margin-top: 200px; */
+    /* margin-top: 16vw; */
+}
+
+.features,.team{
+    margin-top: 150px;
+}
+
 .featureItems{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     /* align-content:space-between; */
-    margin: auto 4vw;
+    /* margin: auto 4vw; */
     text-align: center;
-    padding-bottom: 8rem;
 }
 
 
@@ -723,6 +744,9 @@ input:checked + #imageDark {
 }
 
 @media (min-width:0px) {
+    .features{
+        margin-top: 300px;
+    }
     .featureItems{
         justify-content: center;
     }
@@ -738,6 +762,9 @@ input:checked + #imageDark {
 }
 
 @media (min-width: 690px) {
+    .features,.team{
+    margin-top: 150px;
+    }
     .featureItem img:not(:last-child){
         width: 41vw;
     }
