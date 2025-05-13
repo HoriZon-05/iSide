@@ -213,10 +213,7 @@ input:checked + #imageDark {
     width: 120px;
     border-radius: 50px;
     transition-duration: 0.3s;
-    /* background-color: rgb(181, 160, 255); */
-    /* background-color: #FF5349; */
     align-items: center;
-    /* justify-content: center; */
     text-align: center;
   }
   
@@ -239,14 +236,12 @@ input:checked + #imageDark {
     font-size: 14px;
     opacity: 1;
     bottom: unset;
-    /* transform: translateY(-30px); */
     transition-duration: 0.3s;
   }
 
 .DownloadBtn {
     border: none;
     border-radius: 50%;
-    /* background-color: rgb(27, 27, 27); */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -425,7 +420,6 @@ input:checked + #imageDark {
     top: 0;
     right: 0;
     overflow: hidden;
-    /* background-image: linear-gradient(to bottom right,#e0c3fc 0%, #8ec5fc 100%); */
     background: radial-gradient(at 70% 40%,#8ec5fc 10px, #e0c3fc 10%, white 50%);
 }
 
@@ -537,9 +531,6 @@ input:checked + #imageDark {
 
   .videoContainer {
     margin: 7rem 7vw;
-    /* margin-bottom: 0; */
-    /* border-radius: 20px; */
-    /* padding-bottom: 2rem; */
     position: relative;
     width: 100%;
   }
@@ -653,8 +644,6 @@ input:checked + #imageDark {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* align-content:space-between; */
-    /* margin: auto 4vw; */
     text-align: center;
 }
 
@@ -664,13 +653,9 @@ input:checked + #imageDark {
     height:22rem;
     padding-top: 2rem;
     margin: 0.5vw;
-    /* margin-bottom: 1rem; */
-    /* align-content:space-between; */
     border: 2px solid white;
     border-radius: 20px;
     background-color: #F2F3F8;
-    /* background-image: url('https://www.islide.cc/_next/static/media/homeProductFeature_1.c18d9e3e.gif');
-    background-position: center 300px; */
     opacity: 1;
 }
 
@@ -881,7 +866,6 @@ input:checked + #imageDark {
     .testimonial-slider-container h1,.testimonial-slider-container p{
         display: block;
         text-align: left;
-        /* width: 45vw; */
         margin: 1vw 3vw;
     }
     .testimonial-slider-container p{
