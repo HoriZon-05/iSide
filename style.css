@@ -713,7 +713,7 @@ input:checked + #imageDark {
         margin-top: -20vw;
     }
     .features{
-        padding-top: 200px;
+        padding-top: 300px;
     }
     .featureItems{
         justify-content: center;
@@ -732,6 +732,9 @@ input:checked + #imageDark {
 @media (min-width: 690px) {
     .gallery{
         margin-top: -16vw;
+    }
+    .features{
+        padding-top: 200px;
     }
     .featureItem img:not(:last-child){
         width: 41vw;
