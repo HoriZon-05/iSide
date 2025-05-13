@@ -47,63 +47,74 @@
     </div>
 
     <main>
-        <div class="firstPage" id="firstPage">
-            <div class="slogan" id="slogan">
-                <h2>iSlide</h2>
-                <h2>让 PPT 设计简单起来</h2>
-                <br>
-                <p>AI 深度赋能 ｜ 含 80+ 设计辅助功能</p>
-                <p>超 1400W 专业 PPT 模板/素材</p>
-                <br>
-                <button class="btn" id="PCdownload">
-                    <div class="dropdown-trigger">
-                        <a
-                            href="https://static.islide.cc/site/product/package/exe/2024-12-30/175848/iSlide-8.1.1.0.exe"><i
-                                class="fa-brands fa-windows"></i> 免费下载 Windows 版</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://apps.apple.com/cn/app/islide-%E6%B5%B7%E9%87%8Fppt%E6%A8%A1%E6%9D%BF-%E4%B8%93%E4%B8%9A%E5%9B%A2%E9%98%9F%E5%8E%9F%E5%88%9B%E8%AE%BE%E8%AE%A1/id1568400299"
-                                    target="_blank"><i class="fa-brands fa-apple"></i> 免费下载 macOS 版</a></li>
-                            <li><a href="https://www.islide.cc/download">更多下载</a></li>
-                        </ul>
-                    </div>
-                </button>
-                <button class="btn" id="mobileDownload"><a
-                        href="https://sj.qq.com/appdetail/com.islide.app?fromcase=40003&from_wxz=1"
-                        target="_blank">免费下载</a></button>
-            </div>
-            <!-- <div class="banner"> -->
-            <img src="https://www.islide.cc/_next/static/media/header.489d291b.png" alt="firstPage"
-            id="bannerImg">
-            <!-- </div> -->
+        <div class="mode-switch">
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round">
+                <i class="fa-solid fa-moon" id="imageLight"></i>
+                <i class="fa-solid fa-sun" id="imageDark"></i>
+            </span>
+        </label>
         </div>
-        
-        <div class="movePart" id="movePart">
-            <div class="history">
-                <div>
-                    <h3>8 年专注</h3>
-                    <p>解决 PPT 制作痛点</p>
+        <div class="topPageContainer" id="topPageContainer">
+            <div class="firstPage" id="firstPage">
+                <div class="slogan" id="slogan">
+                    <h2>iSlide</h2>
+                    <h2>让 PPT 设计简单起来</h2>
+                    <br>
+                    <p>AI 深度赋能 ｜ 含 80+ 设计辅助功能</p>
+                    <p>超 1400W 专业 PPT 模板/素材</p>
+                    <br>
+                    <button class="btn" id="PCdownload">
+                        <div class="dropdown-trigger">
+                            <a
+                                href="https://static.islide.cc/site/product/package/exe/2024-12-30/175848/iSlide-8.1.1.0.exe"><i
+                                    class="fa-brands fa-windows"></i> 免费下载 Windows 版</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="https://apps.apple.com/cn/app/islide-%E6%B5%B7%E9%87%8Fppt%E6%A8%A1%E6%9D%BF-%E4%B8%93%E4%B8%9A%E5%9B%A2%E9%98%9F%E5%8E%9F%E5%88%9B%E8%AE%BE%E8%AE%A1/id1568400299"
+                                        target="_blank"><i class="fa-brands fa-apple"></i> 免费下载 macOS 版</a></li>
+                                <li><a href="https://www.islide.cc/download">更多下载</a></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn" id="mobileDownload"><a
+                            href="https://sj.qq.com/appdetail/com.islide.app?fromcase=40003&from_wxz=1"
+                            target="_blank">免费下载</a></button>
                 </div>
-                <div>
-                    <h3>200+ 个国家/地区</h3>
-                    <p>支持离线使用，提供多语言版本</p>
-                </div>
-                <div>
-                    <h3>3500 万用户的选择</h3>
-                    <p>深受用户信赖</p>
-                </div>
+                <!-- <div class="banner"> -->
+                <img src="https://www.islide.cc/_next/static/media/header.489d291b.png" alt="firstPage"
+                id="bannerImg">
+                <!-- </div> -->
             </div>
+            
+            <div class="movePart" id="movePart">
+                <div class="history">
+                    <div>
+                        <h3>8 年专注</h3>
+                        <p>解决 PPT 制作痛点</p>
+                    </div>
+                    <div>
+                        <h3>200+ 个国家/地区</h3>
+                        <p>支持离线使用，提供多语言版本</p>
+                    </div>
+                    <div>
+                        <h3>3500 万用户的选择</h3>
+                        <p>深受用户信赖</p>
+                    </div>
+                </div>
 
-            <div class="videoContainer">
-                <!-- GIF占位图 -->
-                <img src="https://www.islide.cc/_next/static/media/header_video.32a6e91e.gif" alt="视频加载中">
-                <p class="loading-text"></p>
-                
-                <!-- 实际视频元素 -->
-                <video muted autoplay loop>
-                    <source src="./iSlide-video.mp4" type="video/mp4">
-                    您的浏览器不支持HTML5视频
-                </video>
-                <!-- <video width="100%" muted autoplay loop src="https://www.islide.cc/video/homeISlide.mp4" alt="视频加载中"></video> -->
+                <div class="videoContainer">
+                    <!-- GIF占位图 -->
+                    <img src="https://www.islide.cc/_next/static/media/header_video.32a6e91e.gif" alt="视频加载中">
+                    <p class="loading-text"></p>
+                    
+                    <!-- 实际视频元素 -->
+                    <video muted autoplay loop>
+                        <source src="./iSlide-video.mp4" type="video/mp4">
+                        您的浏览器不支持HTML5视频
+                    </video>
+                    <!-- <video width="100%" muted autoplay loop src="https://www.islide.cc/video/homeISlide.mp4" alt="视频加载中"></video> -->
+                </div>
             </div>
         </div>
         <div class="galleryBackground"> 
@@ -428,19 +439,7 @@
                         <div>&thinsp;蜀ICP备16016339号-1 | 川公网安备 51019002001019号</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="mode-switch">
-                <label class="switch">
-                    <input type="checkbox" id="darkModeToggle">
-                    <span class="slider round">
-                        <i class="fa-solid fa-moon" id="imageLight"></i>
-                        <i class="fa-solid fa-sun" id="imageDark"></i>
-                    </span>
-                </label>
-            </div>
-
-            
+            </div>           
 
     </main>
 </body>

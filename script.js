@@ -1,3 +1,28 @@
+//深色模式按钮
+document.getElementById('darkModeToggle').addEventListener('change', function() {
+    const imageLight = document.getElementById('imageLight');
+    const imageDark = document.getElementById('imageDark');
+    
+    if (this.checked) {
+        // 切换到深色模式
+        imageLight.style.display = 'none';
+        imageDark.style.display = 'block';
+        document.documentElement.style.setProperty('color-scheme', 'dark');       
+        bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
+        movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
+        firstPage.style.background = 'black';
+    } else {
+        // 切换回浅色模式
+        imageLight.style.display = 'block';
+        imageDark.style.display = 'none';
+        document.documentElement.style.setProperty('color-scheme', 'light');
+         // 清除 filter 属性
+        bannerImg.style.filter = 'none';
+        movePart.style.filter = 'none';
+        firstPage.style.background = 'white';
+    }
+});
+
 //  返回顶部按钮
 var backToTopButton = document.getElementsByClassName("TOPbutton")[0];
 
@@ -106,12 +131,8 @@ function handleScrollAnimation(element) {
     }
 }
 (function() {
-    const firstPage = document.querySelector('.firstPage');
-    firstPage.classList.add('slide-up');
-})();
-(function() {
-    const movePart = document.querySelector('.movePart');
-    movePart.classList.add('slide-up');
+    const topPageContainer = document.querySelector('.topPageContainer');
+    handleScrollAnimation(topPageContainer);
 })();
 window.addEventListener('scroll', function() {
     const gallery = document.querySelector('.gallery');
@@ -136,26 +157,3 @@ window.addEventListener('scroll',  function() {
   isScrolling = window.requestAnimationFrame(handleScroll); 
 });
 
-document.getElementById('darkModeToggle').addEventListener('change', function() {
-    const imageLight = document.getElementById('imageLight');
-    const imageDark = document.getElementById('imageDark');
-    
-    if (this.checked) {
-        // 切换到深色模式
-        imageLight.style.display = 'none';
-        imageDark.style.display = 'block';
-        document.documentElement.style.setProperty('color-scheme', 'dark');       
-        bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
-        movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
-        firstPage.style.background = 'black';
-    } else {
-        // 切换回浅色模式
-        imageLight.style.display = 'block';
-        imageDark.style.display = 'none';
-        document.documentElement.style.setProperty('color-scheme', 'light');
-         // 清除 filter 属性
-        bannerImg.style.filter = 'none';
-        movePart.style.filter = 'none';
-        firstPage.style.background = 'white';
-    }
-});
