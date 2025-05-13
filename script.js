@@ -97,26 +97,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-// //图片自动轮播在鼠标悬停时暂停
-// const scrollLines = document.querySelectorAll('.InfiniteScrollLine');// 获取所有需要滚动的元素
-// function startAnimation() {// 启动动画
-//     scrollLines.forEach(line => {
-//         line.style.animationPlayState = 'running';
-//     });
-// }
+//图片自动轮播在鼠标悬停时此行暂停
+const scrollLines = document.querySelectorAll('.InfiniteScrollLine');
 
-// function pauseAnimation() {// 暂停动画
-//     scrollLines.forEach(line => {
-//         line.style.animationPlayState = 'paused';
-//     });
-// }
+// 启动动画
+function startAnimation(line) {
+    line.style.animationPlayState = 'running';
+}
 
-// // 鼠标悬停时暂停动画，离开时恢复
-// scrollLines.forEach(line => {
-//     line.addEventListener('mouseenter', pauseAnimation);
-//     line.addEventListener('mouseleave', startAnimation);
-// });
+// 暂停动画
+function pauseAnimation(line) {
+    line.style.animationPlayState = 'paused';
+}
 
+// 鼠标悬停时暂停当前行的动画，离开时恢复
+scrollLines.forEach(line => {
+    line.addEventListener('mouseenter', () => pauseAnimation(line));
+    line.addEventListener('mouseleave', () => startAnimation(line));
+});
+
+//盒子浮起效果
 function handleScrollAnimation(element) {
     const elementTopPosition = element.getBoundingClientRect().top;
     const elementBottomPosition = element.getBoundingClientRect().bottom;

@@ -892,7 +892,7 @@ input:checked + #imageDark {
         display: flex;
         overflow-x:scroll;
         scroll-snap-type: x mandatory;
-        /* scroll-behavior: smooth; */
+        scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         padding: 2rem 0;
         gap: 1rem;
