@@ -122,17 +122,18 @@ function handleScrollAnimation(element) {
     const elementBottomPosition = element.getBoundingClientRect().bottom;
     const screenPosition = window.innerHeight;
 
-    if (elementTopPosition < screenPosition*0.8 && elementBottomPosition > screenPosition*0.8) {
+    if (elementTopPosition < screenPosition && elementBottomPosition > screenPosition) {
         element.classList.add('slide-up');
     }
     if (elementTopPosition > screenPosition*1.2) {
-        element.classList.remove('slide-up');
         void element.offsetWidth; // 强制重绘
+        element.classList.remove('slide-up');
+
     }
 }
 (function() {
     const topPageContainer = document.querySelector('.topPageContainer');
-    handleScrollAnimation(topPageContainer);
+    topPageContainer.classList.add('slide-up');
 })();
 window.addEventListener('scroll', function() {
     const gallery = document.querySelector('.gallery');
