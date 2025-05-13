@@ -158,3 +158,37 @@ window.addEventListener('scroll',  function() {
   isScrolling = window.requestAnimationFrame(handleScroll); 
 });
 
+//接入卡片于testimonial-slider
+document.addEventListener('DOMContentLoaded',   function() { 
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    let partnersData = []; 
+    // 1. 获取数据 
+    fetch('https://jxk.net.cn/img')  
+    .then(response => response.json())  
+    .then(data => { 
+        if (data.code   === 200 && data.data?.length)   { 
+            partnersData = data.data;  
+            initCarousel(); 
+        } 
+    }) 
+    .catch(console.error); 
+    // 2. 初始化轮播 
+    function initCarousel() {
+        // 渲染卡片
+        renderCards(partnersData);
+    } 
+    // 3. 渲染卡片 
+    function renderCards(data) { 
+        testimonialSlider.innerHTML   = '';         
+        data.forEach((item) => { 
+            const card = document.createElement('div');  
+            card.className   = 'card'; 
+            card.innerHTML   = ` 
+                <div class="testimonial"> 
+                    <img src="${item}">  
+                </div> 
+            `; 
+            testimonialSlider.appendChild(card);  
+        }); 
+    }
+});
