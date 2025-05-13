@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('视频加载错误:', video.error);
     });
 
-    // 开始加载视频（对于某些浏览器需要这个触发）
+    // 开始加载视频（某些浏览器需要触发）
     video.load();
 }); 
     function handleError() {
@@ -95,16 +95,24 @@ document.addEventListener('DOMContentLoaded', function() {
 function handleScrollAnimation(element) {
     const elementTopPosition = element.getBoundingClientRect().top;
     const elementBottomPosition = element.getBoundingClientRect().bottom;
-    const screenPosition = window.innerHeight *1.2 ;
+    const screenPosition = window.innerHeight;
 
-    if (elementTopPosition < screenPosition && elementBottomPosition > screenPosition) {
+    if (elementTopPosition < screenPosition*0.8 && elementBottomPosition > screenPosition*0.8) {
         element.classList.add('slide-up');
     }
-    if (elementTopPosition > screenPosition) {
+    if (elementTopPosition > screenPosition*1.2) {
         element.classList.remove('slide-up');
         void element.offsetWidth; // 强制重绘
     }
 }
+(function() {
+    const firstPage = document.querySelector('.firstPage');
+    firstPage.classList.add('slide-up');
+})();
+(function() {
+    const movePart = document.querySelector('.movePart');
+    movePart.classList.add('slide-up');
+})();
 window.addEventListener('scroll', function() {
     const gallery = document.querySelector('.gallery');
     handleScrollAnimation(gallery);
