@@ -45,10 +45,6 @@ h1{
     box-shadow: 0 4px 15px #ff52494b;
 }
 
-html,body {
-    overflow-x: hidden; /* 禁止水平滚动 */
-}
-
 /* 每个模块的出场升起动画 */
 @keyframes slideUp {
     from {
@@ -63,14 +59,67 @@ html,body {
     animation: slideUp 1s ease-out forwards;
 }
 
-/* 深色模式按钮 */
-.mode-switch {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position:sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    /* overflow: visible; */
+    height: 60px;
+    padding-left: 2vw;
+    padding-right: 2vw;
     z-index: 100000;
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    /* // 模糊的半径，数值越大越模糊 */
+    backdrop-filter: blur(2px); 
+
+    /* // 输出的亮度，越大越亮，比如 brightness(200%) => 输出亮度为2倍值 */
+    backdrop-filter: brightness(60%);
+
+    /* // 输出的对比度，越大越强烈 */
+    backdrop-filter: contrast(40%);
+
+    /* // 输出的阴影，类似css的box-show属性 */
+    backdrop-filter: drop-shadow(4px 4px 10px blue);
+
+    /* // 输出的灰度，0% => 100% 的效果类似于 黑白照 => 彩色照 */
+    backdrop-filter: grayscale(30%);
+
+    /* // 输出的色相变化 */
+    backdrop-filter: hue-rotate(120deg);
+
+    /* // 输出转换量（这个没怎么懂，估计以后用的不多） */
+    backdrop-filter: invert(70%);
+
+    /* // 不透明度，但是会被子级继承，可能会影响到子级的不透明度 */
+    backdrop-filter: opacity(20%);
+
+    /* // 这个也是转换量 */
+    backdrop-filter: sepia(90%);
+
+    /* // 输出的饱和度 */
+    backdrop-filter: saturate(80%);
+
 }
 
+.navCorn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+}
+
+.nav img{
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* margin-top: 1vw; */
+    width: 10vw;
+}
+
+/* 深色模式按钮 */
 .switch {
     position: relative;
     display: inline-block;
@@ -573,6 +622,7 @@ input:checked + #imageDark {
 
 .gallery{
     margin-top: -16vw;
+    overflow-x:hidden;
 }
 
 .gallery h2{
