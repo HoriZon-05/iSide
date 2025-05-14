@@ -389,7 +389,7 @@ input:checked + #imageDark {
     margin-left: 5vw;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 767px) {
     .firstPage{
         margin-top: 10vw;
     }
@@ -401,7 +401,7 @@ input:checked + #imageDark {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width:767px) {
     .firstPage{
         margin-top: 16vw;
     }
