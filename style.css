@@ -360,10 +360,6 @@ input:checked + #imageDark {
     }
   }
 
-.topPageContainer {
-    margin-top: 10%;
-}
-
 .firstPage{
     display: flex;
     justify-content: space-between;
@@ -394,6 +390,9 @@ input:checked + #imageDark {
 }
 
 @media (min-width: 800px) {
+    .firstPage{
+        margin-top: 10vw;
+    }
     .movePart{
         margin-top:-10vw;
     }
@@ -403,6 +402,9 @@ input:checked + #imageDark {
 }
 
 @media (max-width: 800px) {
+    .firstPage{
+        margin-top: 16vw;
+    }
     .firstPage img{
         display: none;
     }
