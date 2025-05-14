@@ -389,20 +389,22 @@ input:checked + #imageDark {
     margin-left: 5vw;
 }
 
-.firstPage{
-    margin-top: 16vw;
-}
-
 @media (min-width: 800px) {
-    /* .movePart{
+    .firstPage{
+        margin-top: 10vw;
+    }
+    .movePart{
         margin-top:-10vw;
-    } */
+    }
     #mobileDownload {
         display: none;
     }
 }
 
 @media (max-width: 800px) {
+    .firstPage{
+        margin-top: 16vw;
+    }
     .firstPage img{
         display: none;
     }

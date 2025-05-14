@@ -134,6 +134,7 @@ function handleScrollAnimation(element) {
 (function() {
     const topPageContainer = document.querySelector('.topPageContainer');
     topPageContainer.classList.add('slide-up');
+    // handleScrollAnimation(topPageContainer);
 })();
 window.addEventListener('scroll', function() {
     const gallery = document.querySelector('.gallery');
