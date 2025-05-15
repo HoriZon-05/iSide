@@ -118,18 +118,21 @@ h1{
     height: 50px;
     border:1px solid#C3C5C8;
     border-radius: 20px;
-    z-index: 999;
-    padding-left: 2vw;
+    z-index: 998;
+    padding-left: 1vw;
     padding-right: 1vw;
-    transform: translateY(-20px);
-    transition: all 0.2s ease-in-out;
+    transform: translateY(-100px);
+    /* transition: all 0.2s ease-in-out; */
 }
 
-.search button{
+#REALglassBtn{
     visibility: hidden;
     z-index: 1000;
-    margin-right: -2vw;
-    height: 200%;
+    /* padding-left: 1vw;
+    padding-right: 1vw; */
+    margin-right: -3vw;
+    width: 1vw;
+    height: 30px;
     background:none;
     border: none;
 }
@@ -137,6 +140,10 @@ h1{
 #xMark{
     visibility: hidden;
     z-index: 1000;
+}
+
+#glass{
+    z-index: 999;
 }
 
 /* 深色模式按钮 */
