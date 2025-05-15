@@ -11,6 +11,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
         movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
         firstPage.style.background = 'black';
+        document.documentElement.style.transition = 'all 0.5s ease';
     } else {
         // 切换回浅色模式
         imageLight.style.display = 'block';
