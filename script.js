@@ -46,8 +46,37 @@ backToTopButton.onclick = function() {
 }
 
 //搜索框
-document.getElementById("search").addEventListener("click", function() {
-    document.getElementById("searchInput").classList.add("searchClick");
+const searchInput = document.getElementById("searchInput");
+const glass= document.getElementById("glass");
+const REALglass = document.getElementById("REALglass");
+const x = document.getElementById("xMark");
+glass.addEventListener("click", function() {
+    searchInput.style.visibility = "visible";
+    searchInput.style.transform = "translateY(1px)";
+    searchInput.style.transition = "all 0.5s ease-in-out";
+    glass.style.visibility = "visible";
+    glass.style.transform = "translateX(-3vw)";
+    glass.style.transition = "all 0.5s ease-in-out";
+    REALglass.style.visibility  = "visible";
+    REALglass.style.transform = "translateX(-3vw)";
+    REALglass.style.transition = "all 0.5s ease-in-out";
+    x.style.visibility = "visible";
+    x.style.transform = "translateX(-4vw)";
+    x.style.transition = "all 0.5s ease-in-out";
+});
+document.getElementById("xMark").addEventListener("click", function() { 
+    searchInput.style.visibility = "hidden"; // 添加这行代码来隐藏搜索框
+    searchInput.style.transform = "translateY(-1px)";
+    searchInput.style.transition = "all 0.5s ease-in-out";
+    glass.style.transform = "translateX(3vw)";
+    glass.style.transition = "all 0.5s ease-in-out";
+    REALglass.style.transform = "translateX(3vw)";
+    REALglass.style.transition = "all 0.5s ease-in-out";
+    REALglass.style.visibility  = "hidden";
+    REALglass.style.opacity = "0";
+    x.style.transform = "translateX(4vw)";
+    x.style.transition = "all 0.5s ease-in-out";
+    x.style.visibility = "hidden";
 });
 
 //鼠标悬停下拉菜单按钮恢复原色

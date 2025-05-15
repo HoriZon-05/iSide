@@ -105,30 +105,38 @@ h1{
     display: flex;
     justify-content: end;
     align-items: center;
+    background-color: initial;
 }
 
 #searchInput{
     /* display: none; */
     visibility: hidden;
-    /* transform:translateY(-200%); */
     position: absolute;
     /* top: 0px;
     right:20vw; */
     width: 62vw;
-    height: 58px;
+    height: 50px;
     border:1px solid#C3C5C8;
     border-radius: 20px;
-    z-index: 99999999999;
-    transform: translateY(-5px);
+    z-index: 999;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    transform: translateY(-20px);
     transition: all 0.2s ease-in-out;
 }
 
-.searchClick{
-    /* display: inline-block; */
-    visibility: visible;
-    /* position: relative; */
-    transform: translateY(5px);
-    transition: all 0.5s ease-in-out;
+.search button{
+    visibility: hidden;
+    z-index: 1000;
+    margin-right: -2vw;
+    height: 200%;
+    background:none;
+    border: none;
+}
+
+#xMark{
+    visibility: hidden;
+    z-index: 1000;
 }
 
 /* 深色模式按钮 */
