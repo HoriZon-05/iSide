@@ -45,6 +45,11 @@ backToTopButton.onclick = function() {
     });
 }
 
+//搜索框
+document.getElementById("search").addEventListener("click", function() {
+    document.getElementById("searchInput").classList.add("searchClick");
+});
+
 //鼠标悬停下拉菜单按钮恢复原色
 document.querySelectorAll('.dropdown-menu li a').forEach(link => {
   link.addEventListener('mouseover', () => {
