@@ -479,6 +479,9 @@ input:checked + #imageDark {
     #mobileDownload {
         display: none;
     }
+    #glassOnMobile{
+        display: none;
+    }
 }
 
 @media (max-width:767px) {
@@ -489,6 +492,9 @@ input:checked + #imageDark {
         display: none;
     }
     #PCdownload{
+        display: none;
+    }
+    .search{
         display: none;
     }
 
