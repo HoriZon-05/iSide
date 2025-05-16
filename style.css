@@ -296,9 +296,16 @@ h1{
         transform-origin: 70% -30px;
         transition: transform 0.5s ease-in-out;
         background-color: #fff;
+        padding-bottom: 20px;
+        border-end-start-radius: 20px;
+        border-end-end-radius: 20px;
     }
-    .navCorn div:first-child,.navCorn div:nth-child(4),.navCorn div:nth-child(5),.navCorn img,.navCorn span{
+    .navCorn div:first-child,.navCorn div:nth-child(4),.navCorn div:nth-child(5){
         display: none;
+    }
+    .navCorn span{
+        display: block;
+        font-size: small;
     }
     /* .navCorn div{
         display: block;
