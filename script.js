@@ -100,7 +100,7 @@ unfoldMenuInput.addEventListener('change', function () {
             // 如果 input 未被选中，设置 .navCorn 为隐藏
             navCorn.style.visibility = 'hidden';
             navCorn.style.transform = 'scale(0)';
-            navCorn.style['transform-origin'] = '67% -30px';
+            navCorn.style['transform-origin'] = '65% -30px';
             navCorn.style.transition = 'all 0.5s ease-in-out';
     }
 });
@@ -115,7 +115,7 @@ mediaQuery.addEventListener('change', (event) => {
     else{
             navCorn.style.visibility = 'hidden';
             navCorn.style.transform = 'scale(0)';
-            navCorn.style['transform-origin'] = '67% -30px';
+            navCorn.style['transform-origin'] = '65% -30px';
             navCorn.style.transition = 'all 0.5s ease-in-out';
             unfoldMenuInput.checked = false;     
     }
