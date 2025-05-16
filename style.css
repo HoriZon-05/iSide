@@ -1144,13 +1144,14 @@ input:checked + #imageDark {
     
     .testimonial-slider {
         display: flex;
-        overflow-x:scroll;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
+        overflow-x:auto;
+        /* scroll-snap-type: x mandatory; */
+        /* scroll-behavior: smooth; */
+        -webkit-overflow-scrolling: touch; /* 支持iOS */
         padding: 2rem 0;
         gap: 1rem;
         margin: 3rem;
+        /* transition: scroll-left 0.5s ease; */
     }
     
     .testimonial-slider::-webkit-scrollbar {
@@ -1200,11 +1201,15 @@ input:checked + #imageDark {
     
     @media (max-width: 766px) {
         .testimonial img{
-            width: 70vw;         
-            height:105vw;
+            width: 88vw;         
+            height:auto;
         }
         .testimonial-slider-container p{
             margin-right: 3vw;
+        }
+        .testimonial-slider{
+            margin-left: 1vw;
+            margin-right: 0;
         }
     }
 

@@ -275,3 +275,44 @@ document.addEventListener('DOMContentLoaded',   function() {
         }); 
     }
 });
+//4.触摸翻页限制
+document.querySelector('.testimonial-slider').addEventListener('touchend', () => {
+    const deltaX = startX - endX; // 滑动总距离
+    const limitedMinDist = 0.8 *cardWidth;
+    const limitedMaxDist = 1 *cardWidth;
+    if (Math.abs(deltaX) > limitedMinDist) {
+        const direction = deltaX > 0 ? 'left' : 'right';
+        const currentScroll = container.scrollLeft;
+        const targetScroll = direction === 'left' 
+            ? currentScroll + cardWidth 
+            : currentScroll - cardWidth;
+        
+        // 平滑滚动到目标位置
+        container.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'
+        });
+    }else if (Math.abs(deltaX) > limitedMaxDist) {
+        const targetScroll = direction === 'left' 
+            ? (currentScroll%cardWidth + cardWidth) 
+            : (currentScroll%cardWidth - cardWidth)
+        container.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'
+        });
+    }else {
+        // 未达阈值时回弹
+        container.scrollTo({
+            left: container.scrollLeft,
+            behavior: 'smooth'
+        });
+    }
+});
+
+document.querySelector('.testimonial-slider').addEventListener('touchmove', function(e) {
+    if (Math.abs(e.touches.clientX - startX) > 10) { // 仅水平滑动时阻止默认行为
+        e.preventDefault();
+    }
+});
+
+
