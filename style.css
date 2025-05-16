@@ -80,8 +80,10 @@ h1{
 .navCorn{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     width: 50vw;
+    margin-top: 30px;
+    height: 60px;
 }
 
 .nav img{
@@ -109,31 +111,56 @@ h1{
 .submenu {
     display: flex;
     justify-content:start;
-    align-content: space-between;
+    align-content: space-evenly;
     flex-direction: column;
     flex-wrap: wrap;
     visibility: hidden;
     opacity: 0;
-    /* background-color: #fff; */
+    background-color: #fff;
     border:  1px solid rgba(0, 0, 0, 0.1);
     padding: 20px;
     z-index: 1000;
     list-style-type: none;
     position: absolute;
-    left: 24vw;
-    width: 40vw;
-    height: 120px;
+    /* left: 23.5vw; */
+    left: 10vw;
+    top: 60px;
+    /* width: 40.5vw; */
+    width: 80vw;
+    /* height: 10.5vw; */
+    height: 18vw;
     border-radius: 15px;
     transform: translateY(-20px); /* 初始位置更高，创造更明显的下落效果 */
     transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1); /* 使用苹果风格的缓动曲线 */
     pointer-events: none; /* 防止动画期间误触 */
-    /* text-align: center; */
+}
+
+.submenu#PPT{
+    /* align-content: start; */
+    width: fit-content;
+    left: 22vw; 
 }
 
 .submenu#help{
-    /* justify-content: end; */
-    align-content: end;
-    text-align: start;
+    /* align-content: end; */
+    width:fit-content;
+    left: 56vw;
+}
+
+.submenu li a{ 
+    display: flex;
+    align-items: center;
+}
+
+.submenu li img{
+    /* display: flex; */
+    height: 4vw;
+    width: 4vw;
+    margin: 0.5vw;;
+}
+
+.foldable{
+    height: 100%;
 }
 
 .foldable:hover .submenu{
