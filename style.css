@@ -107,46 +107,6 @@ h1{
     z-index: -1;
 }
 
-/* 隐藏所有二级菜单 */
-.submenu {
-    display: flex;
-    justify-content:start;
-    align-content: space-evenly;
-    flex-direction: column;
-    flex-wrap: wrap;
-    visibility: hidden;
-    opacity: 0;
-    background-color: #fff;
-    border:  1px solid rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 1000;
-    list-style-type: none;
-    position: absolute;
-    /* left: 23.5vw; */
-    left: 10vw;
-    top: 60px;
-    /* width: 40.5vw; */
-    width: 80vw;
-    /* height: 10.5vw; */
-    height: 18vw;
-    border-radius: 15px;
-    transform: translateY(-20px); /* 初始位置更高，创造更明显的下落效果 */
-    transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1); /* 使用苹果风格的缓动曲线 */
-    pointer-events: none; /* 防止动画期间误触 */
-}
-
-.submenu#PPT{
-    /* align-content: start; */
-    width: fit-content;
-    left: 22vw; 
-}
-
-.submenu#help{
-    /* align-content: end; */
-    width:fit-content;
-    left: 56vw;
-}
-
 .submenu li a{ 
     display: flex;
     align-items: center;
@@ -157,18 +117,6 @@ h1{
     height: 4vw;
     width: 4vw;
     margin: 0.5vw;;
-}
-
-.foldable{
-    height: 100%;
-}
-
-.foldable:hover .submenu{
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto; /* 恢复交互 */
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* 使用不同的缓动曲线实现苹果的弹跳效果 */
 }
 
 .search{
@@ -214,6 +162,164 @@ h1{
 
 #glass{
     z-index: 999;
+}
+
+.unfoldMenu{
+    position:relative;
+    top: 20px;
+    height: 60px;
+    width: 18px;
+    transition: all 0.5s ease-in-out;
+}
+
+.unfoldMenu input{ 
+    opacity: 0;/* 不知道为什么用display和visibility控制都会导致两根线中间的区域无法点击,所以只能用opacity */
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+.unfoldMenu label{ 
+    cursor: pointer;
+}
+
+.unfoldMenu label::before,.unfoldMenu label::after{
+    content: " ";
+    position: absolute;
+    /* left: 5px; */
+    right: 0px;
+    width: 18px;
+    height: 2px;
+    border-radius: 4px;
+    background-color: black;
+    /* margin-left: 4.5px; */
+    transition:transform 0.3s ease-in-out,top 0.3s ease-in-out 0.3s;
+}
+
+.unfoldMenu label::before{
+    top: 5px;
+}
+
+.unfoldMenu label::after{
+    top: 14px;
+}
+
+.unfoldMenu input:checked + label::before{
+    top: 10px;
+    transform: rotate(-45deg);
+    transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+}
+
+.unfoldMenu input:checked + label::after{
+    top: 10px;
+    transform: rotate(45deg);
+    transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+}
+
+@media (min-width:900px){
+    .foldable,.submenu,.submenu li{
+        position: static;
+        left: 10vw;
+        top: 60px;
+    }
+    /* 隐藏所有二级菜单 */
+    .submenu {
+        display: flex;
+        justify-content:start;
+        align-content: space-evenly;
+        flex-direction: column;
+        flex-wrap: wrap;
+        visibility: hidden;
+        opacity: 0;
+        background-color: #fff;
+        border:  1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        z-index: 1000;
+        list-style-type: none;
+        position: absolute;
+        /* left: 23.5vw; */
+        left: 10vw;
+        top: 60px;
+        /* width: 40.5vw; */
+        width: 80vw;
+        /* height: 10.5vw; */
+        height: 18vw;
+        margin-left: -20vw;
+        margin-top: -12px;
+        border-radius: 15px;
+        transform: translateY(-20px); /* 初始位置更高，创造更明显的下落效果 */
+        transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1); /* 使用苹果风格的缓动曲线 */
+        pointer-events: none; /* 防止动画期间误触 */
+    }
+
+    .submenu#PPT{
+        /* align-content: start; */
+        width: max-content;
+        left: 22vw; 
+    }
+
+    .submenu#help{
+        /* align-content: end; */
+        width:max-content;
+        left: 56vw;
+    }
+    .navCorn{
+        visibility: visible;
+        /* position: absolute; */
+        /* transform: scale(1);
+        transform-origin: 0%; */
+    }
+    .unfoldMenu{
+        visibility: hidden;
+    }
+    
+    .foldable:hover .submenu{
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto; /* 恢复交互 */
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* 使用不同的缓动曲线实现苹果的弹跳效果 */
+    }
+}
+
+@media (max-width:900px){
+    .navCorn{
+        visibility: hidden;
+        display: flex;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        height: fit-content;
+        width: 100vw;
+        flex-wrap: wrap;
+        justify-content:space-evenly;
+        transform: scale(0);
+        transform-origin: 70% -30px;
+        transition: transform 0.5s ease-in-out;
+        background-color: #fff;
+    }
+    .navCorn div:first-child,.navCorn div:nth-child(4),.navCorn div:nth-child(5),.navCorn img,.navCorn span{
+        display: none;
+    }
+    /* .navCorn div{
+        display: block;
+        width: 60vw;
+        height: 50px;
+        border: 1px solid rgb(0, 0, 0);
+        align-content: center;
+    } */
+
+    .foldable:hover .navCorn{
+        visibility: visible;
+    }
+/* 
+    .submenu{
+        margin-left: 0;
+        margin-top: 0;
+    } */
+
+    /* .unfoldMenu input:checked + .navCorn{
+        visibility: visible;
+    } */
 }
 
 /* 深色模式按钮 */

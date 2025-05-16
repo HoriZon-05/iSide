@@ -80,6 +80,53 @@ document.getElementById("xMark").addEventListener("click", function() {
     x.style.visibility = "hidden";
 });
 
+// 移动端菜单键
+const unfoldMenuInput = document.querySelector('.unfoldMenu input'); // 获取 .unfoldMenu 的 input 元素
+const navCorn = document.querySelector('.navCorn');
+const submenu = document.querySelector('.submenu');
+
+// 检测屏幕宽度是否小于等于 900px
+const mediaQuery = window.matchMedia('(max-width: 900px)');
+
+// 监听 input 的 change 事件
+unfoldMenuInput.addEventListener('change', function () {
+    // 仅在屏幕宽度 <= 900px 时执行
+    if (this.checked) {
+            // 如果 input 被选中，设置 .navCorn 为可见
+            navCorn.style.visibility = 'visible';
+            navCorn.style.transform = 'scale(1)';
+            navCorn.style.transition = 'all 0.5s ease-in-out';
+        } else {
+            // 如果 input 未被选中，设置 .navCorn 为隐藏
+            navCorn.style.visibility = 'hidden';
+            navCorn.style.transform = 'scale(0)';
+            navCorn.style['transform-origin'] = '70% -30px';
+            navCorn.style.transition = 'all 0.5s ease-in-out';
+    }
+});
+// 监听屏幕宽度变化
+mediaQuery.addEventListener('change', (event) => {
+    if (!event.matches) {
+        // 屏幕宽度 > 900px 时执行的代码
+            navCorn.style.visibility = 'visible';
+            navCorn.style.transform = 'scale(1)';
+            navCorn.style.transition = 'all 0.5s ease-in-out';
+    }
+    else{
+            navCorn.style.visibility = 'hidden';
+            navCorn.style.transform = 'scale(0)';
+            navCorn.style['transform-origin'] = '70% -30px';
+            navCorn.style.transition = 'all 0.5s ease-in-out';
+            unfoldMenuInput.checked = false;     
+    }
+});
+// 初始加载时判断
+if (!mediaQuery.matches) {
+            navCorn.style.visibility = 'visible';
+            navCorn.style.transform = 'scale(1)';
+            navCorn.style.transition = 'all 0.5s ease-in-out';
+}
+
 //鼠标悬停下拉菜单按钮恢复原色
 document.querySelectorAll('.dropdown-menu li a').forEach(link => {
   link.addEventListener('mouseover', () => {
