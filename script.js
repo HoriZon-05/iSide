@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded',   function() {
 //4.触摸翻页限制
 document.querySelector('.testimonial-slider').addEventListener('touchend', () => {
     const deltaX = startX - endX; // 滑动总距离
-    const limitedMinDist = 0.8 *cardWidth;
+    const limitedMinDist = 0.1 *cardWidth;
     const limitedMaxDist = 1 *cardWidth;
     if (Math.abs(deltaX) > limitedMinDist) {
         const direction = deltaX > 0 ? 'left' : 'right';
@@ -309,10 +309,10 @@ document.querySelector('.testimonial-slider').addEventListener('touchend', () =>
     }
 });
 
-document.querySelector('.testimonial-slider').addEventListener('touchmove', function(e) {
-    if (Math.abs(e.touches.clientX - startX) > 10) { // 仅水平滑动时阻止默认行为
-        e.preventDefault();
-    }
-});
+// document.querySelector('.testimonial-slider').addEventListener('touchmove', function(e) {
+//     if (Math.abs(e.touches.clientX - startX) > 1) { // 仅水平滑动时阻止默认行为
+//         e.preventDefault();
+//     }
+// });
 
 

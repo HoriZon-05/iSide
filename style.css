@@ -300,7 +300,7 @@ h1{
         border-end-start-radius: 20px;
         border-end-end-radius: 20px;
     }
-    .navCorn div:first-child,.navCorn div:nth-child(4),.navCorn div:nth-child(5){
+    .navCorn div:first-child,.navCorn div:nth-child(4),.navCorn div:nth-child(5),.navCorn div img,.navCorn div span{ 
         display: none;
     }
     .navCorn span{
@@ -1145,8 +1145,8 @@ input:checked + #imageDark {
     .testimonial-slider {
         display: flex;
         overflow-x:auto;
-        /* scroll-snap-type: x mandatory; */
-        /* scroll-behavior: smooth; */
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch; /* 支持iOS */
         padding: 2rem 0;
         gap: 1rem;
