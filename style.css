@@ -293,7 +293,7 @@ h1{
         flex-wrap: wrap;
         justify-content:space-evenly;
         transform: scale(0);
-        transform-origin: 70% -30px;
+        transform-origin: 67% -30px;
         transition: transform 0.5s ease-in-out;
         background-color: #fff;
         padding-bottom: 20px;
