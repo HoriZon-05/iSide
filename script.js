@@ -24,6 +24,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
     }
 });
 
+
 //  返回顶部按钮
 var backToTopButton = document.getElementsByClassName("TOPbutton")[0];
 
@@ -45,6 +46,7 @@ backToTopButton.onclick = function() {
         behavior: 'smooth' // 添加平滑滚动
     });
 }
+
 
 //搜索框
 const searchInput = document.getElementById("searchInput");
@@ -80,16 +82,18 @@ document.getElementById("xMark").addEventListener("click", function() {
     x.style.visibility = "hidden";
 });
 
-// 移动端展开菜单的控制
+
+
+// 移动端的展开菜单
 const unfoldMenuInput = document.querySelector('.unfoldMenu input'); 
 const navCorn = document.querySelector('.navCorn');
 const submenu = document.querySelector('.submenu');
 // 检测屏幕宽度是否小于等于 900px
 const mediaQuery = window.matchMedia('(max-width: 900px)');
+const at = document.querySelectorAll('.navCorn a');
 
 // 监听 input 的 change 事件
 unfoldMenuInput.addEventListener('change', function () {
-    // 仅在屏幕宽度 <= 900px 时执行
     if (this.checked) {
             navCorn.classList.remove('negative');
             navCorn.classList.add('active');
@@ -103,6 +107,7 @@ mediaQuery.addEventListener('change', (event) => {
     if (!event.matches) {// 屏幕宽度 > 900px 时执行的代码
         navCorn.classList.remove('negative');
         navCorn.classList.add('active');
+
     }
     else{
         unfoldMenuInput.checked = false;  
@@ -118,6 +123,7 @@ if (!mediaQuery.matches) {// 屏幕宽度 > 900px 时执行的代码
 }else{
     unfoldMenuInput.checked = false;     
 }
+
 
 //移动端菜单用点击代替悬停
 const foldableItems = document.querySelectorAll('.foldable');
@@ -178,12 +184,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 开始加载视频（某些浏览器需要触发）
     video.load();
 }); 
-    function handleError() {
-        clearInterval(gifInterval);
-        gifPlaceholder.style.display  = 'block';
-        video.style.display  = 'none';
-        if(loadingText) loadingText.textContent  = '视频加载失败，请刷新重试';
-    }
+function handleError() {
+    clearInterval(gifInterval);
+    gifPlaceholder.style.display  = 'block';
+    video.style.display  = 'none';
+    if(loadingText) loadingText.textContent  = '视频加载失败，请刷新重试';
+}
 
 
 //图片自动轮播在鼠标悬停时此行暂停
@@ -204,6 +210,7 @@ scrollLines.forEach(line => {
     line.addEventListener('mouseenter', () => pauseAnimation(line));
     line.addEventListener('mouseleave', () => startAnimation(line));
 });
+
 
 //盒子浮起效果
 function handleScrollAnimation(element) {
@@ -248,8 +255,9 @@ window.addEventListener('scroll',  function() {
   isScrolling = window.requestAnimationFrame(handleScroll); 
 });
 
+
 //接入卡片于testimonial-slider
-document.addEventListener('DOMContentLoaded',   function() { 
+document.addEventListener('DOMContentLoaded',function() { 
     const testimonialSlider = document.querySelector('.testimonial-slider');
     let partnersData = []; 
     // 1. 获取数据 
