@@ -82,7 +82,7 @@ h1{
     justify-content: space-between;
     /* align-items: center; */
     width: 50vw;
-    margin-top: 30px;
+    margin-top: 36px;
     height: 60px;
 }
 
@@ -215,6 +215,15 @@ h1{
     transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
 }
 
+    .submenu li{
+        padding-right: 1vw;
+        border-radius: 15px;
+    }
+
+    .submenu li:hover{
+        background-color:#F5F6F9;
+    }
+
 @media (min-width:900px){
     .foldable,.submenu,.submenu li{
         position: static;
@@ -280,15 +289,6 @@ h1{
         transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* 使用不同的缓动曲线实现苹果的弹跳效果 */
     }
 
-    .submenu li{
-        padding-right: 1vw;
-        border-radius: 15px;
-    }
-
-    .submenu li:hover{
-        background-color:#F5F6F9;
-    }
-
     #glassOnMobile{
         display: none;
     }
@@ -297,14 +297,13 @@ h1{
 @media (max-width:900px){
     .navCorn{
         visibility: hidden;
-        display: flex;
+        display: inline-block;
         position: absolute;
-        top: 30px;
+        top: 22px;
         left: 0;
         height: fit-content;
         width: 100vw;
-        flex-wrap: wrap;
-        justify-content:space-evenly;
+        height: 100vh;
         transform: scale(0);
         transform-origin: 65% -30px;
         transition: transform 0.5s ease-in-out;
@@ -313,34 +312,53 @@ h1{
         border-end-start-radius: 20px;
         border-end-end-radius: 20px;
     }
-    .navCorn div:first-child,.navCorn div:nth-child(4),.navCorn div:nth-child(5),.navCorn div img,.navCorn div span{ 
+    .navCorn div img,.navCorn div span{ 
         display: none;
     }
-    .navCorn span{
-        display: block;
-        font-size: small;
-    }
-    /* .navCorn div{
-        display: block;
-        width: 60vw;
-        height: 50px;
-        border: 1px solid rgb(0, 0, 0);
-        align-content: center;
-    } */
-
-    .foldable:hover .navCorn{
-        visibility: visible;
-    }
-/* 
     .submenu{
-        margin-left: 0;
-        margin-top: 0;
-    } */
+        /* display: none; */
+        /* visibility: hidden;
+        opacity: 0; */
+        height: 0;
+        visibility: hidden;
+        transform: translateY(0px);
+        transition:tranform 0.5s ease-in-out;
+    }
+    .navCorn>div{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 40vw;
+        padding-right: 1vw;
+        border-radius: 15px;
+    }
 
-    /* .unfoldMenu input:checked + .navCorn{
+    .navCorn>div:hover{
+        background-color:#F5F6F9;
+    }
+    .foldable>a{
+        pointer-events: none;
+    }
+    .foldable>a::after{
+        content: " ▼";
+        font-size: 0.6rem;
+        transition: transform 0.3s ease;
+    }
+    .submenu.active{
+        height: auto;
         visibility: visible;
-    } */
-    .submenu li a{ 
+        /* transition: height 0.5s ease-in-out; */
+        transform: translateY(5px);
+        transition: transform 0.5s ease-in-out;
+        /* display: block; */
+        /* visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s; */
+    }
+    .submenu li a{
+        /* border:1px solid rgb(0, 0, 0); */
+        /* border-radius: 15px; */
+        /* padding:2px; */
+        /* margin: 1px; */
         font-size: 90%;
     }
     .search{

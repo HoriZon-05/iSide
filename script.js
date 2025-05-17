@@ -125,7 +125,23 @@ if (!mediaQuery.matches) {
             navCorn.style.visibility = 'visible';
             navCorn.style.transform = 'scale(1)';
             navCorn.style.transition = 'all 0.5s ease-in-out';
+            unfoldMenuInput.checked = false;     
 }
+
+//移动端菜单用点击代替悬停
+const foldableItems = document.querySelectorAll('.foldable');
+
+// 遍历每个可折叠的菜单项
+foldableItems.forEach(item => {
+    // 获取对应的子菜单
+    const submenu = item.querySelector('.submenu');
+
+    // 监听点击事件
+    item.addEventListener('click', function() {
+        // 切换子菜单的 active 类
+        submenu.classList.toggle('active');
+    });
+});
 
 //鼠标悬停下拉菜单按钮恢复原色
 document.querySelectorAll('.dropdown-menu li a').forEach(link => {
