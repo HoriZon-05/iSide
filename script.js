@@ -106,8 +106,7 @@ unfoldMenuInput.addEventListener('change', function () {
 });
 // 监听屏幕宽度变化
 mediaQuery.addEventListener('change', (event) => {
-    if (!event.matches) {
-        // 屏幕宽度 > 900px 时执行的代码
+    if (!event.matches) {// 屏幕宽度 > 900px 时执行的代码
             navCorn.style.visibility = 'visible';
             navCorn.style.transform = 'scale(1)';
             navCorn.style.transition = 'all 0.5s ease-in-out';
@@ -121,10 +120,12 @@ mediaQuery.addEventListener('change', (event) => {
     }
 });
 // 初始加载时判断
-if (!mediaQuery.matches) {
+if (!mediaQuery.matches) {// 屏幕宽度 > 900px 时执行的代码
             navCorn.style.visibility = 'visible';
             navCorn.style.transform = 'scale(1)';
             navCorn.style.transition = 'all 0.5s ease-in-out';
+            // unfoldMenuInput.checked = false;     
+}else{
             unfoldMenuInput.checked = false;     
 }
 

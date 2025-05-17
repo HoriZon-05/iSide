@@ -124,6 +124,7 @@ h1{
     justify-content: end;
     align-items: center;
     background-color: initial;
+    margin-right: -1vw;
 }
 
 #searchInput{
@@ -132,7 +133,7 @@ h1{
     position: absolute;
     /* top: 0px;
     right:20vw; */
-    width: 62vw;
+    width: 58vw;
     height: 50px;
     border:1px solid#C3C5C8;
     border-radius: 20px;
@@ -215,15 +216,6 @@ h1{
     transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
 }
 
-    .submenu li{
-        padding-right: 1vw;
-        border-radius: 15px;
-    }
-
-    .submenu li:hover{
-        background-color:#F5F6F9;
-    }
-
 @media (min-width:900px){
     .foldable,.submenu,.submenu li{
         position: static;
@@ -270,6 +262,14 @@ h1{
         /* align-content: end; */
         width:max-content;
         left: 56vw;
+    }
+    .submenu li{
+        padding-right: 1vw;
+        border-radius: 15px;
+    }
+
+    .submenu li:hover{
+        background-color:#F5F6F9;
     }
     .navCorn{
         visibility: visible;
