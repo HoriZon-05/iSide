@@ -97,7 +97,6 @@ unfoldMenuInput.addEventListener('change', function () {
             navCorn.classList.remove('active');
             navCorn.classList.add('negative');
     }
-    unfoldMenuInput.checked = false;  
 });
 // 监听屏幕宽度变化
 mediaQuery.addEventListener('change', (event) => {
