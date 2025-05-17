@@ -279,6 +279,16 @@ h1{
         pointer-events: auto; /* 恢复交互 */
         transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* 使用不同的缓动曲线实现苹果的弹跳效果 */
     }
+
+    .submenu li{
+        padding-right: 1vw;
+        border-radius: 15px;
+    }
+
+    .submenu li:hover{
+        background-color:#F5F6F9;
+    }
+
     #glassOnMobile{
         display: none;
     }
