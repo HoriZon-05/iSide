@@ -341,7 +341,7 @@ h1{
         visibility: visible;
     } */
     .submenu li a{ 
-        font-size: 50%;
+        font-size: 90%;
     }
     .search{
         display: none;
