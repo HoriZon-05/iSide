@@ -330,7 +330,9 @@ h1{
     /* .unfoldMenu input:checked + .navCorn{
         visibility: visible;
     } */
-
+    .submenu li a{ 
+        font-size: 50%;
+    }
     .search{
         display: none;
     }
