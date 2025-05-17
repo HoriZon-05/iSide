@@ -294,6 +294,17 @@ h1{
     }
 }
 
+.navCorn.active{
+    visibility:visible;
+    transform:scale(1);
+    transition:all 0.5s ease-in-out;
+}
+.navCorn.negative{
+    visibility:hidden;
+    transform:scale(0);
+    transition:all 0.5s ease-in-out;
+}
+
 @media (max-width:900px){
     .navCorn{
         visibility: hidden;

@@ -80,11 +80,10 @@ document.getElementById("xMark").addEventListener("click", function() {
     x.style.visibility = "hidden";
 });
 
-// 移动端菜单键
-const unfoldMenuInput = document.querySelector('.unfoldMenu input'); // 获取 .unfoldMenu 的 input 元素
+// 移动端展开菜单的控制
+const unfoldMenuInput = document.querySelector('.unfoldMenu input'); 
 const navCorn = document.querySelector('.navCorn');
 const submenu = document.querySelector('.submenu');
-
 // 检测屏幕宽度是否小于等于 900px
 const mediaQuery = window.matchMedia('(max-width: 900px)');
 
@@ -92,41 +91,33 @@ const mediaQuery = window.matchMedia('(max-width: 900px)');
 unfoldMenuInput.addEventListener('change', function () {
     // 仅在屏幕宽度 <= 900px 时执行
     if (this.checked) {
-            // 如果 input 被选中，设置 .navCorn 为可见
-            navCorn.style.visibility = 'visible';
-            navCorn.style.transform = 'scale(1)';
-            navCorn.style.transition = 'all 0.5s ease-in-out';
+            navCorn.classList.remove('negative');
+            navCorn.classList.add('active');
         } else {
-            // 如果 input 未被选中，设置 .navCorn 为隐藏
-            navCorn.style.visibility = 'hidden';
-            navCorn.style.transform = 'scale(0)';
-            navCorn.style['transform-origin'] = '65% -30px';
-            navCorn.style.transition = 'all 0.5s ease-in-out';
+            navCorn.classList.remove('active');
+            navCorn.classList.add('negative');
     }
+    unfoldMenuInput.checked = false;  
 });
 // 监听屏幕宽度变化
 mediaQuery.addEventListener('change', (event) => {
     if (!event.matches) {// 屏幕宽度 > 900px 时执行的代码
-            navCorn.style.visibility = 'visible';
-            navCorn.style.transform = 'scale(1)';
-            navCorn.style.transition = 'all 0.5s ease-in-out';
+        navCorn.classList.remove('negative');
+        navCorn.classList.add('active');
     }
     else{
-            navCorn.style.visibility = 'hidden';
-            navCorn.style.transform = 'scale(0)';
-            navCorn.style['transform-origin'] = '65% -30px';
-            navCorn.style.transition = 'all 0.5s ease-in-out';
-            unfoldMenuInput.checked = false;     
+        unfoldMenuInput.checked = false;  
+        navCorn.classList.remove('active');
+        navCorn.classList.add('negative');
     }
 });
 // 初始加载时判断
 if (!mediaQuery.matches) {// 屏幕宽度 > 900px 时执行的代码
-            navCorn.style.visibility = 'visible';
-            navCorn.style.transform = 'scale(1)';
-            navCorn.style.transition = 'all 0.5s ease-in-out';
-            // unfoldMenuInput.checked = false;     
+    navCorn.classList.remove('negative');
+    navCorn.classList.add('active');
+    unfoldMenuInput.checked = false;     
 }else{
-            unfoldMenuInput.checked = false;     
+    unfoldMenuInput.checked = false;     
 }
 
 //移动端菜单用点击代替悬停
@@ -292,7 +283,7 @@ document.addEventListener('DOMContentLoaded',   function() {
         }); 
     }
 });
-//4.触摸翻页限制
+//4.触摸翻页磁吸效果
 // document.querySelector('.testimonial-slider').addEventListener('touchend', () => {
 //     const container = document.querySelector('.testimonial-slider');
 //     const deltaX = startX - endX; // 滑动总距离
