@@ -279,6 +279,9 @@ h1{
         pointer-events: auto; /* 恢复交互 */
         transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* 使用不同的缓动曲线实现苹果的弹跳效果 */
     }
+    #glassOnMobile{
+        display: none;
+    }
 }
 
 @media (max-width:900px){
@@ -327,6 +330,10 @@ h1{
     /* .unfoldMenu input:checked + .navCorn{
         visibility: visible;
     } */
+
+    .search{
+        display: none;
+    }
 }
 
 /* 深色模式按钮 */
@@ -658,9 +665,6 @@ input:checked + #imageDark {
     #mobileDownload {
         display: none;
     }
-    #glassOnMobile{
-        display: none;
-    }
 }
 
 @media (max-width:767px) {
@@ -673,10 +677,6 @@ input:checked + #imageDark {
     #PCdownload{
         display: none;
     }
-    .search{
-        display: none;
-    }
-
 }
 
 .firstPage img{
@@ -1145,8 +1145,8 @@ input:checked + #imageDark {
     .testimonial-slider {
         display: flex;
         overflow-x:auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+        scroll-snap-type:x mandatory;
+        /* scroll-behavior: smooth; */
         -webkit-overflow-scrolling: touch; /* 支持iOS */
         padding: 2rem 0;
         gap: 1rem;
@@ -1159,7 +1159,8 @@ input:checked + #imageDark {
     }
     
     .testimonial {
-        scroll-snap-align: start;
+        scroll-snap-align:center;
+        scroll-snap-stop: always;
         flex: 0 0 auto;
         width: 100%;
         background: white;
@@ -1208,7 +1209,7 @@ input:checked + #imageDark {
             margin-right: 3vw;
         }
         .testimonial-slider{
-            margin-left: 1vw;
+            margin-left: 0;
             margin-right: 0;
         }
     }
