@@ -5,9 +5,6 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
     const bannerImg = document.querySelector('#bannerImg');
     const movePart = document.querySelector('.movePart');
     const firstPage = document.querySelector('.firstPage');
-    const navCorn = document.querySelector('.navCorn');
-    const card = document.querySelectorAll('.testimonial');
-    const featureCard = document.querySelectorAll('.featureItem');
 
     if (this.checked) {
         // 切换到深色模式
@@ -17,22 +14,16 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
         movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
         firstPage.style.background = 'black';
-        featureCard.forEach(function(card) {
-            card.style.filter = 'invert(1) hue-rotate(180deg)';
-        });
-        card.forEach(function(card) {
-            card.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.5)';
-        });
         document.documentElement.style.transition = 'all 0.5s ease';
     } else {
         // 切换回浅色模式
         imageLight.style.display = 'block';
         imageDark.style.display = 'none';
         document.documentElement.style.setProperty('color-scheme', 'light');
-         // 清除 filter 属性
         bannerImg.style.filter = 'none';
         movePart.style.filter = 'none';
         firstPage.style.background = 'white';
+        document.documentElement.style.transition = 'all 0.5s ease';
     }
 });
 
