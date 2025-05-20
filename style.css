@@ -186,13 +186,11 @@ h1{
 .unfoldMenu label::before,.unfoldMenu label::after{
     content: " ";
     position: absolute;
-    /* left: 5px; */
     right: 0px;
     width: 18px;
     height: 2px;
     border-radius: 4px;
     background-color: black;
-    /* margin-left: 4.5px; */
     transition:transform 0.3s ease-in-out,top 0.3s ease-in-out 0.3s;
 }
 
@@ -294,6 +292,10 @@ h1{
     }
 }
 
+#glassOnMobile{
+    color: black;
+}
+
 .navCorn.active{
     visibility:visible;
     transform:scale(1);
@@ -318,7 +320,8 @@ h1{
         transform: scale(0);
         transform-origin: 65% -30px;
         transition: transform 0.5s ease-in-out;
-        background-color: #fff;
+        background-color: white;
+        color: black;
         padding-bottom: 20px;
         border-end-start-radius: 20px;
         border-end-end-radius: 20px;
