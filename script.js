@@ -103,12 +103,10 @@ unfoldMenuInput.addEventListener('change', function () {
             navCorn.classList.remove('negative');
             navCorn.classList.add('active');
             // body.style.overflowY = 'hidden';
-            navCorn.style.overflowY  = 'auto';
         } else {
             navCorn.classList.remove('active');
             navCorn.classList.add('negative');
             // body.style.overflowY = 'auto';
-            navCorn.style.overflowY  = 'hidden';
     }
 });
 // 监听屏幕宽度变化
