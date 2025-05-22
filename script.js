@@ -94,15 +94,21 @@ const submenu = document.querySelector('.submenu');
 // 检测屏幕宽度是否小于等于 900px
 const mediaQuery = window.matchMedia('(max-width: 900px)');
 const at = document.querySelectorAll('.navCorn a');
+const navBackground = document.querySelector('.navBackground');
+const body = document.querySelector('body');
 
 // 监听 input 的 change 事件
 unfoldMenuInput.addEventListener('change', function () {
     if (this.checked) {
             navCorn.classList.remove('negative');
             navCorn.classList.add('active');
+            // body.style.overflowY = 'hidden';
+            // navCorn.style.overflowY  = 'auto';
         } else {
             navCorn.classList.remove('active');
             navCorn.classList.add('negative');
+            body.style.overflowY = 'auto';
+            // navCorn.style.overflowY  = 'hidden';
     }
 });
 // 监听屏幕宽度变化
