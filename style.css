@@ -1437,7 +1437,7 @@ p {
     background: linear-gradient(to right, #52A2FF, #4d00db, #9900ff);
     color: #fff;
     transform: translateY(-5px);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .pagination-dots {
@@ -1498,6 +1498,7 @@ p {
     /* 新版 */
     color: transparent;
     /* 文字填充颜色设为透明，显示背景 */
+    transition: all 0.3s ease;
 }
 
 .footBtns {
