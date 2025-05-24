@@ -1172,6 +1172,7 @@ input:checked + #imageDark {
         position: relative;
         overflow: hidden;
         margin: 5vw 2vw;
+        margin-bottom: 0;
     }
 
     .testimonial-slider-container h1,.testimonial-slider-container p{
@@ -1254,6 +1255,150 @@ input:checked + #imageDark {
             margin-right: 0;
         }
     }
+            
+    .Box { 
+        /* margin: 0 auto;  */
+        background-color: #F5F6F9;
+        padding: 30px 6vw; 
+        margin-right: -14px;
+    } 
+    
+    .carousel-box { 
+        display: flex; 
+    } 
+    
+    .carousel-wrapper { 
+        width: 100%; 
+        overflow: hidden; 
+        position: relative; 
+    } 
+    
+    .carousel-track { 
+        display: flex;
+        align-items: center;
+        height: 320px;
+    } 
+    
+    .boxCard {
+        display: flexbox;
+        align-items: center;
+        justify-content: center;
+        width: 10vw;
+        height: 200px;
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        z-index: 1;
+        border-radius: 8px; 
+        background:linear-gradient(to bottom,#ffffff,#fbfbfb,#fbfbfb,#fbfbfb);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+        overflow: hidden; 
+    }
+
+    .boxCard.active {
+        width:80vw;
+        height: 260px;
+        margin: 0 -6vw;
+        z-index: 10;
+    }
+    
+    .boxCard-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        margin:30px;
+        margin-bottom: 0;
+    }
+    
+    .boxCard-title { 
+        visibility: hidden;
+        text-align: left;
+        font-size: 15px; 
+        line-height: 1.5; 
+        color: #666; 
+        margin: 30px;
+        margin-top: 15px;
+    } 
+
+
+    .boxCard-title strong{
+        font-size: 20px;
+        color: black;
+    }
+    
+    .nav-btn { 
+        position: absolute; 
+        /* top: 150px;  */
+        width: 40px; 
+        height: 40px; 
+        border-radius: 50%; 
+        background-color: rgba(255, 255, 255, 0.8); 
+        border: none; 
+        font-size: 20px; 
+        cursor: pointer; 
+        z-index: 10; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    } 
+    
+    .prev-btn { 
+        left: 16px;
+        margin-top: 140px;
+        transition: all 0.3s ease-in-out; 
+    } 
+    
+    .next-btn { 
+        right: 16px;
+        margin-top: -180px;
+        transition: all 0.3s ease-in-out;
+    } 
+
+    .prev-btn:hover, .next-btn:hover { 
+        background-color: #000; 
+        color: #fff;
+        transform:translateY(-5px);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .pagination-dots { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        margin-top: 20px; 
+        list-style: none;
+    } 
+    
+    .Box a{
+        text-decoration: none;
+        color: #000;
+    }
+
+    .Box h1 span{
+        background: linear-gradient(to right,#52A2FF, #4d00db, #9900ff); /* 渐变背景 */
+        -webkit-background-clip: text; /* 将背景裁剪为文字形状 */
+        background-clip: text;/* 新版 */
+        color: transparent; /* 文字填充颜色设为透明，显示背景 */
+        display: inline; /* 必须加上才能生效 */
+    }
+
+    .Box>p,.Box>h1{
+        color: #000;
+    }
+
+    .Box li {
+        height: 15px;
+        width: 15px;
+        margin:0 7.5px;
+        border-radius: 50%;
+        background-color: #ccc;
+        text-align: center;
+        font-size: 10px;
+    }
+    
+    .Box li.active { 
+        background-color: white;
+        font-weight:800;
+    } 
 
     .footBtns{
         display: flex;

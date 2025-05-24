@@ -5,6 +5,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
     const bannerImg = document.querySelector('#bannerImg');
     const movePart = document.querySelector('.movePart');
     const firstPage = document.querySelector('.firstPage');
+    const box = document.querySelector('.Box');
 
     if (this.checked) {
         // 切换到深色模式
@@ -13,6 +14,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         document.documentElement.style.setProperty('color-scheme', 'dark');       
         bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
         movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
+        box.style.filter = 'invert(1) hue-rotate(180deg) ';
         firstPage.style.background = 'black';
         document.documentElement.style.transition = 'all 0.5s ease';
     } else {
@@ -22,6 +24,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         document.documentElement.style.setProperty('color-scheme', 'light');
         bannerImg.style.filter = 'none';
         movePart.style.filter = 'none';
+        box.style.filter = 'none';
         firstPage.style.background = 'white';
         document.documentElement.style.transition = 'all 0.5s ease';
     }
@@ -255,6 +258,10 @@ window.addEventListener('scroll', function() {
     const testimonialSliderContainer = document.querySelector('.testimonial-slider-container');
     handleScrollAnimation(testimonialSliderContainer);
 });
+window.addEventListener('scroll', function() {
+    const box = document.querySelector('.Box');
+    handleScrollAnimation(box);
+});
 //加强滚动防抖,防止页面卡顿
 let isScrolling;
 window.addEventListener('scroll',  function() {
@@ -297,48 +304,205 @@ document.addEventListener('DOMContentLoaded',function() {
         }); 
     }
 });
-//4.触摸翻页磁吸效果
-// document.querySelector('.testimonial-slider').addEventListener('touchend', () => {
-//     const container = document.querySelector('.testimonial-slider');
-//     const deltaX = startX - endX; // 滑动总距离
-//     const cardWidth = document.querySelector('.card').offsetWidth; // 获取卡片的宽度
-//     const limitedMinDist = 0.1 *cardWidth;
-//     const limitedMaxDist = 1.1 *cardWidth;
-//     if (Math.abs(deltaX) > limitedMaxDist) {
-//         const direction = deltaX > 0 ? 'left' : 'right';
-//         const currentScroll = container.scrollLeft;
-//         const targetScroll = direction === 'left' 
-//             ? (currentScroll) 
-//             : (currentScroll)
-//         container.scrollTo({
-//             left: targetScroll,
-//             behavior: 'smooth'
-//         });
-//     }else if (Math.abs(deltaX) < limitedMinDist){
-//         // 未达阈值时回弹
-//         container.scrollTo({
-//             left: container.scrollLeft,
-//             behavior: 'smooth'
-//         });
-//     }else {
-//         const direction = deltaX > 0 ? 'left' : 'right';
-//         const currentScroll = container.scrollLeft;
-//         const targetScroll = direction === 'left' 
-//             ? currentScroll + cardWidth 
-//             : currentScroll - cardWidth;
+
+//卡片翻页无限循环：
+const carouselTrack = document.querySelector('.carousel-track');  
+const paginationDots = document.querySelector('.pagination-dots');   
+const prevBtn = document.querySelector('.prev-btn');  
+const nextBtn = document.querySelector('.next-btn');  
+let currentIndex = 0;  
+let partnersData = [];  
+let isTransitioning = false;  
+let timer = null;
+
+// 1. 获取数据 
+fetch('https://jxk.net.cn/content')  
+    .then(response => response.json())  
+    .then(data => { 
+        if (data.code === 200 && data.data?.length) {
+            partnersData = data.data;
+            initCarousel();
+        } 
+    }) 
+    .catch(console.error);  
+
+// 2. 初始化轮播
+function initCarousel() {
+    // 渲染卡片
+    renderboxCards(partnersData);
+
+    // 设置分页点
+    renderPagination(partnersData.length);
+
+    // 设置事件监听
+    setupEventListeners();
+
+    // 初始状态
+    currentIndex = 0;
+    updateCarousel();
+    
+    // 启动自动轮播
+    startAutoPlay();
+
+}
+
+// 3. 渲染卡片
+function renderboxCards(data) {
+    carouselTrack.innerHTML = '';
+    // 总宽度 = (原始数据 + 开头1张 + 结尾1张) * 100%
+    carouselTrack.style.width = `${(data.length + 2) * 100}%`;
+
+    // 1. 在开头添加最后一张图片 
+    const lastboxCard = createboxCard(data[data.length - 1]);
+    carouselTrack.appendChild(lastboxCard);
+
+    // 2. 添加所有原始卡片 
+    data.forEach(item => {
+        const boxCard = createboxCard(item);
+        carouselTrack.appendChild(boxCard);
+    });
+
+    // 3. 在末尾添加第一张图片 
+    const firstboxCard = createboxCard(data[0]);
+    carouselTrack.appendChild(firstboxCard);
+}
+
+    // 创建卡片函数
+    function createboxCard(item) {
+        const boxCard = document.createElement('div'); 
+        boxCard.className = 'boxCard';
+        boxCard.innerHTML = `
+            <div class="boxCard-inner">
+                <img class="boxCard-image" src="${item.imageUrl}" alt="${item.title}">
+                <p class="boxCard-title"><strong>${item.title}</strong><br>${item.content}</p>
+            </div>
+        `;
+        return boxCard;
+    }
+
+// 4. 渲染分页点
+function renderPagination(count) {
+    paginationDots.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('li');
+        dot.dataset.index = i;
+        dot.innerHTML = `<a href="#${i + 1}">${i + 1}</a>`;
+        dot.addEventListener('mouseenter', () => {
+            goToSlide(i);
+        });
+        dot.addEventListener('mouseleave', () => {
+            clearInterval(timer);
+            startAutoPlay();
+        });
+        paginationDots.appendChild(dot);
+    }
+}
+
+// 5. 设置事件监听
+function setupEventListeners() {
+    prevBtn.addEventListener('click', () => {
+        clearInterval(timer);
+        goToSlide(currentIndex - 1);
+        startAutoPlay();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        clearInterval(timer);
+        goToSlide(currentIndex + 1);
+        startAutoPlay();
+    });
+
+    // 监听过渡结束
+    carouselTrack.addEventListener('transitionend', handleTransitionEnd);
+}
+
+// 6. 跳转到指定幻灯片
+function goToSlide(index) {
+    if (isTransitioning) return;
+
+    isTransitioning = true;
+    const boxCardWidth = carouselTrack.children[0].offsetWidth;
+
+    // 边界处理
+    if (index < 0) {
+        // 1. 先无动画跳转到克隆的最后一张
+        carouselTrack.style.transition = 'none';
+        carouselTrack.style.transform = `translateX(${boxCardWidth}px)`;
         
-//         // 平滑滚动到目标位置
-//         container.scrollTo({
-//             left: targetScroll,
-//             behavior: 'smooth'
-//         });
-//     }
-// });
+        // 2. 强制重绘
+        carouselTrack.offsetHeight; // 触发重绘
+        
+        // 3. 然后有动画移动到实际最后一张
+        currentIndex = partnersData.length - 1;
+        setTimeout(() => {
+            carouselTrack.style.transition = 'transform 0.3s ease';
+            updateCarousel();
+        }, 0);
+    } 
+    else if (index >= partnersData.length) {
+        // 同理处理右边界
+        carouselTrack.style.transition = 'none';
+        carouselTrack.style.transform = `translateX(${(partnersData.length + 1) * boxCardWidth}px)`;
+        carouselTrack.offsetHeight; // 触发重绘
+        
+        currentIndex = 0;
+        setTimeout(() => {
+            carouselTrack.style.transition = 'transform 0.3s ease';
+            updateCarousel();
+        }, 0);
+    }
+    else {
+        currentIndex = index;
+        updateCarousel();
+    }
+}
 
-// // document.querySelector('.testimonial-slider').addEventListener('touchmove', function(e) {
-// //     if (Math.abs(e.touches.clientX - startX) > 1) { // 仅水平滑动时阻止默认行为
-// //         e.preventDefault();
-// //     }
-// // });
+// 7. 更新轮播状态
+function updateCarousel() {
+    const boxCardWidth = carouselTrack.children[0].offsetWidth;
+    const offset = (currentIndex) * boxCardWidth;
+    carouselTrack.style.transform = `translateX(-${offset}px)`;
+    carouselTrack.style.transition = 'transform 0.3s ease';
+    
+    updateActiveState();
+}    
 
+// 8. 处理过渡结束
+function handleTransitionEnd() {
+    isTransitioning = false;
+}
 
+// 9. 更新激活状态
+function updateActiveState() {
+    const boxCards = carouselTrack.children;
+    const realIndex = currentIndex % partnersData.length;
+    
+    // 更新卡片状态
+    Array.from(boxCards).forEach((boxCard, i) => {
+        const isActive = i === realIndex + 1; // +1对应开头克隆项
+        boxCard.classList.toggle('active', isActive);
+        
+        // 更新内容可见性
+        const title = boxCard.querySelector('.boxCard-title');
+        const img = boxCard.querySelector('.boxCard-image');
+        if(title && img) {
+            title.style.visibility = isActive ? 'visible' : 'hidden';
+            img.style.visibility = isActive ? 'visible' : 'hidden';
+        }
+    });
+    
+    // 更新分页点
+    const dots = paginationDots.children;
+    Array.from(dots).forEach(dot => {
+        dot.classList.toggle('active', 
+            Number(dot.dataset.index) === realIndex);
+    });
+}
+
+// 10. 自动轮播控制
+function startAutoPlay() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => {
+        nextBtn.click();
+    }, 3000);
+}
