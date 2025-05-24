@@ -1,5 +1,5 @@
 //深色模式按钮
-document.getElementById('darkModeToggle').addEventListener('change', function() {
+document.getElementById('darkModeToggle').addEventListener('change', function () {
     const imageLight = document.querySelector('#imageLight');
     const imageDark = document.querySelector('#imageDark');
     const bannerImg = document.querySelector('#bannerImg');
@@ -11,7 +11,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
         // 切换到深色模式
         imageLight.style.display = 'none';
         imageDark.style.display = 'block';
-        document.documentElement.style.setProperty('color-scheme', 'dark');       
+        document.documentElement.style.setProperty('color-scheme', 'dark');
         bannerImg.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.8)';
         movePart.style.filter = 'invert(1) hue-rotate(180deg) ';
         box.style.filter = 'invert(1) hue-rotate(180deg) ';
@@ -34,7 +34,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
 //  返回顶部按钮
 var backToTopButton = document.getElementsByClassName("TOPbutton")[0];
 
-window.onscroll = function() {
+window.onscroll = function () {
     scrollFunction();
 };
 
@@ -46,7 +46,7 @@ function scrollFunction() {
     }
 }
 
-backToTopButton.onclick = function() {
+backToTopButton.onclick = function () {
     window.scrollTo({
         top: 0,
         behavior: 'smooth' // 添加平滑滚动
@@ -56,24 +56,24 @@ backToTopButton.onclick = function() {
 
 //搜索框
 const searchInput = document.getElementById("searchInput");
-const glass= document.getElementById("glass");
+const glass = document.getElementById("glass");
 const REALglass = document.getElementById("REALglassBtn");
 const x = document.getElementById("xMark");
-glass.addEventListener("click", function() {
+glass.addEventListener("click", function () {
     searchInput.style.visibility = "visible";
     searchInput.style.transform = "translateY(1px)";
     searchInput.style.transition = "all 0.5s ease-in-out";
     glass.style.visibility = "visible";
     glass.style.transform = "translateX(-1vw)";
     glass.style.transition = "all 0.5s ease-in-out";
-    REALglass.style.visibility  = "visible";
+    REALglass.style.visibility = "visible";
     REALglass.style.transform = "translateX(-3vw)";
     REALglass.style.transition = "all 0.5s ease-in-out";
     x.style.visibility = "visible";
     x.style.transform = "translateX(-4.5vw)";
     x.style.transition = "all 0.5s ease-in-out";
 });
-document.getElementById("xMark").addEventListener("click", function() { 
+document.getElementById("xMark").addEventListener("click", function () {
     searchInput.style.visibility = "hidden"; // 添加这行代码来隐藏搜索框
     searchInput.style.transform = "translateY(-200px)";
     searchInput.style.transition = "all 0.5s ease-in-out";
@@ -81,7 +81,7 @@ document.getElementById("xMark").addEventListener("click", function() {
     glass.style.transition = "all 0.5s ease-in-out";
     REALglass.style.transform = "translateX(3vw)";
     REALglass.style.transition = "all 0.5s ease-in-out";
-    REALglass.style.visibility  = "hidden";
+    REALglass.style.visibility = "hidden";
     REALglass.style.opacity = "0";
     x.style.transform = "translateX(4.5vw)";
     x.style.transition = "all 0.5s ease-in-out";
@@ -91,7 +91,7 @@ document.getElementById("xMark").addEventListener("click", function() {
 
 
 // 移动端的展开菜单
-const unfoldMenuInput = document.querySelector('.unfoldMenu input'); 
+const unfoldMenuInput = document.querySelector('.unfoldMenu input');
 const navCorn = document.querySelector('.navCorn');
 const submenu = document.querySelector('.submenu');
 // 检测屏幕宽度是否小于等于 900px
@@ -103,13 +103,13 @@ const body = document.querySelector('body');
 // 监听 input 的 change 事件
 unfoldMenuInput.addEventListener('change', function () {
     if (this.checked) {
-            navCorn.classList.remove('negative');
-            navCorn.classList.add('active');
-            // body.style.overflowY = 'hidden';
-        } else {
-            navCorn.classList.remove('active');
-            navCorn.classList.add('negative');
-            // body.style.overflowY = 'auto';
+        navCorn.classList.remove('negative');
+        navCorn.classList.add('active');
+        // body.style.overflowY = 'hidden';
+    } else {
+        navCorn.classList.remove('active');
+        navCorn.classList.add('negative');
+        // body.style.overflowY = 'auto';
     }
 });
 // 监听屏幕宽度变化
@@ -119,8 +119,8 @@ mediaQuery.addEventListener('change', (event) => {
         navCorn.classList.add('active');
 
     }
-    else{
-        unfoldMenuInput.checked = false;  
+    else {
+        unfoldMenuInput.checked = false;
         navCorn.classList.remove('active');
         navCorn.classList.add('negative');
     }
@@ -129,9 +129,9 @@ mediaQuery.addEventListener('change', (event) => {
 if (!mediaQuery.matches) {// 屏幕宽度 > 900px 时执行的代码
     navCorn.classList.remove('negative');
     navCorn.classList.add('active');
-    unfoldMenuInput.checked = false;     
-}else{
-    unfoldMenuInput.checked = false;     
+    unfoldMenuInput.checked = false;
+} else {
+    unfoldMenuInput.checked = false;
 }
 
 
@@ -144,7 +144,7 @@ foldableItems.forEach(item => {
     const submenu = item.querySelector('.submenu');
 
     // 监听点击事件
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
         // 切换子菜单的 active 类
         submenu.classList.toggle('active');
     });
@@ -152,17 +152,17 @@ foldableItems.forEach(item => {
 
 //鼠标悬停下拉菜单按钮恢复原色
 document.querySelectorAll('.dropdown-menu li a').forEach(link => {
-  link.addEventListener('mouseover', () => {
-    document.getElementById('PCdownload').style.color = '#555';
-  });
+    link.addEventListener('mouseover', () => {
+        document.getElementById('PCdownload').style.color = '#555';
+    });
 
-  link.addEventListener('mouseout', () => {
-    document.getElementById('PCdownload').style.color = ''; // 恢复默认
-  });
+    link.addEventListener('mouseout', () => {
+        document.getElementById('PCdownload').style.color = ''; // 恢复默认
+    });
 });
 
 // 在视频还未加载出来之前实现gif占位,加载完成后替换为超清视频
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const video = document.querySelector('.videoContainer video'); // 获取视频元素
     const gifPlaceholder = document.querySelector('.videoContainer img'); // 获取GIF占位图
     const loadingText = document.querySelector('.loading-text'); // 获取加载提示文字
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     video.preload = 'auto';
 
     // 监听视频可以播放的事件
-    video.addEventListener('canplaythrough', function() {
+    video.addEventListener('canplaythrough', function () {
         // 隐藏GIF和加载文字
         gifPlaceholder.style.display = 'none';
         if (loadingText) loadingText.style.display = 'none';
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 错误处理
-    video.addEventListener('error', function() {
+    video.addEventListener('error', function () {
         gifPlaceholder.src = 'error-placeholder.jpg'; // 替换为错误占位图
         if (loadingText) loadingText.textContent = '视频加载失败，请刷新重试';
         console.error('视频加载错误:', video.error);
@@ -193,12 +193,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 开始加载视频（某些浏览器需要触发）
     video.load();
-}); 
+});
 function handleError() {
     clearInterval(gifInterval);
-    gifPlaceholder.style.display  = 'block';
-    video.style.display  = 'none';
-    if(loadingText) loadingText.textContent  = '视频加载失败，请刷新重试';
+    gifPlaceholder.style.display = 'block';
+    video.style.display = 'none';
+    if (loadingText) loadingText.textContent = '视频加载失败，请刷新重试';
 }
 
 
@@ -231,100 +231,100 @@ function handleScrollAnimation(element) {
     if (elementTopPosition < screenPosition && elementBottomPosition > screenPosition) {
         element.classList.add('slide-up');
     }
-    if (elementTopPosition > screenPosition*1.2) {
+    if (elementTopPosition > screenPosition * 1.2) {
         void element.offsetWidth; // 强制重绘
         element.classList.remove('slide-up');
 
     }
 }
-(function() {
+(function () {
     const topPageContainer = document.querySelector('.topPageContainer');
     topPageContainer.classList.add('slide-up');
     // handleScrollAnimation(topPageContainer);
 })();
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const gallery = document.querySelector('.gallery');
     handleScrollAnimation(gallery);
 });
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const features = document.querySelector('.features');
     handleScrollAnimation(features);
 });
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const team = document.querySelector('.team');
     handleScrollAnimation(team);
 });
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const testimonialSliderContainer = document.querySelector('.testimonial-slider-container');
     handleScrollAnimation(testimonialSliderContainer);
 });
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const box = document.querySelector('.Box');
     handleScrollAnimation(box);
 });
 //加强滚动防抖,防止页面卡顿
 let isScrolling;
-window.addEventListener('scroll',  function() {
-  window.cancelAnimationFrame(isScrolling); 
-  isScrolling = window.requestAnimationFrame(handleScroll); 
+window.addEventListener('scroll', function () {
+    window.cancelAnimationFrame(isScrolling);
+    isScrolling = window.requestAnimationFrame(handleScroll);
 });
 
 
 //接入卡片于testimonial-slider
-document.addEventListener('DOMContentLoaded',function() { 
+document.addEventListener('DOMContentLoaded', function () {
     const testimonialSlider = document.querySelector('.testimonial-slider');
-    let partnersData = []; 
+    let partnersData = [];
     // 1. 获取数据 
-    fetch('https://jxk.net.cn/img')  
-    .then(response => response.json())  
-    .then(data => { 
-        if (data.code   === 200 && data.data?.length)   { 
-            partnersData = data.data;  
-            initCarousel(); 
-        } 
-    }) 
-    .catch(console.error); 
+    fetch('https://jxk.net.cn/img')
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200 && data.data?.length) {
+                partnersData = data.data;
+                initCarousel();
+            }
+        })
+        .catch(console.error);
     // 2. 初始化轮播 
     function initCarousel() {
         // 渲染卡片
         renderCards(partnersData);
-    } 
+    }
     // 3. 渲染卡片 
-    function renderCards(data) { 
-        testimonialSlider.innerHTML   = '';         
-        data.forEach((item) => { 
-            const card = document.createElement('div');  
-            card.className   = 'card'; 
-            card.innerHTML   = ` 
+    function renderCards(data) {
+        testimonialSlider.innerHTML = '';
+        data.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = ` 
                 <div class="testimonial"> 
-                    <img src="${item}">  
+                    <img src="${item}" loading="lazy">  
                 </div> 
-            `; 
-            testimonialSlider.appendChild(card);  
-        }); 
+            `;
+            testimonialSlider.appendChild(card);
+        });
     }
 });
 
-//卡片翻页无限循环：
-const carouselTrack = document.querySelector('.carousel-track');  
-const paginationDots = document.querySelector('.pagination-dots');   
-const prevBtn = document.querySelector('.prev-btn');  
-const nextBtn = document.querySelector('.next-btn');  
-let currentIndex = 0;  
-let partnersData = [];  
-let isTransitioning = false;  
+//Box内卡片翻页无限循环：
+const carouselTrack = document.querySelector('.carousel-track');
+const paginationDots = document.querySelector('.pagination-dots');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentIndex = 0;
+let partnersData = [];
+let isTransitioning = false;
 let timer = null;
 
 // 1. 获取数据 
-fetch('https://jxk.net.cn/content')  
-    .then(response => response.json())  
-    .then(data => { 
+fetch('https://jxk.net.cn/content')
+    .then(response => response.json())
+    .then(data => {
         if (data.code === 200 && data.data?.length) {
             partnersData = data.data;
             initCarousel();
-        } 
-    }) 
-    .catch(console.error);  
+        }
+    })
+    .catch(console.error);
 
 // 2. 初始化轮播
 function initCarousel() {
@@ -340,7 +340,7 @@ function initCarousel() {
     // 初始状态
     currentIndex = 0;
     updateCarousel();
-    
+
     // 启动自动轮播
     startAutoPlay();
 
@@ -367,18 +367,18 @@ function renderboxCards(data) {
     carouselTrack.appendChild(firstboxCard);
 }
 
-    // 创建卡片函数
-    function createboxCard(item) {
-        const boxCard = document.createElement('div'); 
-        boxCard.className = 'boxCard';
-        boxCard.innerHTML = `
+// 创建卡片函数
+function createboxCard(item) {
+    const boxCard = document.createElement('div');
+    boxCard.className = 'boxCard';
+    boxCard.innerHTML = `
             <div class="boxCard-inner">
                 <img class="boxCard-image" src="${item.imageUrl}" alt="${item.title}">
                 <p class="boxCard-title"><strong>${item.title}</strong><br>${item.content}</p>
             </div>
         `;
-        return boxCard;
-    }
+    return boxCard;
+}
 
 // 4. 渲染分页点
 function renderPagination(count) {
@@ -405,7 +405,7 @@ function setupEventListeners() {
         goToSlide(currentIndex - 1);
         startAutoPlay();
     });
-    
+
     nextBtn.addEventListener('click', () => {
         clearInterval(timer);
         goToSlide(currentIndex + 1);
@@ -428,23 +428,23 @@ function goToSlide(index) {
         // 1. 先无动画跳转到克隆的最后一张
         carouselTrack.style.transition = 'none';
         carouselTrack.style.transform = `translateX(${boxCardWidth}px)`;
-        
+
         // 2. 强制重绘
         carouselTrack.offsetHeight; // 触发重绘
-        
+
         // 3. 然后有动画移动到实际最后一张
         currentIndex = partnersData.length - 1;
         setTimeout(() => {
             carouselTrack.style.transition = 'transform 0.3s ease';
             updateCarousel();
         }, 0);
-    } 
+    }
     else if (index >= partnersData.length) {
         // 同理处理右边界
         carouselTrack.style.transition = 'none';
         carouselTrack.style.transform = `translateX(${(partnersData.length + 1) * boxCardWidth}px)`;
         carouselTrack.offsetHeight; // 触发重绘
-        
+
         currentIndex = 0;
         setTimeout(() => {
             carouselTrack.style.transition = 'transform 0.3s ease';
@@ -463,9 +463,9 @@ function updateCarousel() {
     const offset = (currentIndex) * boxCardWidth;
     carouselTrack.style.transform = `translateX(-${offset}px)`;
     carouselTrack.style.transition = 'transform 0.3s ease';
-    
+
     updateActiveState();
-}    
+}
 
 // 8. 处理过渡结束
 function handleTransitionEnd() {
@@ -476,25 +476,25 @@ function handleTransitionEnd() {
 function updateActiveState() {
     const boxCards = carouselTrack.children;
     const realIndex = currentIndex % partnersData.length;
-    
+
     // 更新卡片状态
     Array.from(boxCards).forEach((boxCard, i) => {
         const isActive = i === realIndex + 1; // +1对应开头克隆项
         boxCard.classList.toggle('active', isActive);
-        
+
         // 更新内容可见性
         const title = boxCard.querySelector('.boxCard-title');
         const img = boxCard.querySelector('.boxCard-image');
-        if(title && img) {
+        if (title && img) {
             title.style.visibility = isActive ? 'visible' : 'hidden';
             img.style.visibility = isActive ? 'visible' : 'hidden';
         }
     });
-    
+
     // 更新分页点
     const dots = paginationDots.children;
     Array.from(dots).forEach(dot => {
-        dot.classList.toggle('active', 
+        dot.classList.toggle('active',
             Number(dot.dataset.index) === realIndex);
     });
 }
