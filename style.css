@@ -1301,6 +1301,16 @@ input:checked + #imageDark {
         margin: 0 -6vw;
         z-index: 10;
     }
+
+    @media (max-width: 600px) {
+        .boxCard {
+            height: 270px;
+        }
+        .boxCard.active {
+            height: 320px;
+        }
+        
+    }
     
     .boxCard-image {
         display: flex;
