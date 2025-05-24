@@ -1303,6 +1303,9 @@ input:checked + #imageDark {
     }
 
     @media (max-width: 600px) {
+        .Box{
+            margin-right: 0;
+        }
         .boxCard {
             height: 270px;
         }
