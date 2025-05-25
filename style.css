@@ -1247,10 +1247,17 @@ p {
     /* scroll-behavior: smooth; */
     -webkit-overflow-scrolling: touch;
     /* 支持iOS */
+    cursor: grab;
+    user-select: none;
     padding: 2rem 0;
     gap: 1rem;
     margin: 3rem;
     /* transition: scroll-left 0.5s ease; */
+}
+
+.testimonial-slider.active {
+    cursor: grabbing;
+    scroll-snap-type: none !important; /* 拖拽时禁用吸附效果 */
 }
 
 .testimonial-slider::-webkit-scrollbar {
@@ -1258,8 +1265,6 @@ p {
 }
 
 .testimonial {
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
     flex: 0 0 auto;
     width: 100%;
     background: white;
@@ -1270,6 +1275,11 @@ p {
     border-radius: 30px;
 }
 
+/* div.testimonial-slider.active>div.card>div.testimonial{
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+} */
+
 .testimonial:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
@@ -1279,6 +1289,7 @@ p {
     height: 40vw;
     overflow: hidden;
     border-radius: 20px;
+    pointer-events: none;/*禁止鼠标把图片拖出导致误触*/
 }
 
 .sign {
@@ -1306,6 +1317,10 @@ p {
     .testimonial img {
         width: 88vw;
         height: auto;
+    }
+    .testimonial {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
     }
 
     .testimonial-slider-container p {

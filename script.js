@@ -270,7 +270,7 @@ window.addEventListener('scroll', function () {
 });
 
 
-//接入卡片于testimonial-slider
+//接入卡片图片于testimonial-slider
 document.addEventListener('DOMContentLoaded', function () {
     const testimonialSlider = document.querySelector('.testimonial-slider');
     let partnersData = [];
@@ -303,6 +303,36 @@ document.addEventListener('DOMContentLoaded', function () {
             testimonialSlider.appendChild(card);
         });
     }
+    //  4. 添加鼠标拖拽效果
+let isDown = false;
+let startX;
+let scrollLeft;
+
+testimonialSlider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    testimonialSlider.classList.add('active');
+    startX = e.pageX - testimonialSlider.offsetLeft;
+    scrollLeft = testimonialSlider.scrollLeft;
+});
+
+testimonialSlider.addEventListener('mouseleave', () => {
+    isDown = false;
+    testimonialSlider.classList.remove('active');
+});
+
+testimonialSlider.addEventListener('mouseup', () => {
+    isDown = false;
+    testimonialSlider.classList.remove('active');
+});
+
+testimonialSlider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - testimonialSlider.offsetLeft;
+    const walk = x - startX;
+    testimonialSlider.scrollLeft = scrollLeft - walk;
+});
+   
 });
 
 //Box内卡片翻页无限循环：
