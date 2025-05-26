@@ -262,13 +262,6 @@ window.addEventListener('scroll', function () {
     const box = document.querySelector('.Box');
     handleScrollAnimation(box);
 });
-//加强滚动防抖,防止页面卡顿
-let isScrolling;
-window.addEventListener('scroll', function () {
-    window.cancelAnimationFrame(isScrolling);
-    isScrolling = window.requestAnimationFrame(handleScroll);
-});
-
 
 //接入卡片图片于testimonial-slider
 document.addEventListener('DOMContentLoaded', function () {
