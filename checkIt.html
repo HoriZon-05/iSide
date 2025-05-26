@@ -164,7 +164,7 @@
     <script>
         let flag = true;
         let checkAll = document.querySelector('#checkAll');
-        let checkboxs = document.querySelectorAll('input[type="checkbox"]');
+        let checkboxs = document.querySelectorAll('td input[type="checkbox"]');
         checkAll.addEventListener('click', function () {
             for (let i = 0; i < checkboxs.length; i++) {
                 checkboxs[i].checked = this.checked;
@@ -173,7 +173,9 @@
         })
         for (let i = 0; i < checkboxs.length; i++) {
             checkboxs[i].addEventListener('click', function () {
-                if (!checkboxs[i].checked) {
+                if (document.querySelectorAll('td input[type="checkbox"]:checked').length===checkboxs.length) {
+                    checkAll.checked = true;
+                }else{
                     checkAll.checked = false;
                 }
             })
