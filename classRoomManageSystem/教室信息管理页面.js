@@ -54,7 +54,6 @@ function update() {
     const edit = document.querySelectorAll('.edit');
     for (let i = 0; i < checkBox.length; i++) {
     if(course[i].value!= "自习") {
-        console.log(course[i].value);
         checkBox[i].disabled = true;
         checkBox[i].style.cursor = 'not-allowed';
     } else{
@@ -63,10 +62,10 @@ function update() {
     checkBox[i].addEventListener('click', function () {
         if (this.checked) {
             setTimeout(function () {
-                    personNum[i].value=+personNum[i].value+1;
+                    personNum[i].textContent=+personNum[i].textContent+1;
                 }, 1000);
             }else{
-                personNum[i].value=+personNum[i].value-1;
+                personNum[i].textContent=+personNum[i].textContent-1;
             }
         })
     }

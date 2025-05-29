@@ -263,7 +263,7 @@ table input[type="text"]:disabled{
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-@media (max-width: 628px){
+@media (max-width: 500px){
     table{
         transform: rotate(-90deg);    
         position:relative;
