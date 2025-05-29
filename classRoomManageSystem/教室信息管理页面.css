@@ -276,6 +276,7 @@ table input[type="text"]:disabled{
     position: absolute;
     background-color: white;
     padding-bottom: 40px;
+    height: 70vh;
     transform: scaleY(0);
     transform-origin: top;
     transition: all 0.3s ease-in;
