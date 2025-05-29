@@ -1,10 +1,12 @@
 const div = document.querySelector('div');
 const table = document.querySelector('.main');
 const MAINtr = document.querySelectorAll('.main tr');
-const course  = document.querySelectorAll('.course input');
-const personNum = document.querySelectorAll('.num');
+const course  = document.querySelectorAll('.main .course input');
+const personNum = document.querySelectorAll('.main .num');
 const checkBox = document.querySelectorAll('.main input[type="checkbox"]');
 const text = document.querySelectorAll('.main input[type="text"]');
+const edit = document.querySelectorAll('.main .edit');
+
 const search = document.querySelector('.search');
 const startSearch = document.querySelector('.startSearch');
 const resultTable = document.querySelector('.searchResult table');
@@ -16,8 +18,6 @@ const addInfo  = document.querySelectorAll('.addPanel input');
 const confirm = document.querySelector('.addPanel .confirm');
 const cancel = document.querySelector('.addPanel .cancel');
 const one =document.querySelector('.one');
-const edit = document.querySelectorAll('.main .edit');
-
 function update() { 
     const course  = document.querySelectorAll('.course input');
     const personNum = document.querySelectorAll('.num');
@@ -83,6 +83,7 @@ confirm.addEventListener('click', function () {
         </tr>
     `;
     update();
+    MAINtr = document.querySelectorAll('.main tr'); // 重新获取所有行   
     for(let i = 0; i < addInfo.length; i++){
         addInfo[i].value = '';
     }
@@ -93,64 +94,111 @@ cancel.addEventListener('click', function () {
 
 search.addEventListener('input', () => { 
     startSearch.addEventListener('mouseenter', () => { 
-            search.classList.add('active'); 
+        search.classList.add('active'); 
     });
 
     startSearch.addEventListener('click', () => { 
-            searchResult.classList.add('active');
+        searchResult.classList.add('active');
+        performSearch();
     });
 
     search.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             searchResult.classList.add('active');
+            performSearch();
         }
     });
 
-    resultTable.innerHTML = `
-        <tr>
-            <th>序号</th>
-            <th>教学楼</th>
-            <th>教室名称</th>
-            <th>课程</th>
-            <th>教室当前人数</th>
-            <th>申请自习</th>
-            <th>操作</th>                  
-        </tr>
-    `;
-        for(let i=1;i<=edit.length;i++){
-                const hasMatch = Array.from(MAINtr[i].children).some(child => {
-                    // 检查单元格中的input值
-                    const input = child.querySelector('input');
-                    if (input) {
-                        return input.value.trim().includes(search.value.trim());
-                    }
-                    // 检查普通文本内容
-                    return child.textContent.trim().includes(search.value.trim());
-                });
-                
-                if(hasMatch){
-                    const clonedRow = MAINtr[i].cloneNode(true);
-                    resultTable.appendChild(clonedRow);
-                    
-                    // 添加反向同步逻辑
-                    clonedRow.querySelectorAll('input').forEach((input, idx) => {
-                        input.addEventListener('change', () => {
-                            // 同步修改到原表对应单元格
-                            const originalInput = MAINtr[i].querySelectorAll('input')[idx];
-                            if(originalInput) originalInput.value = input.value;
-                        });
-                    });
-                    
-                    update();
-                }
-                if(search.value===""){
-                    resultTable.innerHTML="无搜索结果";
-                }
-            }
-    });
+    // 封装搜索逻辑为单独函数
+    function performSearch() {
+        resultTable.innerHTML = `
+            <tr>
+                <th>序号</th>
+                <th>教学楼</th>
+                <th>教室名称</th>
+                <th>课程</th>
+                <th>教室当前人数</th>
+                <th>申请自习</th>
+                <th>操作</th>                  
+            </tr>
+        `;
+        
+        if(search.value.trim() === "") {
+            resultTable.innerHTML="无搜索结果";
+            return;
+        }
 
+        // 重新获取所有行，确保包含新增元素
+        const currentRows = document.querySelectorAll('.main tr');
+        
+        currentRows.forEach((row, index) => {
+            if(index === 0) return; // 跳过表头
+            
+            const hasMatch = Array.from(row.children).some(child => {
+                const input = child.querySelector('input');
+                if (input) {
+                    return input.value.trim().includes(search.value.trim());
+                }
+                return child.textContent.trim().includes(search.value.trim());
+            });
+            
+        if(hasMatch){
+            const clonedRow = row.cloneNode(true);
+            resultTable.appendChild(clonedRow);
+            
+            // 1. 克隆行 → 原行的同步
+            clonedRow.addEventListener('click', (e) => {
+                if(e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
+                    const originalElement = row.querySelector(`[name="${e.target.name}"]`) || row.querySelector(`.${e.target.className.split(' ')[0]}`);
+                    
+                    if(originalElement) {
+                        if(e.target.type === 'checkbox') {
+                            originalElement.checked = e.target.checked;
+                        } 
+                        else if(e.target.tagName === 'INPUT') {
+                            originalElement.value = e.target.value;
+                        }
+                        else if(e.target.classList.contains('edit')) {
+                            originalElement.click();
+                        }
+                        else{
+                            originalElement.value = e.target.value;
+                        }
+                        update();
+                    }
+                }
+            });
+
+            // 2. 原行 → 克隆行的同步
+            row.addEventListener('change', (e) => {
+                if(e.target.tagName === 'INPUT') {
+                    const clonedElement = clonedRow.querySelector(`[name="${e.target.name}"]`) || clonedRow.querySelector(`.${e.target.className.split(' ')[0]}`);
+                    
+                    if(clonedElement) {
+                        if(e.target.type === 'checkbox') {
+                            clonedElement.checked = e.target.checked;
+                        } 
+                        else if(e.target.type === 'INPUT') {
+                            clonedElement.value = e.target.value;
+                        }
+                        else if(e.target.classList.contains('edit')) {
+                            originalElement.click();
+                        }
+                        else {
+                            clonedElement.value = e.target.value;
+                        }
+                        update();
+                    }
+                }
+            });
+            } 
+        });
+    }
+});
 close.addEventListener('click', () => { 
-    searchResult.classList.toggle('active');
-    search.value = '';
     search.classList.remove('active');
+    search.value = '';
+    setTimeout(() => {
+        searchResult.classList.toggle('active'); 
+    }, 50);
 });
