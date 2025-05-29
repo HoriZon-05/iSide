@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教室信息管理页面</title>
+    <link rel="stylesheet" href="./教室信息管理页面.css">
+</head>
+<body>
+        <div class="addPanel">
+            <h1>添加教室</h1>
+            <div><div>教学楼：</div><input type="text"></div>
+            <div><div>教室名称：</div><input type="text"></div>
+            <div><div>教室课程:</div><input type="text"></div>
+            <div><div>教室当前人数:</div><input type="text"></div>
+            <!-- <input type="submit"> -->
+             <button class="long confirm">确认添加</button>
+             <button class="long cancel">取消</button>
+        </div>
+    <h1>教室信息管理页面</h1>   
+    <div class="page">
+        <div class="conduct">
+            <input type="text" placeholder="搜索" class="search">
+            <button class="round startSearch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+            <button class="long add">添加</button>
+        </div>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>教学楼</th>
+                <th>教室名称</th>
+                <!-- <th>当前占用状态</th> -->
+                <th>课程</th>
+                <th>教室当前人数</th>
+                <th>申请自习</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" value="南教学楼"></td>
+                <td><input type="text" value="南教202"></td>
+                <!-- <td>未占用</td> -->
+                <td class="course"><input type="text" value="web前端技术基础"></td>
+                <td class="num">55</td>
+                <td>
+                    <input type="checkbox">
+                    <svg width="40" height="40">
+                    <circle fill="none" stroke="#68E534" stroke-width="2" cx="20" cy="20" r="19" class="circle" stroke-linecap="round" transform="rotate(-90 20.0 20.0) "/>
+                    <polyline fill="none" stroke="#68E534" stroke-width="2.4" points="8.8,21.4 17.3,28.4 30.4,13.8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                    </svg>
+                </td>
+                <td><button class="long edit">编辑</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="text" value="北教学楼"></td>
+                <td><input type="text" value="北教102"></td>
+                <td class="course"><input type="text" value="自习"></td>
+                <td class="num">20</td>
+                <td>
+                    <input type="checkbox">
+                    <svg width="40" height="40">
+                    <circle fill="none" stroke="#68E534" stroke-width="2" cx="20" cy="20" r="19" class="circle" stroke-linecap="round" transform="rotate(-90 20.0 20.0) "/>
+                    <polyline fill="none" stroke="#68E534" stroke-width="2.4" points="8.8,21.4 17.3,28.4 30.4,13.8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                    </svg>
+                </td>
+                <td><button class="long edit">编辑</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><input type="text" value="北教学楼"></td>
+                <td><input type="text" value="北阶304"></td>
+                <td class="course"><input type="text" value="java程序设计"></td>
+                <td class="num">48</td>
+                <td>
+                    <input type="checkbox">
+                    <svg width="40" height="40">
+                    <circle fill="none" stroke="#68E534" stroke-width="2" cx="20" cy="20" r="19" class="circle" stroke-linecap="round" transform="rotate(-90 20.0 20.0) "/>
+                    <polyline fill="none" stroke="#68E534" stroke-width="2.4" points="8.8,21.4 17.3,28.4 30.4,13.8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                    </svg>
+                </td>
+                <td><button class="long edit">编辑</button></td>
+            </tr>    
+        </table>
+    </div>
+
+    <script src="./教室信息管理页面.js"></script>
+</body>
+</html>
