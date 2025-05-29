@@ -1,10 +1,15 @@
 const div = document.querySelector('div');
-const table = document.querySelector('table');
+const table = document.querySelector('.main');
+const MAINtr = document.querySelectorAll('.main tr');
 const course  = document.querySelectorAll('.course input');
 const personNum = document.querySelectorAll('.num');
 const checkBox = document.querySelectorAll('table input[type="checkbox"]');
 const text = document.querySelectorAll('table input[type="text"]');
 const search = document.querySelector('.search');
+const startSearch = document.querySelector('.startSearch');
+const resultTable = document.querySelector('.searchResult table');
+const searchResult = document.querySelector('.searchResult');
+const close =  document.querySelector('.searchResult button');
 const add  = document.querySelector('.add');
 const addPanel = document.querySelector('.addPanel');
 const addInfo  = document.querySelectorAll('.addPanel input');
@@ -12,6 +17,7 @@ const confirm = document.querySelector('.addPanel .confirm');
 const cancel = document.querySelector('.addPanel .cancel');
 const one =document.querySelector('.one');
 const edit = document.querySelectorAll('.edit');
+
 add.addEventListener('click', function () {
     addPanel.classList.toggle('active');
 });
@@ -83,3 +89,40 @@ function update() {
     }
 
 }
+
+search.addEventListener('input', () => { 
+    startSearch.addEventListener('mouseenter', () => { 
+            search.classList.add('active'); 
+    });
+    startSearch.addEventListener('click', () => { 
+            searchResult.classList.add('active');
+    });
+    resultTable.innerHTML = `
+        <tr>
+            <th>序号</th>
+            <th>教学楼</th>
+            <th>教室名称</th>
+            <th>课程</th>
+            <th>教室当前人数</th>
+            <th>申请自习</th>
+            <th>操作</th>                  
+        </tr>
+    `;
+        for(let i=1;i<=edit.length;i++){
+                const hasMatch = Array.from(MAINtr[i].children).some(child => 
+                    child.textContent.trim().includes(search.value.trim())
+                );
+                
+                if(hasMatch){
+                    resultTable.appendChild(MAINtr[i].cloneNode(true));
+                    update();
+                }
+            }
+    });
+
+close.addEventListener('click', () => { 
+    searchResult.classList.toggle('active');
+    resultTable.innerHTML = '';
+    search.value = '';
+    search.classList.remove('active');
+});

@@ -105,7 +105,7 @@ th,td {
     transition: flex 0.5s ease-in-out;
 }
 
-.search:hover,.search:focus,.search:checked{ 
+.search:hover,.search:focus,.search.active{ 
     flex: 1;
     transition: flex 0.5s ease-in-out;
 }
@@ -269,4 +269,31 @@ table input[type="text"]:disabled{
         position:relative;
         top: 100px;
     }
+}
+
+.searchResult{
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    padding-bottom: 40px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.3s ease-in;
+    z-index: 200;
+}
+
+.searchResult.active{
+    visibility: visible;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: all 0.3s ease-in;
+}
+
+.searchResult button{
+    justify-content: center;
+    justify-self: end;
+}
+
+.searchResult table input[type="text"]:disabled{
+    background: white;
 }
