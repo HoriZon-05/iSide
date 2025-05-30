@@ -142,56 +142,49 @@ search.addEventListener('input', () => {
                 return child.textContent.trim().includes(search.value.trim());
             });
             
-        if(hasMatch){
-            const clonedRow = row.cloneNode(true);
-            resultTable.appendChild(clonedRow);
-            
-            // 1. 克隆行 → 原行的同步
-            clonedRow.addEventListener('click', (e) => {
-                if(e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
-                    const originalElement = row.querySelector(`[name="${e.target.name}"]`) || row.querySelector(`.${e.target.className.split(' ')[0]}`);
-                    
-                    if(originalElement) {
-                        if(e.target.type === 'checkbox') {
-                            originalElement.checked = e.target.checked;
-                        } 
-                        else if(e.target.tagName === 'INPUT') {
-                            originalElement.value = e.target.value;
-                        }
-                        else if(e.target.classList.contains('edit')) {
-                            originalElement.click();
-                        }
-                        else{
-                            originalElement.value = e.target.value;
-                        }
-                        update();
-                    }
-                }
-            });
+            if(hasMatch){
+                const clonedRow = row.cloneNode(true);
+                resultTable.appendChild(clonedRow);
+                
+                // 双向同步所有可编辑元素
+                clonedRow.querySelectorAll('input').forEach((input, idx) => {
+                    input.addEventListener('change', () => {
+                        const originalInput = row.querySelectorAll('input')[idx];
+                        if(originalInput) originalInput.value = input.value;
+                    });
+                });
 
-            // 2. 原行 → 克隆行的同步
-            row.addEventListener('change', (e) => {
-                if(e.target.tagName === 'INPUT') {
-                    const clonedElement = clonedRow.querySelector(`[name="${e.target.name}"]`) || clonedRow.querySelector(`.${e.target.className.split(' ')[0]}`);
-                    
-                    if(clonedElement) {
-                        if(e.target.type === 'checkbox') {
-                            clonedElement.checked = e.target.checked;
-                        } 
-                        else if(e.target.type === 'INPUT') {
-                            clonedElement.value = e.target.value;
-                        }
-                        else if(e.target.classList.contains('edit')) {
-                            originalElement.click();
-                        }
-                        else {
-                            clonedElement.value = e.target.value;
-                        }
-                        update();
-                    }
+            // 同步checkbox点击事件
+            const clonedCheckbox = clonedRow.querySelector('input[type="checkbox"]');
+            const originalCheckbox = row.querySelector('input[type="checkbox"]');
+            const clonedPersonNum = clonedRow.querySelector('.num');
+            const originalPersonNum = row.querySelector('.num');
+            
+            if(clonedCheckbox && originalCheckbox) {
+                clonedCheckbox.addEventListener('click', function() {
+                    // 触发原checkbox的点击事件
+                    originalCheckbox.click();
+                    setTimeout(() => {                    
+                        // 同步人数显示
+                        clonedPersonNum.textContent = originalPersonNum.textContent;
+                    },1000);
+                });
+            }
+                
+                // 同步编辑按钮状态
+                const clonedEditBtn = clonedRow.querySelector('.edit');
+                const originalEditBtn = row.querySelector('.edit');
+                // if(clonedEditBtn && originalEditBtn) {
+                    clonedEditBtn.addEventListener('click', () => {
+                        // console.log(originalEditBtn.textContent);
+                        // console.log(clonedEditBtn.textContent+'<br>');
+                        // originalEditBtn.click = clonedEditBtn.click;
+                        clonedEditBtn.textContent = clonedEditBtn.textContent === '编辑' ? '完成' : '编辑';
+                        clonedEditBtn.textContent = originalEditBtn.textContent;
+                        update(); // 更新状态
+                    });
                 }
-            });
-            } 
+            // }
         });
     }
 });
