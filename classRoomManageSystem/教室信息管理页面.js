@@ -19,8 +19,14 @@ const confirm = document.querySelector('.addPanel .confirm');
 const cancel = document.querySelector('.addPanel .cancel');
 const one =document.querySelector('.one');
 function update() { 
+    // 先移除所有checkbox的旧事件
+    const oldCheckboxes = document.querySelectorAll('table input[type="checkbox"]');
+    oldCheckboxes.forEach(checkbox => {
+        checkbox.replaceWith(checkbox.cloneNode(true)); // 通过克隆解除旧事件
+    });
+
     const course  = document.querySelectorAll('.course input');
-    const personNum = document.querySelectorAll('.num');
+    const personNum = document.querySelectorAll('table .num');
     const checkBox = document.querySelectorAll('table input[type="checkbox"]');
     const text = document.querySelectorAll('table input[type="text"]');
     const edit = document.querySelectorAll('.edit');
@@ -39,23 +45,29 @@ function update() {
             }else{
                 personNum[i].textContent=+personNum[i].textContent-1;
             }
+            
         })
     }
 
     for(let i=0;i<text.length;i++){
         text[i].disabled = true;
     }
-    for(let i=0;i<edit.length;i++){
-        edit[i].addEventListener('click', () => {
-            for(let j=i*3;j<(i+1)*3;j++){
-                text[j].disabled = !text[j].disabled;
-            }
-            edit[i].textContent = edit[i].textContent === '编辑' ? '完成' : '编辑';
+    // 处理编辑按钮
+    for(let i = 0; i < edit.length; i++) {
+        // 同样先移除旧事件
+        edit[i].replaceWith(edit[i].cloneNode(true));
+        const newEditBtn = document.querySelectorAll('.edit')[i];
+        
+        newEditBtn.addEventListener('click', () => {
+            for(let j = i * 3; j < (i + 1) * 3; j++) {
+                if(j < text.length) {
+                    text[j].disabled = !text[j].disabled;
+                }
+            }            
+            newEditBtn.textContent = newEditBtn.textContent === '编辑' ? '完成' : '编辑';
         });
     }
-
 }
-
 update();
 
 add.addEventListener('click', function () {
@@ -153,38 +165,38 @@ search.addEventListener('input', () => {
                         if(originalInput) originalInput.value = input.value;
                     });
                 });
-
-            // 同步checkbox点击事件
-            const clonedCheckbox = clonedRow.querySelector('input[type="checkbox"]');
-            const originalCheckbox = row.querySelector('input[type="checkbox"]');
-            const clonedPersonNum = clonedRow.querySelector('.num');
-            const originalPersonNum = row.querySelector('.num');
             
-            if(clonedCheckbox && originalCheckbox) {
-                clonedCheckbox.addEventListener('click', function() {
-                    // 触发原checkbox的点击事件
-                    originalCheckbox.click();
-                    setTimeout(() => {                    
-                        // 同步人数显示
-                        clonedPersonNum.textContent = originalPersonNum.textContent;
-                    },1000);
-                });
-            }
-                
                 // 同步编辑按钮状态
                 const clonedEditBtn = clonedRow.querySelector('.edit');
                 const originalEditBtn = row.querySelector('.edit');
-                // if(clonedEditBtn && originalEditBtn) {
-                    clonedEditBtn.addEventListener('click', () => {
-                        // console.log(originalEditBtn.textContent);
-                        // console.log(clonedEditBtn.textContent+'<br>');
-                        // originalEditBtn.click = clonedEditBtn.click;
-                        clonedEditBtn.textContent = clonedEditBtn.textContent === '编辑' ? '完成' : '编辑';
-                        clonedEditBtn.textContent = originalEditBtn.textContent;
-                        update(); // 更新状态
-                    });
-                }
-            // }
+                clonedEditBtn.addEventListener('click', () => {
+                    // console.log(originalEditBtn.textContent);
+                    // console.log(clonedEditBtn.textContent+'<br>');
+                    // originalEditBtn.click = clonedEditBtn.click;
+                    clonedEditBtn.textContent = clonedEditBtn.textContent === '编辑' ? '完成' : '编辑';
+                    clonedEditBtn.textContent = originalEditBtn.textContent;
+                    update(); // 更新状态
+                });
+                // 同步checkbox点击事件
+                const clonedCheckbox = clonedRow.querySelector('input[type="checkbox"]');
+                const originalCheckbox = row.querySelector('table input[type="checkbox"]');
+                const clonedPersonNum = clonedRow.querySelector('table .num');
+                const originalPersonNum = row.querySelector('.num');
+                
+                clonedCheckbox.addEventListener('click', function() {
+                    // 触发原checkbox的点击事件
+                    originalCheckbox.click();
+                    console.log(originalPersonNum.textContent);
+                    if(originalCheckbox.checked) {
+                        setTimeout(() => {
+                            clonedPersonNum.textContent = originalPersonNum.textContent;
+                            console.log("已增加"+originalPersonNum.textContent);
+                        }, 1000);
+                    }else{
+                        clonedPersonNum.textContent = +originalPersonNum.textContent;
+                    }           
+                });
+            }
         });
     }
 });
