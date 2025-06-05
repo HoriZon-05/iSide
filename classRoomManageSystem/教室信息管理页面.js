@@ -186,11 +186,11 @@ search.addEventListener('input', () => {
                 clonedCheckbox.addEventListener('click', function() {
                     // 触发原checkbox的点击事件
                     originalCheckbox.click();
-                    console.log(originalPersonNum.textContent);
+                    // console.log(originalPersonNum.textContent);
                     if(originalCheckbox.checked) {
                         setTimeout(() => {
                             clonedPersonNum.textContent = originalPersonNum.textContent;
-                            console.log("已增加"+originalPersonNum.textContent);
+                            // console.log("已增加"+originalPersonNum.textContent);
                         }, 1000);
                     }else{
                         clonedPersonNum.textContent = +originalPersonNum.textContent;
