@@ -1,0 +1,611 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+ 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="styles.css"> 
+  <link rel="shortcut icon" type="image/x-icon" href="https://th.bing.com/th/id/ODLS.3eff87ec-637b-40e8-a79a-d5a3224cadf6?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"> 
+  <title>IntelliJ IDEA</title> 
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+</head> 
+
+<body> 
+
+<!-- 顶部导航栏 -->
+<header>
+    <div class="container">
+      <span class="logo">
+        <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" alt="JetBrains Logo" class="logo">
+      </span>
+      <!-- <button class="menu-toggle" aria-label="Toggle navigation"> -->
+        <!-- <span class="menu-icon">&#9776;</span> -->
+      </button>
+
+        <nav class="main-nav">
+        <!-- 开发者工具 -->
+        <div class="nav-item">
+            <a href="#" class="nav-link">开发者工具</a>
+            <div class="submenu" id="developers-tools-submenu">
+                <ul class="inside">
+                <li><strong>JETBRAINS IDE</strong></li>
+                <li><a href="#">所有 IDE</a></li>
+                <li><a href="#">Aqua</a></li>
+                <li><a href="#">CLion</a></li>
+                <li><a href="#">DataGrip</a></li>
+                <li><a href="#">DataSpell</a></li>
+                <li><a href="#">Fleet</a></li>
+                <li><a href="#">GoLand</a></li>
+                <li><a href="#">IntelliJ IDEA</a></li>
+                <li><a href="#">PhpStorm</a></li>
+                <li><a href="#">PyCharm</a></li>
+                <li><a href="#">Rider</a></li>
+                <li><a href="#">RubyMine</a></li>
+                <li><a href="#">RustRover</a></li>
+                <li><a href="#">WebStorm</a></li>
+                <br>
+                </ul>
+                <ul class="inside">
+                <li><strong>插件和服务</strong></li>
+                <li><a href="#">所有插件</a></li>
+                <li><a href="#">IDE 中的 AI</a></li>
+                <li><a href="#">IDE 主题</a></li>
+                <li><a href="#">大数据工具</a></li>
+                <li><a href="#">Code With Me</a></li>
+                <li><a href="#">RiderFlow</a></li>
+                <li><a href="#">Scala</a></li>
+                <li><a href="#">Toolbox App</a></li>
+                <li><a href="#">Grazie</a></li>
+                <li><a href="#">Junie</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- 团队工具 -->
+        <div class="nav-item">
+            <a href="#" class="nav-link">团队工具</a>
+            <div class="submenu" id="team-tools-submenu">
+              <ul class="inside">
+                <strong>云端和本地部署解决方案</strong>
+                <li><a href="#">Datalore<br>协作式数据科学平台</a></li>
+                <li><a href="#">YouTrack<br>为所有团队提供强大的项目管理</a></li>
+                <li><a href="#">TeamCity<br>开箱即用的强大持续集成</a></li>
+                <li><a href="#">Qodana<br>适用于团队的代码质量平台</a></li>
+                <li><a href="#">CodeCanvas<br>适用于您的基础架构的云开发环境</a></li>
+              </ul>
+              <ul class="inside">
+                <strong>扩展程序</strong>
+                <li><a href="#">TeamCity 插件</a></li>
+                <li><a href="#">YouTrack 扩展</a></li>
+                <li><a href="#">JetBrains Hub</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- 教育 -->
+        <div class="nav-item">
+            <a href="#" class="nav-link">教育</a>
+            <div class="submenu" id="education-submenu">
+                <ul class="inside">
+                    <li><strong>学习</strong></li>
+                    <li><a href="#">课程目录<br>130 多门课程，学习编程、AI、数据科学等</a></li>
+                    <li><a href="#">大学项目<br>通过 JetBrains 奖学金在欧洲学习</a></li>
+                    <li><a href="#">实习机会<br>立即申请加入我们的团队</a></li>
+                    <li><a href="#">团队<br>基于项目的学习，助力提升团队技能</a></li>
+                </ul>
+                
+                <ul class="inside">
+                    <li><strong>教授</strong></li>
+                    <li><a href="#">使用 JetBrains IDE 教学</a></li>
+                    <li><a href="#">创建面向下一代开发者的课程</a></li>
+                    <li><a href="#">Kotlin 教育<br>使用 Kotlin 教授计算机科学</a></li>
+                </ul>
+                
+                <ul class="inside">
+                    <li><strong>免费许可证</strong></li>
+                    <li><a href="#">面向学生和教师</a></li>
+                    <li><a href="#">面向个人学术用途的 JetBrains IDE</a></li>
+                    <li><a href="#">教育机构<br>面向课堂的 JetBrains IDE 和团队工具</a></li>
+                    <li><a href="#">面向训练营和课程<br>使用 JetBrains IDE 和工具创建和教授课程</a></li>
+                </ul>
+                
+                <ul class="inside">
+                    <li><strong>社区</strong></li>
+                    <li><a href="#">ICPC 协作<br>活动、新闻和优惠</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 解决方案 -->
+        <div class="nav-item">
+            <a href="#" class="nav-link">解决方案</a>
+            <div class="submenu" id="solutions-submenu">
+                <ul class="inside">
+                    <li><strong>按行业和技术</strong></li>
+                    <li><a href="#">远程开发<br>供您和您的团队使用的远程开发工具</a></li>
+                    <li><a href="#">游戏开发<br>游戏开发工具用于任何平台</a></li>
+                    <li><a href="#">DevOps<br>工具和集成用于任何基础结构</a></li>
+                    <li><a href="#">多平台开发<br>使用 Kotlin 进行灵活的跨平台开发</a></li>
+                    <li><a href="#">JetBrains Kotlin Ecosystem<br>用于为目标平台进行构建的统一技术栈</a></li>
+                    <li><a href="">JetBrains AI 解决方案</a></li>
+                    <li><a href="#">AI 赋能的开发者工具</a></li>
+                    <li><a href="">C++ 工具</a></li>
+                    <li><a href="#">C/C++ 开发工具用于任何平台</a></li>
+                    <li><a href="">数据工具</a></li>
+                    <li><a href="#">适用于大数据和数据科学的工具</a></li>
+                    <li><a href=""><JetBrains IDE Services</a></li>
+                    <li><a href="#">组织规模的开发者工作效率</a></li>
+                </ul>
+                
+                <ul class="inside">
+                    <li><strong>推荐</strong></li>
+                    <li><a href="#">适合您的业务的 JetBrains 工具</a></li>
+                    <li><a href="#">All Products Pack</a></li>
+                    <li><a href="#">.NET 工具</a></li>
+                    <li><a href="#">所有 JetBrains 产品</a></li>
+                    <li><a href="#">JetBrains Marketplace</a></li>
+                    <li><a href="#">JetBrains 指南</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 支持 -->
+        <div class="nav-item">
+            <a href="#" class="nav-link">支持</a>
+            <div class="submenu" id="support-submenu">
+                <ul class="inside">
+                    <li><strong>产品和技术支持</strong></li>
+                    <li><a href="#">支持中心</a></li>
+                    <li><a href="#">产品特定的信息</a></li>
+                    <li><a href="#">产品文档</a></li>
+                    <li><a href="#">JetBrains 指南</a></li>
+                    <li><a href="#">直播</a></li>
+                    <li><a href="#">新闻</a></li>
+                    <li><a href="#">抢先体验</a></li>
+                    <li><a href="#">博客</a></li>
+                </ul>
+                
+                <ul class="inside">
+                    <li><strong>常见任务</strong></li>
+                    <li><a href="#">管理帐户</a></li>
+                    <li><a href="#">管理许可证</a></li>
+                    <li><a href="#">联系销售人员</a></li>
+                    <li><a href="#">授权常见问题解答</a></li>
+                </ul>
+            </div>
+        </div>
+
+            <!-- 在线商店 -->
+            <div class="nav-item" id="online-store">
+                <a href="https://www.jetbrains.com/zh-cn/store/?section=commercial&billing=yearly" class="nav-link">在线商店</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- 二级导航栏(固定在顶部) -->
+<nav class="secondary-nav">
+    <div id="fix-part">
+        <a href="./javaTribeWork2.html"><strong>IntelliJ IDEA</strong></a>
+        <nav>
+            <a href="https://www.jetbrains.com/zh-cn/idea/whatsnew/" target="_blank">最新变化</a>
+            <li class="dropdown-trigger">
+                <a class="nav-tab">功能</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://www.jetbrains.com/zh-cn/idea/features/" target="_blank">概述</a></li>
+                    <li><a href="https://www.jetbrains.com/zh-cn/idea/spring/" target="_blank">Spring</a></li>
+                    <li><a href="https://www.jetbrains.com/zh-cn/idea/jakarta/" target="_blank">Jakarta EE</a></li>
+                    <li><a href="https://www.jetbrains.com/zh-cn/pages/intellij-idea-profiler/" target="_blank">分析器</a></li>
+                    <li><a href="https://www.jetbrains.com/zh-cn/pages/intellij-idea-http-client/" target="_blank">HTTP客户端</a></li>
+                    <li><a href="https://www.jetbrains.com/zh-cn/pages/intellij-idea-databases/" target="_blank">数据库</a></li>
+                </ul>
+            </li>
+            <a href="https://www.jetbrains.com/zh-cn/idea/resources/" target="_blank">资源</a>
+            <a href="https://www.jetbrains.com/zh-cn/idea/buy/" class="black long btn" id="nav-btn">定价</a>
+            <a href="https://www.jetbrains.com/zh-cn/idea/download/" class="blue long btn" id="nav-btn">下载</a>
+        </nav>  
+    </div>
+</nav>
+
+  <!-- 主内容区 --> 
+  <main>  
+  <!-- 通知栏 --> 
+  <input type="checkbox" id="closeNotification" class="close-checkbox" style="display: none;">
+
+  <div class="notification-bar">   
+    <div class="container" id="notice"> 
+        <span id="title"><strong>近期直播:</strong></span>
+        <span> IntelliJ IDEA Conf 2025 2025年6月3日星期二 17:00 - 01:00 当地时间<a href="https://lp.jetbrains.com/intellij-idea-conf-2025/?utm_source=livestream&utm_medium=idea&utm_campaign=intellijideaconf&_gl=1*15nm20o*_gcl_au*MTM1MzA4MzI3MS4xNzQyMzIwNjY0*FPAU*MTM1MzA4MzI3MS4xNzQyMzIwNjY0*_ga*NjQxMTI1NDc3LjE3NDIzMjA2NjI.*_ga_9J976DJZ68*MTc0NTU2NzQ5Mi4yOS4xLjE3NDU1NjkyMTguNTguMC4w#register" target="_blank" class="long btn" id="signIn">注册</a></span>
+        <label class="btnClose" for="closeNotification">
+            <span class="white round btn">✕</span>
+        </label>
+    </div> 
+  </div> 
+
+    <!-- 首页横幅 --> 
+    <section class="hero"> 
+      <div class="container"> 
+        <h1>IntelliJ IDEA</h1> 
+        <h2>面向专业开发的 IDE<br>适用于 Java 和 Kotlin</h2> 
+        <a href="https://www.jetbrains.com/zh-cn/idea/download/" class="blue long btn">下载</a> 
+        <img src="https://intellijidea.com.cn/help/img/idea/2023.2/ij_new_ui_light_header_theme.png"  alt="IDE Screenshot" 
+          class="hero-img"> 
+      </div> 
+    </section> 
+ 
+    <!-- 为什么选择IntelliJ IDEA --> 
+    <section class="why-choose"> 
+      <div class="container"> 
+        <h2>为何选择 IntelliJ IDEA </h2> 
+        <div class="features"> 
+          <div class="feature"> 
+            <i class="fa-solid fa-code"></i>
+            <h3>高效开发</h3> 
+            <p>IntelliJ IDEA 通过各种工具帮助您更快地编写代码，消除枯燥的任务，让您专注于最重要的事情：构建优秀的软件。</p> 
+          </div> 
+          <div class="feature"> 
+            <i class="fa-regular fa-star"></i>
+            <h3>代码质量</h3> 
+            <p>获取编写高质量代码、减少错误并降低技术债务所需的一切，让您有更多时间投入创新，而不是花在解决错误上。</p> 
+          </div> 
+          <div class="feature"> 
+            <i class="fa-solid fa-rocket"></i>
+            <h3>随时执行所有开发任务</h3> 
+            <p>从设计，开发到测试和部署的每个阶段为您提供支持，确保您高效完成工作所需的一切。</p> 
+          </div> 
+          <div class="feature"> 
+            <i class="fa-solid fa-gem"></i>
+            <h3>尖端技术支持</h3> 
+            <p>从一开始就走在技术支持的最前沿，IntelliJ IDEA 在快速发展的技术领域助您始终保持领先优势。</p> 
+          </div> 
+        </div> 
+      </div> 
+    </section> 
+ 
+    <!-- 终极体验 --> 
+<section class="ultimate-experience"> 
+  <div class="container" id="highlight-layer">
+    <h2>终极体验</h2> 
+    <br>
+    
+    <div class="experience-features">
+        
+      <!-- 新增一个容器来包裹左边的6个按钮 -->
+      <div class="additional-buttons"> 
+      <a href="https://www.jetbrains.com/zh-cn/idea/features/#deep-code-insight" class="feature-btn"> 
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>智能编辑器</span> 
+      </a> 
+      <a href="https://www.jetbrains.com/zh-cn/idea/features/#easy-workflows" class="feature-btn"> 
+        <i class="fa-solid fa-circle-play"></i>
+        <span>运行和调试</span> 
+      </a> 
+
+        <a href="https://www.jetbrains.com/zh-cn/idea/features/#web-development" class="feature-btn"> 
+          <i class="fa-solid fa-code"></i>
+          <span>Web 开发</span> 
+        </a> 
+        <a href="https://www.jetbrains.com/zh-cn/idea/features/#profiler" class="feature-btn"> 
+          <i class="fa-solid fa-person"></i>
+          <span>分析器</span> 
+        </a> 
+        <a href="https://www.jetbrains.com/zh-cn/idea/features/#deployment" class="feature-btn"> 
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>云和部署</span>
+        </a>
+        <a href="https://www.jetbrains.com/zh-cn/idea/features/#remote-development-and-collaboration" class="feature-btn"> 
+          <i class="fa-solid fa-globe"></i>
+          <span>远程开发</span>
+        </a>
+      </div>
+
+      <div id="AI" class="feature-btn">
+        <img src="https://www.jetbrains.com/guide/assets/light-5688bcc9.png" alt="">
+        <span>AI Assistant</span> 
+        <p>利用代码生成、修改和中央 AI 聊天工具等 AI 赋能的功能提高工作效率</p>
+        <a href="https://www.jetbrains.com/zh-cn/ai/" target="_blank" class="view-all-btn">探索Jetbrains AI</a> 
+      </div> 
+    </div>
+  </div>
+</section>
+ 
+<!-- 客户评价轮播图 -->
+<section class="testimonials-container">
+    <div class="section-header">
+        <h2>我们的客户评价</h2>
+    </div>
+
+    <div class="testimonial-slider-container">
+        <div class="testimonial-slider" id="testimonialSlider">
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Mary_Grygleski.png" alt="Mary Grygleski" class="testimonial-avatar">
+                <h3 class="testimonial-name">Mary Grygleski</h3>
+                <p class="testimonial-title">高级技术布道师, Java Champion</p>
+                <p class="testimonial-quote">IntelliJ IDEA 毫无疑问是软件开发者的首选 IDE。</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Mohamed_Taman.png" alt="Mohamed Taman" class="testimonial-avatar">
+                <h3 class="testimonial-name">Mohamed Taman</h3>
+                <p class="testimonial-title">所有者/CEO,Java Champion</p>
+                <p class="testimonial-quote">使用 IntelliJ IDEA 处理项目时，我总是感觉愉快和舒适。</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Josh_Long.jpg" alt="Josh Long" class="testimonial-avatar">
+                <h3 class="testimonial-name">Josh Long</h3>
+                <p class="testimonial-title">Spring 技术布道师, Java Champion</p>
+                <p class="testimonial-quote">使用 IntelliJ IDEA 后，我就再没有回过头。</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Angie_Jones.png" alt="Angie Jones" class="testimonial-avatar">
+                <h3 class="testimonial-name">Angie Jones</h3>
+                <p class="testimonial-title">开发者关系全球副总裁，Java Champion</p>
+                <p class="testimonial-quote">我一直在广泛使用它，它让我成为了更有效率的开发者。</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Dr_Heinz_Kabutz.png" alt="Heinz Kabutz 博士" class="testimonial-avatar">
+                <h3 class="testimonial-name">Heinz Kabutz 博士</h3>
+                <p class="testimonial-title">The Java Specialists 简报的出版人，Java Champion</p>
+                <p class="testimonial-quote">IntelliJ IDEA 比我尝试过的任何工具都要好用得多。</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Daniel_Terhorst-North.png" alt="Daniel Terhorst-North" class="testimonial-avatar">
+                <h3 class="testimonial-name">Daniel Terhorst-North</h3>
+                <p class="testimonial-title">Dan North & Associates Limited 创始人，IT 顾问</p>
+                <p class="testimonial-quote">几乎没有任何一款软件能让我感觉如此自然。</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://www.jetbrains.com/idea/img/testimonial-photos/Hemant_Gaur.png" alt="Hemant Gaur" class="testimonial-avatar">
+                <h3 class="testimonial-name">Hemant Gaur</h3>
+                <p class="testimonial-title">软件工程师，APPBUDDY TECHNOLOGIES 创始人兼技术架构师</p>
+                <p class="testimonial-quote">它为开发者提供了正确的工具并消除了编码时的许多痛点。</p>
+            </div>
+        </div>
+
+        <div class="slider-controls">
+            <button class="slider-btn" id="prevBtn" aria-label="Previous testimonial">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <a href="https://www.jetbrains.com/zh-cn/company/customers/testimonials.html#product=idea" target="_blank">
+                <button class="view-all-btn" id="viewAllBtn">查看更多评价</button>
+            </a>
+
+            <button class="slider-btn" id="nextBtn" aria-label="Next testimonial">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+    
+ 
+    <!-- 信任我们的公司 --> 
+    <section class="trusted-companies">
+      <div class="container">
+          <h2>全世界的公司都信任 IntelliJ IDEA</h2>
+          <div class="company-logos-container">
+              <div class="company-logos">
+                  <div class="company-logos-inner">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/samsung.svg"  alt="Samsung" class="hasColor">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/twitter.svg"  alt="X">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/volkswagen-bw.svg"  alt="Volkswagen">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/expedia-bw.svg"  alt="Expedia">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/visa-bw.svg"  alt="VISA">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/bmw.svg"  alt="BMW" class="hasColor">
+                  </div>
+                  <div class="company-logos-inner">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/samsung.svg"  alt="Samsung" class="hasColor">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/twitter.svg"  alt="X">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/volkswagen-bw.svg"  alt="Volkswagen">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/expedia-bw.svg"  alt="Expedia">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/visa-bw.svg"  alt="VISA">
+                      <img src="https://www.jetbrains.com/idea/img/customer-logos/bmw.svg"  alt="BMW" class="hasColor">
+                  </div>
+                  <div class="company-logos-inner">
+                    <img src="https://www.jetbrains.com/idea/img/customer-logos/samsung.svg"  alt="Samsung" class="hasColor">
+                    <img src="https://www.jetbrains.com/idea/img/customer-logos/twitter.svg"  alt="X">
+                    <img src="https://www.jetbrains.com/idea/img/customer-logos/volkswagen-bw.svg"  alt="Volkswagen">
+                    <img src="https://www.jetbrains.com/idea/img/customer-logos/expedia-bw.svg"  alt="Expedia">
+                    <img src="https://www.jetbrains.com/idea/img/customer-logos/visa-bw.svg"  alt="VISA">
+                    <img src="https://www.jetbrains.com/idea/img/customer-logos/bmw.svg"  alt="BMW" class="hasColor">
+                </div>
+                <div class="company-logos-inner">
+                  <img src="https://www.jetbrains.com/idea/img/customer-logos/samsung.svg"  alt="Samsung" class="hasColor">
+                  <img src="https://www.jetbrains.com/idea/img/customer-logos/twitter.svg"  alt="X">
+                  <img src="https://www.jetbrains.com/idea/img/customer-logos/volkswagen-bw.svg"  alt="Volkswagen">
+                  <img src="https://www.jetbrains.com/idea/img/customer-logos/expedia-bw.svg"  alt="Expedia">
+                  <img src="https://www.jetbrains.com/idea/img/customer-logos/visa-bw.svg"  alt="VISA">
+                  <img src="https://www.jetbrains.com/idea/img/customer-logos/bmw.svg"  alt="BMW" class="hasColor">
+              </div>
+              </div>
+          </div>
+      </div>
+  </section>
+ 
+  <!-- 最新变化部分 -->
+  <!-- <section class="latest-changes">
+    <h2>最新变化</h2>
+    <div class="change-item">
+      <h3>Structure（结构）工具窗口中的 Logical（逻辑）代码结构 <span class="tag">Ultimate</span></h3>
+      <p>现在，Structure（结构）工具窗口包含 Logical（逻辑）代码结构和先前的 Physical（物理）结构。这样，您不仅可以查看类、方法和字段，还可以查看项目中组件之间的链接和交互。例如，在 Spring Boot 应用程序中打开控制器时，您可以看到其端点和自动装配的应用程序组件。这种增强型视图可以帮助您理解项目结构，并让您可以跟踪代码用法和有意义的连接来浏览项目。</p>
+    </div>
+    <div class="change-item">
+      <h3>改进的 Kubernetes 应用程序调试体验 <span class="tag">Ultimate</span></h3>
+      <p>我们进一步简化了 Kubernetes 应用程序的调试。只需点击 Debug（调试）按钮旁边的省略号并选择 Add Tunnel for Remote Debug（为远程调试添加隧道）即可激活隧道调试。这使您的工作站成为 Kubernetes 集群的虚拟部分，这样一来，您可以交换 pod 并使用您喜欢的工具在本地调试微服务。其他微服务将与您的工作站交互，就好像您是您正在调试的 pod 一样，并包含对集群其余部分的完全访问。</p>
+    </div>
+    <div class="change-item">
+      <h3>Kubernetes 集群日志 <span class="tag">Ultimate</span></h3>
+      <p>IntelliJ IDEA 现在提供具有流式传输和模式匹配功能的集群范围 Kubernetes 日志访问 - 这是开发者以及 DevOps 和 SRE 团队的必备工具。这项功能提供跨 pod、节点和服务的所有事件的集中视图，帮助您快速发现问题，而无需手动检查每个日志。实时流式传输可以实现即时诊断，而模式匹配可以自动检测关键事件和错误，例如内存不足问题或异常网络活动。</p>
+    </div>
+    <div class="change-item">
+      <h3>稳定的 K2 模式</h3>
+      <p>在 IntelliJ IDEA 2024.3 中，K2 模式正式脱离 Beta，现已处于稳定状态并可供大范围使用。K2 模式可以显著提高代码分析的稳定性、内存消耗效率和 IDE 的整体性能。K2 模式现在提供改进的与 Java 的功能对等，以及对所有 Kotlin 2.1 功能的支持。要探索其功能，请转到 Settings/Preferences | Languages & Frameworks | Kotlin（设置/偏好设置 | 语言和框架 | Kotlin）。</p>
+    </div>
+    <a href="#" class="all-new-features">所有新功能</a>
+  </section> -->
+
+  <!-- 产品新闻部分 -->
+<section class="product-news">
+    <div class="container">
+        <h2>产品新闻</h2>
+        <div class="news-items">
+            <div class="news-item">
+                <img src="https://blog.jetbrains.com/wp-content/uploads/2025/04/A-Practical-Guide-to-Testing-Spring-Controllers-With-MockMvcTester.png" alt="A Practical Guide to Testing Spring Controllers With MockMvcTester">
+                <div class="news-content">
+                    <h3>A Practical Guide to Testing Spring Controllers With MockMvcTester</h3>
+                    <p class="date">2025年4月22日</p>
+                    <p>Spring Framework 6.2 introduced MockMvcTester to support writing AssertJ...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="https://blog.jetbrains.com/wp-content/uploads/2025/04/Featured_Blog_1280x720-2x.png" alt="IntelliJ IDEA 2025.1">
+                <div class="news-content">
+                    <h3>IntelliJ IDEA 2025.1 Is Out Now!</h3>
+                    <p class="date">2025年4月16日</p>
+                    <p>The IntelliJ IDEA 2025.1 release has landed! It delivers numerous refinements across the IDE to enhance your productivity, the qua...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="https://blog.jetbrains.com/wp-content/uploads/2025/04/ij-featured_blog_1280x720_en-6.png" alt="Kotlin Notebook Arrives in IntelliJ IDEA">
+                <div class="news-content">
+                    <h3>Kotlin Notebook Arrives in IntelliJ IDEA</h3>
+                    <p class="date">2025年4月16日</p>
+                    <p>Starting with version 2025.1, Kotlin Notebook will be integrated into IntelliJ IDEA Ultimate out of the box, without the...</p>
+                </div>
+            </div>
+        </div>
+        <a href="https://blog.jetbrains.com/idea/?_gl=1*x8727l*_gcl_au*MTM1MzA4MzI3MS4xNzQyMzIwNjY0*FPAU*MTM1MzA4MzI3MS4xNzQyMzIwNjY0*_ga*NjQxMTI1NDc3LjE3NDIzMjA2NjI.*_ga_9J976DJZ68*MTc0NTU5NzkwNi4zNC4xLjE3NDU1OTgxMjEuNjAuMC4w" class="view-all-btn">所有产品资讯</a>
+    </div>
+</section>
+
+  <!-- 通知我部分 -->
+  <section class="notify-me">
+    <div class="container">
+        <h2>当有新的产品功能发布时，及时通知我</h2>
+        <form>
+            <input type="email" placeholder="电子邮件" required>
+            <p class="agreement">我同意我的个人数据将为此目的进行处理。
+                <span class="tooltip">?
+                    <span class="tooltip-content">
+                        提交此表单，即表示我同意 JetBrains s.r.o. 可以出于上述目的处理我先前提供的个人数据和我的位置，并且可能让<a href="https://www.jetbrains.com/legal/privacy/third-parties.html" target="_blank">第三方</a>参与此类处理。我可以随时在<a href="https://account.jetbrains.com/profile-details/privacy?_gl=1*k5xece*_gcl_au*MTM1MzA4MzI3MS4xNzQyMzIwNjY0*FPAU*MTM1MzA4MzI3MS4xNzQyMzIwNjY0*_ga*NjQxMTI1NDc3LjE3NDIzMjA2NjI.*_ga_9J976DJZ68*MTc0NTU2NzQ5Mi4yOS4wLjE3NDU1Njc0OTMuNTkuMC4w" target="_blank">我的个人资料</a>中撤销同意。有关处理的更多详细信息，请参阅 <a href="https://www.jetbrains.com/legal/docs/privacy/privacy/" target="_blank">JetBrains 隐私政策</a>。此外，每封电子邮件中都包含一个退订链接。
+                    </span>
+                </span>
+            </p>
+            <button class="view-all-btn" type="submit">提交</button>
+        </form>
+    </div>
+    <div class="social-icons","btn"> 
+      <!-- <h2>联系我们</h2> -->
+      <a href="https://www.facebook.com/JetBrains" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+      <a href="https://twitter.com/jetbrains" target="_blank"><i class="fab fa-x-twitter"></i></a> 
+      <a href="https://www.linkedin.com/company/jetbrains" target="_blank";><i class="fab fa-linkedin-in"></i></a> 
+      <a href="https://www.youtube.com/user/JetBrainsTV" target="_blank"><i class="fab fa-youtube"></i></a> 
+      <a href="https://www.instagram.com/jetbrains/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAA06pADNf4ma4-r7fEARjYaTHRVK1kirceNFnuCpnNqok?from_tab_name=main" target="_blank"><i class="fab fa-tiktok"></i></a> 
+      <a href="https://www.weibo.com/3220313942/profile?topnav=1&wvr=5" target="_blank"><i class="fab fa-weibo"></i></a>
+      <a href="https://mp.weixin.qq.com/s?__biz=MzkwNDI5NzUyMQ==&mid=2247512076&idx=1&sn=2ead31ff0d292c4fb58790407054f60a&chksm=c08bdd52f7fc5444d428898c47dcd7f658486263edd5f614167f81238c76b2baab04b09b945b&scene=231&subscene=7&clicktime=1745230160&enterid=1745230160&sessionid=0&ascene=3&fasttmpl_type=0&fasttmpl_fullversion=7698536-zh_CN-zip&fasttmpl_flag=0&realreporttime=1745230160421&devicetype=pad-android-31&version=28003953&nettype=WIFI&lang=zh_CN&exportkey=n_ChQIAhIQjOJRisZtxKuIhFbaMPqqOBLmAQIE97dBBAEAAAAAADXeOcjonywAAAAOpnltbLcz9gKNyK89dVj0CkdB%2FGlvoGUP%2FxHs%2Bmg4rtN%2BrSwa1oV1VUGKPdY0F4n3bJycD2kSJptxMNosEaW4rG39cr8WbxLiNRQjn%2FYUi4fxCpcDHxJt3f2oa0pMZ5OvkwEqnbFnpPFXBdwiHGRHO3XzdcygM6KVqzIfpANedeRAVsJbUgxFAuU0wyH3LjRQBHny1C6qio7qA46uJGauxf%2BDSbFUd8EASoGfuRwSiLJNQnWEQtxHFOdeLJlbNUIwVz65DY4bqKxKkHrMvSch&pass_ticket=b2mTL7q8P%2FrqLTwC3iiNAM70v3yGqeNdcxGPD9mcGXLD7SkYKU6iNPHLdfYEA5GP&wx_header=3" target="_blank"><i class="fab fa-weixin"></i></a>
+      <a href="https://space.bilibili.com/1794701140" target="_blank"><i class="fab fa-bilibili"></i></a>
+  </div> 
+</section>
+
+</main>           
+    <footer class="page-footer"> 
+      <div class="footer-content"> 
+        <div class="footer-column"> 
+            <h3>产品</h3> 
+            <ul> 
+                <li><a>JetBrains IDE</a></li> 
+                <li><a>.NET IDE (Rider)</a></li> 
+                <li><a>团队工具</a></li> 
+                <li><a>插件</a></li> 
+                <li><a>教育</a></li> 
+                <li><a>所有产品</a></li> 
+            </ul> 
+        </div> 
+        <div class="footer-column"> 
+            <h3>解决方案</h3> 
+            <ul> 
+                <li><a>C++ 工具</a></li> 
+                <li><a>数据库</a></li> 
+                <li><a>DevOps</a></li> 
+                <li><a>游戏开发</a></li> 
+                <li><a>企业工具</a></li> 
+            </ul> 
+        </div> 
+        <div class="footer-column"> 
+            <h3>学习</h3> 
+            <ul> 
+                <li><a>Kotlin</a></li> 
+                <li><a>JetBrains Mono</a></li> 
+                <li><a>开源项目</a></li> 
+                <li><a>开源报告</a></li> 
+            </ul> 
+        </div> 
+        <div class="footer-column"> 
+            <h3>社区</h3> 
+            <ul> 
+                <li><a>学术许可</a></li> 
+                <li><a>开源通告</a></li> 
+                <li><a>用户组</a></li> 
+                <li><a>开发者认可</a></li> 
+                <li><a>内容创作者</a></li> 
+            </ul> 
+        </div> 
+        <div class="footer-column"> 
+            <h3>资源</h3> 
+            <ul> 
+                <li><a>销售支持</a></li> 
+                <li><a>产品支持</a></li> 
+                <li><a>许可常见问题解答</a></li> 
+                <li><a>文档</a></li> 
+                <li><a>抢先体验</a></li> 
+                <li><a>活动和直播</a></li> 
+                <li><a>新闻</a></li> 
+                <li><a>行业报告</a></li> 
+                <li><a>Inspectopedia</a></li> 
+                <li><a>博客</a></li> 
+                <li><a>桌面艺术</a></li> 
+            </ul>
+        </div> 
+        <div class="footer-column"> 
+            <h3>公司</h3> 
+            <ul> 
+                <li><a>关于我们</a></li> 
+                <li><a>联系方式</a></li> 
+                <li><a>招贤纳士</a></li> 
+                <li><a>新闻</a></li> 
+                <li><a>客户和荣誉</a></li> 
+                <li><a>我们的承诺</a></li> 
+                <li><a>品牌资产</a></li> 
+                <li><a>合作伙伴和经销商</a></li> 
+                <li><a>JetBrains 周边商店</a></li> 
+                <li><a>信任中心</a></li> 
+            </ul>
+        </div> 
+      </div>
+      
+      <div class="foot-of-footer"> 
+        <a href="https://www.jetbrains.com/zh-cn/privacy-security/" target="_blank">隐私和安全</a>
+        <a href="https://www.jetbrains.com/legal/docs/privacy/privacy/" target="_blank">隐私声明</a>
+        <a href="https://www.jetbrains.com/legal/docs/company/useterms/" target="_blank">使用条款</a>  
+        <a href="https://www.jetbrains.com/zh-cn/legal/attributions/" target="_blank">归属</a>  
+        <a href="https://www.jetbrains.com/zh-cn/legal/" target="_blank">法律信息</a>  
+        <a href="https://www.jetbrains.com/zh-cn/genuine-tools/" target="_blank">正版工具</a>  
+        <a href="https://www.jetbrains.com/zh-cn/opt-out/" target="_blank">选择退出</a>
+          <div class="language-selector">              
+              <span class="long btn"><i class="fa-solid fa-globe"> 中国大陆</i> </span> 
+              <span class="long btn"><i class="fa-solid fa-language"> 简体中文</i></span> 
+          </div>
+        </div>
+      </div> 
+    </footer>     
+</body>
+<script src="scripts.js"></script>
+
+</html>
