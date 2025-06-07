@@ -32,26 +32,22 @@ document.getElementById('darkModeToggle').addEventListener('change', function ()
 
 
 //  返回顶部按钮
-var backToTopButton = document.getElementsByClassName("TOPbutton")[0];
+const backToTopButton = document.getElementsByClassName("TOPbutton")[0];
 
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
+window.addEventListener("scroll", () => {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         backToTopButton.classList.add("show");
     } else {
         backToTopButton.classList.remove("show");
     }
-}
+})
 
-backToTopButton.onclick = function () {
+backToTopButton.addEventListener("click",() => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth' // 添加平滑滚动
     });
-}
+})
 
 
 //搜索框
@@ -234,7 +230,6 @@ function handleScrollAnimation(element) {
     if (elementTopPosition > screenPosition * 1.2) {
         void element.offsetWidth; // 强制重绘
         element.classList.remove('slide-up');
-
     }
 }
 (function () {
